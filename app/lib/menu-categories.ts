@@ -557,4 +557,228 @@ export const menuCategories = [
       },
     ],
   },
+  {
+    category: "Drinks",
+    description: "Thirst quenchers without the extra calories.",
+    sliceIndex: null as unknown as undefined,
+    dishes: [
+      {
+        name: "Bandung Gao",
+        available: true,
+        served: "Chilled",
+        overview: "thick, not-too-sweet with the perfect amount of creaminessn",
+        tags: ["Vegetarian", "Dairy"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1915/daily_normal_HORZ-bandung-gao.jpg",
+        price: "$5.50",
+        details: {
+          story:
+            "The secret handshake between you and those spicy dishes. Our version of the classic bandung — thick, not-too-sweet, with just the right amount of creaminess. Savour the aroma of rose with each smooth and refreshing sip.",
+          all_ingredients:
+            "rose syrup, rose water, evaporated creamer, condensed milk",
+          nutritional_info: {
+            calories: 107,
+            fat: 4.4,
+            carb: 12.3,
+            protein: 4.4,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/83/BANDUNG_GAO_VERT_-_2.jpg",
+        },
+      },
+      {
+        name: "Teh C Floral",
+        available: true,
+        served: "Chilled",
+        overview:
+          "the national drink of Singapore with a delightful floral twist",
+        tags: ["Vegetarian", "Contains dairy"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1955/daily_normal_HORZ-teh-c-floral.jpg",
+        price: "$5.50",
+        details: {
+          story:
+            "When our local drink stall uncle finally finds love, this is what he’d make her. An infusion of black and jasmine green tea with notes of osmanthus and rose. Splash of milk for a velvety finish and touch of sweetness. This is Teh C Floral — a love story in a bottle.",
+          all_ingredients:
+            "black tea, jasmine green tea, evaporated creamer, sweetness creamer, osmanthus, rose water",
+          nutritional_info: {
+            calories: 103,
+            fat: 3.7,
+            carb: 15.4,
+            protein: 2,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/84/TEH_C_FLORAL_VERT_-_2.jpg",
+        },
+      },
+      {
+        name: "Four Seasons Oolong",
+        available: true,
+        served: "Chilled",
+        overview:
+          "a Taiwanese special, floral notes with a slight creamy finish",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1855/daily_normal_HORZ-four-seasons-oolong.jpg",
+        price: "$5.50",
+        details: {
+          story:
+            "Embark on a sensory journey through the seasons with our Four Seasons Oolong, a Taiwanese speciality revered for its floral elegance and creamy finish. Allow the delicate flavours to unfold on your palate, revealing the nuanced complexities of this exquisite oolong tea. It's not just a beverage; it's a testament to the artistry of tea cultivation, embodied in every graceful sip.",
+          all_ingredients: "oolong tea leaves, water",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/59/FOUR_SEASONS_OOLONG_-_2.jpg",
+        },
+      },
+      {
+        name: "Honey Yuzu Tea",
+        available: true,
+        served: "Chilled",
+        overview:
+          "light and refreshing, high altitude oolong tea infused with yuzu citrus",
+        tags: ["Vegetarian"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1848/daily_normal_honey-yuzu-tea.jpg",
+        price: "$5.50",
+        details: {
+          story:
+            "Take a moment to unwind with our Honey Yuzu Tea, a refreshing blend of high-altitude oolong infused with the vibrant essence of yuzu citrus. Let the lightness of the tea and the citrusy kick of yuzu transport you to a tranquil garden oasis. A rejuvenating escape for your senses.",
+          all_ingredients: "oolong tea leaves, water, yuzu reduction, honey",
+          nutritional_info: {
+            calories: 100,
+            fat: 0,
+            carb: 25.1,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/76/HONEY_YUZU_TEA_-_1.jpg",
+        },
+      },
+      {
+        name: "White Cold Brew",
+        available: true,
+        served: "Chilled",
+        overview:
+          "full robust arabica beans, cold brewed and packed with sweet, nutty goodness",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1852/daily_normal_HORZ-white-cold-brew.jpg",
+        price: "$6.00",
+        details: {
+          story:
+            "Dive into a realm of creamy indulgence with our White Cold Brew, where full-bodied arabica beans meet the chill of cold brew perfection. Immerse yourself in the velvety richness and sweet, nutty undertones that define this heavenly concoction.",
+          all_ingredients: "Arabica specialty coffee beans, oat milk, caramel",
+          nutritional_info: {
+            calories: 91,
+            fat: 3,
+            carb: 15.5,
+            protein: 0.6,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/73/WHITE_COLD_BREW_-_2.jpg",
+        },
+      },
+      {
+        name: "Black Cold Brew",
+        available: true,
+        served: "Chilled",
+        overview:
+          "the best of Ethiopian beans, flowery with a delightful tinge of acidity",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1853/daily_normal_HORZ-black-cold-brew.jpg",
+        price: "$6.00",
+        details: {
+          story:
+            "Step into the world of coffee sophistication with our Black Cold Brew, meticulously crafted from the finest Ethiopian beans. Experience the delicate floral notes mingling with a hint of delightful acidity, perfectly balanced to awaken your senses. Journey through the lush landscapes of Ethiopia with every sip.",
+          all_ingredients: "Coming Ethiopian specialty coffee beans, water",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/57/BLACK_COLD_BREW_-_2.jpg",
+        },
+      },
+      {
+        name: "Watermelime Crush",
+        available: true,
+        served: "Chilled",
+        overview:
+          "a sunny paradise with every sip – tantalisingly tropical and thirst-quenching",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1854/daily_normal_HORZ-watermelime-crush.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "Transport yourself to a sun-kissed paradise with our Watermelime Crush, where the luscious sweetness of ripe watermelon meets the zesty tang of freshly squeezed lime. Close your eyes and feel the warmth of tropical rays on your skin as you indulge in this tantalisingly fruity concoction.",
+          all_ingredients: "watermelon juice, lime juice",
+          nutritional_info: {
+            calories: 99,
+            fat: 0,
+            carb: 24.3,
+            protein: 0.5,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/61/WATERMELIME_CRUSH_-_2.jpg",
+        },
+      },
+      {
+        name: "Straight Guava OJ",
+        available: true,
+        served: "Chilled",
+        overview:
+          "zesty and tangy explosion of juicy sweetness, the elevated OJ experience",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1849/daily_normal_HORZ-straight-guava-OJ.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "Embark on a flavour-filled journey with our Straight Guava OJ, a symphony of tropical tanginess and citrusy zest. Bursting with the juicy essence of ripe guavas and the refreshing kick of orange juice, each sip is like a burst of sunshine on your taste buds. It's time to elevate your OJ experience.",
+          all_ingredients: "orange juice, guava juice",
+          nutritional_info: {
+            calories: 118,
+            fat: 0,
+            carb: 27.4,
+            protein: 2.1,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/67/STRAIGHT_GUAVA_OJ_-_2.jpg",
+        },
+      },
+      {
+        name: "Bottled Alps Water",
+        available: true,
+        served: "Chilled",
+        overview:
+          "a pure, crisp mountain stream bottled, perfect for thirst quenching",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1847/daily_normal_HORZ-bottled-alps-water.jpg",
+        price: "$1.50",
+        details: {
+          story:
+            "Nestled within the heart of the Alps, each drop of this water tells a tale of crisp mountain air. Refreshingly cool and invigorating, it's nature's perfect remedy for quenching your deepest thirst.",
+          all_ingredients: "alps water",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/64/BOTTLED_ALPS_WATER_-_3.jpeg",
+        },
+      },
+    ],
+  },
 ];

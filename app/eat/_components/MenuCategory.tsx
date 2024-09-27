@@ -15,7 +15,7 @@ export default function MenuCategory({
   dishes: Dish[] | undefined;
   bundles: Bundle[] | undefined;
   setActiveCategory: React.Dispatch<SetStateAction<string | null>>;
-  sliceIndex: number;
+  sliceIndex: number | undefined;
 }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
