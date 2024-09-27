@@ -6,7 +6,7 @@ export const menuCategories = [
     dishes: [
       {
         name: "Thai Green Curry Fish",
-        served: "warm",
+        served: "Warm",
         main_ingredients:
           "thai style green curry, seared dory, butterfly blue pea rice",
         tags: [
@@ -38,7 +38,7 @@ export const menuCategories = [
       },
       {
         name: "Citrusy Cauliflower Plant‑based Lasagna",
-        served: "warm",
+        served: "Warm",
         main_ingredients:
           "fennel seed, chickpea, plant-based mince, roasted cauliflower",
         tags: ["Vegetarian", "Contains allium", "Dairy", "Soy", "Wheat"],
