@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Sidebar() {
-  return <div>Sidebar</div>;
+  return <div className="sticky top-0 h-screen w-xs">Sidebar</div>;
 }

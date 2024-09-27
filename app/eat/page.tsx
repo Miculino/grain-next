@@ -7,8 +7,9 @@ export default async function MealsOnDemand() {
   return (
     <Container>
       <Sidebar />
-      <div>
+      <div className="flex-1 overflow-y-auto">
         <Banner />
+        <MenuCategory />
         <MenuCategory />
       </div>
     </Container>

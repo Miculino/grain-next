@@ -14,6 +14,15 @@
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* This will hide the scrollbar */
+}
+
 @font-face {
   font-family: "FunkisA";
   src: url("./fonts/FunkisA\ Regular.woff2") format("woff2");
