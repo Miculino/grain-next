@@ -13,7 +13,7 @@ interface Dish {
       fat: number;
       carb: number;
       protein: number;
-    };
+    } | null;
     full_thumbnail: string;
   };
 }

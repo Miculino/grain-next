@@ -329,4 +329,115 @@ export const menuCategories = [
       },
     ],
   },
+  {
+    category: "Sides",
+    description: "Your companions to make it a wholesome meal.",
+    dishes: [
+      {
+        name: "Rosemary Smoked Veggies",
+        available: true,
+        served: "Warm",
+        overview: "rosemary, zucchini, cherry tomato",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1941/daily_normal_Thyme-Rosemary-Zucchini-HORZ.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "Tender zucchini and plump cherry tomatoes are tenderly kissed by the woody aroma of smoked rosemary. Experience the rustic charm of the countryside when you taste this blend of smoky notes and fresh flavours. This vegan dish is the perfect sidekick to any meal. Yeehaw.",
+          all_ingredients:
+            "carrot, thyme, olive oil, salted bean paste, zucchini, button mushroom, cherry tomatoes, rosemary",
+          nutritional_info: null,
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1941/density_2_Thyme-Rosemary-Zucchini-VERT.jpg",
+        },
+      },
+      {
+        name: "Maple Balsamic Sweet Potato",
+        available: true,
+        served: "Warm",
+        overview: "maple syrup, balsamic vinegar, kale",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1942/daily_normal_Maple-Balsamic-Glazed-Duo-Sweet-Potato-HORZ.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "Sugar, spice, and everything nice. Lightly tossed in maple balsamic glaze and roasted till fork tender, these sweet potatoes are the sidekick you never knew you needed. And for a finishing touch: Kale chips. Adding a spritz of green and an addictive crunch even the carnivores can’t resist. Now that’s vegetables done right.",
+          all_ingredients:
+            "purple sweet potato, orange sweet potato, kale, maple syrup, balsamic vinegar, olive oil, water, cinnamon powder, black pepper, salt",
+          nutritional_info: null,
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1942/density_2_Maple-Balsamic-Glazed-Duo-Sweet-Potato-VERT.jpg",
+        },
+      },
+      {
+        name: "Grilled Forest Mushroom Salad",
+        available: true,
+        served: "Chilled",
+        overview: "fresh herbs, balsamic dressing",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1620/daily_normal_Grilled-Forest-Mushroom-Salad-HORZ.jpg",
+        price: "$7.00",
+        details: {
+          story:
+            "A beautiful salad contains fresh herbs with our delightful earthy mushrooms. Elevate the flavours with our housemade balsamic dressing. Tarty, tangy and earthy, all the delicious flavours you'll love in a salad.",
+          all_ingredients:
+            "shiitake mushroom, salt, black pepper, vegetable oil, king oyster mushroom, whole cherry tomato, thyme, sugar",
+          nutritional_info: {
+            calories: 103,
+            fat: 5,
+            carb: 16,
+            protein: 4,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1620/density_2_Grilled-Forest-Mushroom-Salad-VERT.jpg",
+        },
+      },
+      {
+        name: "⁠Lemon Hummus Tahini Cauliflower",
+        available: true,
+        served: "Warm",
+        overview: "chickpea, lemon juice, fennel",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1940/daily_normal__Lemon-Hummus-Tahini-Cauliflower-HORZ.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "Bring on the lemons. We’ve roasted cauliflower with a touch of fennel for a smoky sweetness, then brightened it up with our citrus-spiked hummus. Finished with fresh dill, pink peppercorn, and parsley, this dish isn’t standing on the sidelines — it’s here to steal the show.",
+          all_ingredients:
+            "cauliflower, fennel, fennel seed, black pepper, salt, olive oil, dill, pink peppercorn, italian parsley, sesame seeds, chickpea, lemon juice",
+          nutritional_info: null,
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1940/density_2__Lemon-Hummus-Tahini-Cauliflower-VERT.jpg",
+        },
+      },
+      {
+        name: "⁠Piri-piri Chicken Bites",
+        available: true,
+        served: "Warm",
+        overview: "alfalfa sprouts, housemade piri-piri sauce",
+        tags: ["Spicy", "Contains allium"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1621/daily_normal_Piri-Piri-Chicken-Bites-HORZ.jpg",
+        price: "$8.00",
+        details: {
+          story:
+            "If you think that piri-piri describes hot sauce, you are right. This salad is hot, spicy, and peppery, which all mean the same thing. But more than just hot, the herbs, lemon and vinegar give it a multi-dimensional flavour—real hot stuff.",
+          all_ingredients:
+            "chicken breast, salt, marinated arthichoke, red chilli, garlic, oregano, white vinegar, sugar, paprika powder, olive oil, alfafa",
+          nutritional_info: {
+            calories: 199,
+            fat: 6,
+            carb: 7,
+            protein: 27,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1621/density_2_Piri-Piri-Chicken-Bites-VERT.jpg",
+        },
+      },
+    ],
+  },
 ];

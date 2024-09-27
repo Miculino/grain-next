@@ -36,6 +36,7 @@ export default function MenuCategory({
           category === "Highlights" ? "md:grid-cols-2" : "md:grid-cols-3"
         } gap-4 mt-4`}
       >
+        {/* Render only if it's dishes product offering */}
         {dishes &&
           dishes.map((dish, index) => (
             <ProductCard
@@ -49,6 +50,7 @@ export default function MenuCategory({
               type="dish"
             />
           ))}
+        {/* Render only if it's bundles product offering */}
         {bundles &&
           bundles.map((bundle) => (
             <ProductCard className="flex-col" type="bundle" product={bundle} />
