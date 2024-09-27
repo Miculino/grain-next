@@ -30,7 +30,7 @@ export default function DishCard({
 
         <div className="justify-between flex items-center mt-4">
           <b>{price}</b>
-          <Button />
+          <Button>Add</Button>
         </div>
       </div>
     </div>
