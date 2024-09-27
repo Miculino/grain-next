@@ -9,6 +9,7 @@ export default function SidebarSection({
   type,
   setActiveSidebarSection,
   activeSidebarSection,
+  activeCategory,
 }: {
   sidebarItems: string[];
   logo: string;
@@ -17,6 +18,7 @@ export default function SidebarSection({
     SetStateAction<"grain" | "ember_smokery">
   >;
   activeSidebarSection: "grain" | "ember_smokery";
+  activeCategory: string | null;
 }) {
   const isSidebarSectionSelected = activeSidebarSection === type;
 
@@ -37,7 +39,11 @@ export default function SidebarSection({
       {isSidebarSectionSelected ? (
         <ul className="flex flex-col gap-2">
           {sidebarItems.map((sidebarItem) => (
-            <SidebarItem key={sidebarItem} item={sidebarItem} />
+            <SidebarItem
+              activeCategory={activeCategory}
+              key={sidebarItem}
+              item={sidebarItem}
+            />
           ))}
         </ul>
       ) : null}
