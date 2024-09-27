@@ -3,6 +3,7 @@ export const menuCategories = [
     category: "Highlights",
     description:
       "Weekly rotating dishes inspired by flavours from around the world.",
+    sliceIndex: 2,
     dishes: [
       {
         name: "Thai Green Curry Fish",
@@ -67,6 +68,7 @@ export const menuCategories = [
   {
     category: "Regulars",
     description: "Meals you can enjoy day in day out.",
+    sliceIndex: 0,
     dishes: [
       {
         name: "Thai Fiesta Salad",
@@ -265,6 +267,7 @@ export const menuCategories = [
   },
   {
     category: "Bundles",
+    sliceIndex: 4,
     description:
       "From office parties to cozy gatherings at home, get more meals and more bang for your buck.",
     bundles: [
@@ -332,6 +335,7 @@ export const menuCategories = [
   {
     category: "Sides",
     description: "Your companions to make it a wholesome meal.",
+    sliceIndex: 2,
     dishes: [
       {
         name: "Rosemary Smoked Veggies",

@@ -1,5 +1,4 @@
 import { useInView } from "react-intersection-observer";
-import DishCard from "./ProductCard";
 import { SetStateAction, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
@@ -9,12 +8,14 @@ export default function MenuCategory({
   category,
   description,
   setActiveCategory,
+  sliceIndex,
 }: {
   category: string;
   description: string;
   dishes: Dish[] | undefined;
   bundles: Bundle[] | undefined;
   setActiveCategory: React.Dispatch<SetStateAction<string | null>>;
+  sliceIndex: number;
 }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -31,30 +32,81 @@ export default function MenuCategory({
       <h2 className="text-3xl font-bold mb-1">{category}</h2>
       <p>{description}</p>
 
-      <div
-        className={`grid grid-cols-1 ${
-          category === "Highlights" ? "md:grid-cols-2" : "md:grid-cols-3"
-        } gap-4 mt-4`}
-      >
-        {/* Render only if it's dishes product offering */}
-        {dishes &&
-          dishes.map((dish, index) => (
-            <ProductCard
-              className={
-                index === 0 && category === "Regulars"
-                  ? "col-span-3 flex-row"
-                  : "flex-col"
-              }
-              key={dish.name}
-              product={dish}
-              type="dish"
-            />
-          ))}
-        {/* Render only if it's bundles product offering */}
-        {bundles &&
-          bundles.map((bundle) => (
-            <ProductCard className="flex-col" type="bundle" product={bundle} />
-          ))}
+      <div className="mt-4 gap-4 flex flex-col">
+        {dishes && (
+          <>
+            <div
+              className="grid gap-4"
+              style={{
+                gridTemplateColumns: `repeat(${
+                  category === "Regulars" ? 1 : 2
+                }, 1fr)`,
+              }}
+            >
+              {dishes.slice(0, sliceIndex).map((dish, index) => (
+                <ProductCard
+                  className={
+                    index === 0 && category === "Regulars"
+                      ? "flex-row"
+                      : "flex-col"
+                  }
+                  key={dish.name}
+                  product={dish}
+                  type="dish"
+                />
+              ))}
+            </div>
+            <div
+              className="grid gap-4"
+              style={{ gridTemplateColumns: `repeat(3, 1fr)` }}
+            >
+              {dishes.slice(sliceIndex).map((dish, index) => (
+                <ProductCard
+                  className={
+                    index === 0 && category === "Regulars"
+                      ? "col-span-3 flex-row"
+                      : "flex-col"
+                  }
+                  key={dish.name}
+                  product={dish}
+                  type="dish"
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {bundles && (
+          <>
+            <div
+              className={`grid gap-4`}
+              style={{ gridTemplateColumns: `repeat(2, 1fr)` }}
+            >
+              {bundles.slice(0, sliceIndex).map((bundle) => (
+                <ProductCard
+                  className="flex-col w-full"
+                  key={bundle.name}
+                  type="bundle"
+                  product={bundle}
+                />
+              ))}
+            </div>
+
+            <div
+              className={`grid  gap-4 mt-4`}
+              style={{ gridTemplateColumns: `repeat(3, 1fr)` }}
+            >
+              {bundles.slice(sliceIndex).map((bundle) => (
+                <ProductCard
+                  className="flex-col w-full"
+                  key={bundle.name}
+                  type="bundle"
+                  product={bundle}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

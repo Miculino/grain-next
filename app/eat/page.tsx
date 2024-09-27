@@ -16,16 +16,19 @@ export default function MealsOnDemand() {
       <div className="flex-1 overflow-y-auto">
         <Banner />
         <div className="mt-20 flex flex-col gap-20">
-          {menuCategories.map(({ category, description, dishes, bundles }) => (
-            <MenuCategory
-              setActiveCategory={setActiveCategory}
-              key={category}
-              dishes={dishes}
-              description={description}
-              category={category}
-              bundles={bundles}
-            />
-          ))}
+          {menuCategories.map(
+            ({ category, description, dishes, bundles, sliceIndex }) => (
+              <MenuCategory
+                setActiveCategory={setActiveCategory}
+                key={category}
+                dishes={dishes}
+                description={description}
+                category={category}
+                bundles={bundles}
+                sliceIndex={sliceIndex}
+              />
+            )
+          )}
         </div>
       </div>
     </Container>
