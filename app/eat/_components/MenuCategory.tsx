@@ -29,8 +29,8 @@ export default function MenuCategory({
       <p>{description}</p>
 
       <div
-        className={`grid grid-cols-1 md:${
-          category === "Highlights" ? "grid-cols-2" : "grid-cols-3"
+        className={`grid grid-cols-1 ${
+          category === "Highlights" ? "md:grid-cols-2" : "md:grid-cols-3"
         } gap-4 mt-4`}
       >
         {dishes.map((dish) => (

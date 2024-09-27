@@ -21,6 +21,7 @@
 
 /* For Firefox */
 html {
+  scroll-behavior: smooth;
   scrollbar-width: none; /* This will hide the scrollbar */
 }
 

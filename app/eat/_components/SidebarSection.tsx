@@ -2,6 +2,7 @@ import Image from "next/image";
 import Chevron from "./Chevron";
 import SidebarItem from "./SidebarItem";
 import { SetStateAction } from "react";
+import Link from "next/link";
 
 export default function SidebarSection({
   sidebarItems,
@@ -39,11 +40,13 @@ export default function SidebarSection({
       {isSidebarSectionSelected ? (
         <ul className="flex flex-col gap-2">
           {sidebarItems.map((sidebarItem) => (
-            <SidebarItem
-              activeCategory={activeCategory}
-              key={sidebarItem}
-              item={sidebarItem}
-            />
+            <Link href={`#${sidebarItem.toLocaleLowerCase()}`}>
+              <SidebarItem
+                activeCategory={activeCategory}
+                key={sidebarItem}
+                item={sidebarItem}
+              />
+            </Link>
           ))}
         </ul>
       ) : null}

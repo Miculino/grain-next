@@ -1,4 +1,4 @@
-import React from "react";
+import clsx from "clsx";
 
 export default function SidebarItem({
   item,
@@ -11,9 +11,13 @@ export default function SidebarItem({
 
   return (
     <li
-      className={`${
-        isSidebarItemActive ? "border-l-primary" : ""
-      } text-xs border-l-4 border-l-transparent hover:border-l-primary hover:font-bold px-1 ml-2`}
+      className={clsx(
+        "text-xs border-l-4  hover:border-l-primary hover:font-bold px-1 ml-2",
+        {
+          "border-l-primary font-bold": isSidebarItemActive,
+          "border-l-transparent": !isSidebarItemActive,
+        }
+      )}
     >
       {item}
     </li>
