@@ -36,7 +36,7 @@ export default function MenuCategory({
         {dishes && (
           <>
             <div
-              className="grid gap-4"
+              className="grid gap-4 "
               style={{
                 gridTemplateColumns: `repeat(${
                   category === "Regulars" ? 1 : 2

@@ -781,4 +781,126 @@ export const menuCategories = [
       },
     ],
   },
+  {
+    category: "Merch",
+    description: "Caution: Not for eating.",
+    sliceIndex: 2,
+    dishes: [
+      {
+        name: "Never Worry Dice",
+        available: true,
+        served: "Chilled",
+        overview: "only gives good ideas",
+        tags: [],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1949/daily_normal_Dice-HORZ.jpg",
+        price: "$7.50",
+        details: {
+          story:
+            "Never worry about what to eat again. This dice will tell you. Comes in a set of three. Programmed to give good suggestions only.",
+          all_ingredients: "wood, paint, wisdom",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/78/Dice03-VERT-ondinnerplate.jpg",
+        },
+      },
+      {
+        name: "Basil Thunder Tea Rice Pin",
+        available: true,
+        served: "Chilled",
+        overview: "your favourite dish, now wearable",
+        tags: [],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1950/daily_normal_MealboxPin-HORZ.jpg",
+        price: "$4.50",
+        details: {
+          story:
+            "It’s been 10 years, but nobody is over Basil Thunder Tea Rice yet. In honour of a dish that has stood the test of time, we are immortalising it forever in the finest of metals, forged in the very flames that brought this dish to life.",
+          all_ingredients: "enamel, steel",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/80/4Pins-VERT.jpg",
+        },
+      },
+      {
+        name: "What Will We Eat Next Pin",
+        available: true,
+        served: "Chilled",
+        overview: "a question that never gets old",
+        price: "$4.50",
+        tags: [],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1951/daily_normal_WhatWillWeEatNextPin-HORZ.jpg",
+        details: {
+          story:
+            "f you love food like us, this question is always on your mind. Now you don't even need to say it — let the pin do the talking. Maybe, just maybe, people will start bringing you snacks.",
+          all_ingredients: "enamel, steel",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/82/4Pins-VERT.jpg",
+        },
+      },
+      {
+        name: "I Like It Fresh Pin",
+        available: true,
+        served: "Chilled",
+        overview: "for the salad-eaters",
+        price: "$4.50",
+        tags: [],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1953/daily_normal_ILikeItFreshPin-HORZ.jpg",
+        details: {
+          story:
+            "Woke up at 5AM. Found a local farm. Hunted down the freshest leaf we could find and forced our sleepy designer to sketch it right there. Voila.",
+          all_ingredients: "enamel, steel",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/79/4Pins-VERT.jpg",
+        },
+      },
+      {
+        name: "Grain Logo Pin",
+        available: true,
+        served: "Chilled",
+        overview: "a classic",
+        price: "$4.50",
+        tags: [],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1952/daily_normal_GrainLogomark-HORZ_NEW.jpg",
+        details: {
+          story:
+            "Our classic Grain logo emblazoned on black, with a smooth enamel finish. Sleek, sophisticated, and quietly cool, this pin is here to make any outfit instantly better. It's 25mm wide — not too big, not too small, just right.",
+          all_ingredients: "enamel, steel",
+          nutritional_info: {
+            calories: 0,
+            fat: 0,
+            carb: 0,
+            protein: 0,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/recipe_story/vertical_image/81/4Pins-VERT.jpg",
+        },
+      },
+    ],
+  },
 ];
