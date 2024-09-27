@@ -35,7 +35,13 @@ export default function MenuCategory({
         } gap-4 mt-4`}
       >
         {dishes &&
-          dishes.map((dish) => <DishCard key={dish.name} dish={dish} />)}
+          dishes.map((dish, index) => (
+            <DishCard
+              className={index === 0 ? "col-span-3 flex-row" : "flex-col"}
+              key={dish.name}
+              dish={dish}
+            />
+          ))}
         {/* {bundles && bundles.map((bundle) => <DishCard dish={dish} />)} */}
       </div>
     </div>

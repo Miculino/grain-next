@@ -2,15 +2,18 @@ import Image from "next/image";
 import React from "react";
 import Tag from "./Tag";
 import Button from "./Button";
+import clsx from "clsx";
 
 export default function DishCard({
   dish: { thumbnail, name, served, main_ingredients, tags, price },
+  className,
 }: {
   dish: Dish;
+  className?: string;
 }) {
   return (
-    <div className="border-[1px] border-[#dadada] flex flex-col">
-      <div>
+    <div className={clsx("border-[1px] border-[#dadada] flex", className)}>
+      <div className="flex-1">
         <Image
           className="w-full"
           src={thumbnail}
@@ -19,7 +22,7 @@ export default function DishCard({
           height={500}
         />
       </div>
-      <div className="bg-white p-4 flex flex-col h-full">
+      <div className="bg-white p-4 flex flex-1 flex-col h-full">
         <Tag>{served}</Tag>
         <h3 className="mt-2 font-bold">{name.toLocaleUpperCase()}</h3>
         <p className="mt-1 text-xs">{main_ingredients}</p>
