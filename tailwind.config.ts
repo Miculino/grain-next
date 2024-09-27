@@ -12,6 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
+        "light-gray": "var(--light-gray)",
+        "dark-gray": "var(--dark-gray)",
+      },
+      backgroundImage: {
+        "gradient-overlay": "linear-gradient(0deg, #000 13%, transparent 50%);",
       },
     },
   },
