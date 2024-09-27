@@ -10,7 +10,8 @@ export default function MenuCategory({
 }: {
   category: string;
   description: string;
-  dishes: Dish[];
+  dishes: Dish[] | undefined;
+  bundles: Bundle[] | undefined;
   setActiveCategory: React.Dispatch<SetStateAction<string | null>>;
 }) {
   const { ref, inView } = useInView({
@@ -33,9 +34,9 @@ export default function MenuCategory({
           category === "Highlights" ? "md:grid-cols-2" : "md:grid-cols-3"
         } gap-4 mt-4`}
       >
-        {dishes.map((dish) => (
-          <DishCard dish={dish} />
-        ))}
+        {dishes &&
+          dishes.map((dish) => <DishCard key={dish.name} dish={dish} />)}
+        {/* {bundles && bundles.map((bundle) => <DishCard dish={dish} />)} */}
       </div>
     </div>
   );

@@ -264,4 +264,70 @@ export const menuCategories = [
       },
     ],
   },
+  {
+    category: "Bundles",
+    description:
+      "From office parties to cozy gatherings at home, get more meals and more bang for your buck.",
+    bundles: [
+      {
+        name: "Meal Box Combo",
+        description: "choice of a main, a drink and a side or dessert",
+        available: true,
+        price: "$21.50",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/933/daily_normal_Meal_box_combo_-_HORZ__2_.jpg",
+      },
+      {
+        name: "Twosome",
+        description:
+          "choice of two mains and an option of drinks, desserts, and sides",
+        available: true,
+        price: "$28.00",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/256/daily_normal_Twosome-HORZ-Jun.jpg",
+      },
+      {
+        name: "Threesome",
+        description:
+          "choice of three mains and an option of drinks, desserts and sides",
+        available: true,
+        price: "$41.00",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/828/daily_normal_Threesome-HORZ-Jun.jpg",
+      },
+      {
+        name: "Fivesome",
+        description:
+          "choice of five mains and an option of drinks, desserts and sides",
+        available: true,
+        price: "$67.50",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/258/daily_normal_Fivesome-HORZ-Jun.jpg",
+      },
+      {
+        name: "Party Box For Five",
+        description: "choice of five mains and four sides or desserts",
+        available: true,
+        price: "$90",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/634/daily_normal_PartyBoxforfive-HORZ-Jun.jpg",
+      },
+      {
+        name: "Party Box For Seven",
+        description: "choice of seven mains and six sides or desserts",
+        available: true,
+        price: "$127.50",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/802/daily_normal_PartyBoxforseven-HORZ-Jun.jpg",
+      },
+      {
+        name: "Party Box For Ten",
+        description: "choice of ten mains and eight sides or desserts",
+        available: false,
+        price: "$178.00",
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/794/daily_normal_PartyBoxforten-HORZ-Jun.jpg",
+      },
+    ],
+  },
 ];

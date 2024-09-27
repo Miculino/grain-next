@@ -40,12 +40,11 @@ export default function SidebarSection({
       {isSidebarSectionSelected ? (
         <ul className="flex flex-col gap-2">
           {sidebarItems.map((sidebarItem) => (
-            <Link href={`#${sidebarItem.toLocaleLowerCase()}`}>
-              <SidebarItem
-                activeCategory={activeCategory}
-                key={sidebarItem}
-                item={sidebarItem}
-              />
+            <Link
+              href={`#${sidebarItem.toLocaleLowerCase()}`}
+              key={sidebarItem}
+            >
+              <SidebarItem activeCategory={activeCategory} item={sidebarItem} />
             </Link>
           ))}
         </ul>

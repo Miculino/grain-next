@@ -17,3 +17,11 @@ interface Dish {
     full_thumbnail: string;
   };
 }
+
+interface Bundle {
+  name: string;
+  description: string;
+  available: boolean;
+  price: string;
+  thumbnail: string;
+}
