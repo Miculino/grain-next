@@ -9,7 +9,7 @@ export default function DishCard({
   dish: Dish;
 }) {
   return (
-    <div className="border-[1px] border-[#dadada]">
+    <div className="border-[1px] border-[#dadada] flex flex-col">
       <div>
         <Image
           className="w-full"
@@ -19,7 +19,7 @@ export default function DishCard({
           height={500}
         />
       </div>
-      <div className="bg-white p-4 flex flex-col">
+      <div className="bg-white p-4 flex flex-col h-full">
         <Tag>{served}</Tag>
         <h3 className="mt-2 font-bold">{name.toLocaleUpperCase()}</h3>
         <p className="mt-1 text-xs">{main_ingredients}</p>
@@ -28,7 +28,7 @@ export default function DishCard({
           {tags.map((tag) => tag.toLowerCase()).join(", ")}
         </div>
 
-        <div className="justify-between flex items-center mt-4">
+        <div className="justify-between flex items-center mt-auto">
           <b>{price}</b>
           <Button>Add</Button>
         </div>

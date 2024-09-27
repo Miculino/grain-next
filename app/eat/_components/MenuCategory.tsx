@@ -14,7 +14,11 @@ export default function MenuCategory({
       <h2 className="text-3xl font-bold mb-1">{category}</h2>
       <p>{description}</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div
+        className={`grid grid-cols-1 md:${
+          category === "Highlights" ? "grid-cols-2" : "grid-cols-3"
+        } gap-4 mt-4`}
+      >
         {dishes.map((dish) => (
           <DishCard dish={dish} />
         ))}
