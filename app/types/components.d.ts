@@ -7,7 +7,7 @@ interface Dish {
   price: string;
   details: {
     story: string;
-    all_ingredients: string;
+    all_ingredients: string | null;
     nutritional_info: {
       calories: number;
       fat: number;

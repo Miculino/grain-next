@@ -444,4 +444,117 @@ export const menuCategories = [
       },
     ],
   },
+  {
+    category: "Desserts",
+    description: "Treats for life's simplest pleasures.",
+    sliceIndex: 2,
+    dishes: [
+      {
+        name: "Secret Crumble",
+        available: true,
+        served: "Chilled",
+        overview: "oat crumble, raspberry compote, thyme",
+        tags: ["Vegan", "Contains dairy", "Eggs", "Nuts", "Wheat"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1958/daily_normal_Secret_Crumble-HORZ__1_.jpg",
+        price: "$8.50",
+        details: {
+          story:
+            "Can you keep a secret? Word around the kitchen is a Michelin-starred pastry chef made this just for us. Can’t reveal her name, but we can tell you that this buttery beauty is almost too good to share. Almost. Moist almond cake, crunchy oat crumble, and raspberry apricot compote sandwiched in the middle — better eat your fill before you let your friends in on this.",
+          all_ingredients: null,
+          nutritional_info: null,
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1958/density_2_Secret_Crumble-VERT__1_.jpg",
+        },
+      },
+      {
+        name: "Ondeh Ondeh Pandan Cake",
+        available: true,
+        served: "Chilled",
+        overview: "fragrant gula melaka, pandan sponge",
+        tags: ["Vegetarian", "Contains dairy", "Eggs", "Wheat"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1624/daily_normal_Ondeh_Ondeh_Pandan_Cake-HORZ.jpg",
+        price: "$6.50",
+        details: {
+          story:
+            "It's not a party without cake and good food. Our Ondeh Ondeh Pandan Cake — soft, airy layers of pandan chiffon sponge, filled with fragrant gula melaka and smooth cream, then topped with desiccated coconut. So, so sinfully good.",
+          all_ingredients:
+            "butter, sugar, egg, water, vegetable oil, coconut milk, coconut flakes, gula melaka, pandan essence, cake emulsifier, dark brown sugar, desiccated coconut, cream cheese",
+          nutritional_info: {
+            calories: 358,
+            fat: 18,
+            carb: 46,
+            protein: 7,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1624/density_2_Ondeh_Ondeh_Pandan_Cake-VERT.jpg",
+        },
+      },
+      {
+        name: "Matcha White Chocolate Croissants",
+        available: true,
+        served: "Chilled",
+        overview: "matcha tea powder, croissant, white chocolate",
+        tags: ["Vegetarian", "Contains dairy", "Egg", "Wheat"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1789/daily_normal_Matcha_White_Chocolate_Croissants-HORZ.jpg",
+        price: "$7.00",
+        details: {
+          story:
+            "Dreaming of Japan? We've taken earthy Uji matcha and mixed it with white chocolate to create a complex yet familiar coating packed with deliciousness. There's no better base pastry than our buttery crisp croissant, presenting this combination of sweet, earthy and fluffy.",
+          all_ingredients: "matcha tea powder, Croissant, white chocolate",
+          nutritional_info: null,
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1789/density_2_Matcha_White_Chocolate_Croissants-VERT.jpg",
+        },
+      },
+      {
+        name: "Greek Yoghurt Granola Cup",
+        available: true,
+        served: "Chilled",
+        overview: "nutrient-rich greek yogurt, crunchy granola",
+        tags: ["Vegetarian", "Contains dairy", "Nuts"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1625/daily_normal_greek-yogurt.jpg",
+        price: "$7.00",
+        details: {
+          story:
+            "It’s 8:30AM. Everyone is rushing. Some are rushing to work. Some are rushing to school. Others are rushing to be the first to breathe in the morning air. While rushing, don’t forget to eat well — order our Greek Yogurt Granola Cup, have it after your meal or save it for tomorrow’s breakfast. It’s a great source of probiotics, protein, and vitamins that help improve gut health, boost metabolism and keep you healthy.",
+          all_ingredients: "greek yoghurt, amazin' graze granola, goji berry",
+          nutritional_info: {
+            calories: 475,
+            fat: 28,
+            carb: 44,
+            protein: 14,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1625/density_2_GREEK-YOGURT-VERT-2.jpeg",
+        },
+      },
+      {
+        name: "Mixed Fruit Parcel",
+        available: true,
+        served: "Chilled",
+        overview: "fruits of the season",
+        tags: ["Vegan"],
+        thumbnail:
+          "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1622/daily_normal_Mixed_Fruit_Parcel-HORZ.jpg",
+        price: "$7.00",
+        details: {
+          story:
+            "Now you have no excuses to skip your daily intake of fruits. We’ve picked the sweetest and juiciest of them all, and cut them into bite-sized pieces for you. Add it to your order for an extra boost after a meal.",
+          all_ingredients: "fruits of the season",
+          nutritional_info: {
+            calories: 93,
+            fat: 1,
+            carb: 20,
+            protein: 1,
+          },
+          full_thumbnail:
+            "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1622/density_2_Mixed_Fruit_Parcel-VERT.jpg",
+        },
+      },
+    ],
+  },
 ];
