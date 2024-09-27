@@ -3,6 +3,7 @@ import React from "react";
 import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
+import useModalStore from "@/app/store/useModalStore";
 
 export default function DishCard({
   product,
@@ -13,10 +14,15 @@ export default function DishCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
+  const { openModal } = useModalStore();
+
   const { thumbnail, overview, name, price } = product;
 
   return (
-    <div className={clsx("border-[1px] border-[#dadada] flex", className)}>
+    <div
+      onClick={() => openModal()}
+      className={clsx("border-[1px] border-[#dadada] flex", className)}
+    >
       <div className="flex-1">
         <Image
           className="w-full"
