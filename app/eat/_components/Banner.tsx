@@ -1,16 +1,17 @@
 import Image from "next/image";
 import React from "react";
-import BannerImg from "@/app/keep-a-secret.jpeg";
 
 export default function Banner() {
   return (
     <div>
       <Image
-        src={BannerImg.src}
+        src={
+          "https://storage.googleapis.com/spineproduction/uploads/banner/picture/134/picture.jpeg"
+        }
         role="presentation"
         alt=""
-        width={BannerImg.width}
-        height={BannerImg.height}
+        width={500}
+        height={500}
       />
     </div>
   );
