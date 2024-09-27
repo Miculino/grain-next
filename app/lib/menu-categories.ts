@@ -8,7 +8,7 @@ export const menuCategories = [
         name: "Thai Green Curry Fish",
         available: true,
         served: "Warm",
-        main_ingredients:
+        overview:
           "thai style green curry, seared dory, butterfly blue pea rice",
         tags: [
           "Pescatarian",
@@ -41,7 +41,7 @@ export const menuCategories = [
         name: "Citrusy Cauliflower Plant‑based Lasagna",
         available: true,
         served: "Warm",
-        main_ingredients:
+        overview:
           "fennel seed, chickpea, plant-based mince, roasted cauliflower",
         tags: ["Vegetarian", "Contains allium", "Dairy", "Soy", "Wheat"],
         thumbnail:
@@ -72,8 +72,7 @@ export const menuCategories = [
         name: "Thai Fiesta Salad",
         available: true,
         served: "Chilled",
-        main_ingredients:
-          "accented with lemongrass, kaffir lime leaf, red chilli",
+        overview: "accented with lemongrass, kaffir lime leaf, red chilli",
         tags: ["Vegan", "Spicy"],
         thumbnail:
           "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1925/daily_normal_Thai-Fiesta-Salad-HORZ.jpg",
@@ -97,7 +96,7 @@ export const menuCategories = [
         name: "Oregano Honey Mustard Chicken",
         available: false,
         served: "Warm",
-        main_ingredients:
+        overview:
           "dijon honey chicken, supergarlicfied oiled linguine, cherry tomato",
         tags: ["Contains allium", "Soy", "Wheat"],
         thumbnail:
@@ -122,7 +121,7 @@ export const menuCategories = [
         name: "Kampung Ayam Masak Merah",
         available: true,
         served: "Warm",
-        main_ingredients:
+        overview:
           "housemade sambal marinated chicken, nyonya achar, traditional blue pea rice",
         tags: [
           "Spicy, Contains allium",
@@ -152,7 +151,7 @@ export const menuCategories = [
         name: "Mentai Mayonnaise Aburi Salmon",
         available: true,
         served: "Warm",
-        main_ingredients:
+        overview:
           "sous vide norwegian salmon, mentaiko, balsamic glazed sweet potato",
         tags: ["Pescatarian", "Contains egg", "Soy", "Wheat"],
         thumbnail:
@@ -177,7 +176,7 @@ export const menuCategories = [
         name: "Basil Thunder Tea Rice",
         available: true,
         served: "Warm",
-        main_ingredients:
+        overview:
           "basil scented multigrain rice, braised celery mushroom cabbage, hanjuku egg",
         tags: [
           "Vegetarian",
@@ -210,7 +209,7 @@ export const menuCategories = [
         name: "Grilled Farm Fresh Chicken",
         available: false,
         served: "Warm",
-        main_ingredients:
+        overview:
           "indian inspired cajun chicken, housemade pesto, spiced black rice, charred broccoli",
         tags: [
           "Contains allium",
@@ -241,7 +240,7 @@ export const menuCategories = [
         name: "Impossible Hamburg with Japanese Curry",
         available: false,
         served: "Warm",
-        main_ingredients:
+        overview:
           "baked Impossible hamburg, Japanese curry, poached okra and carrots",
         tags: ["Vegan", "Contains allium", "Contains soy", "Contains wheat"],
         thumbnail:
@@ -271,7 +270,7 @@ export const menuCategories = [
     bundles: [
       {
         name: "Meal Box Combo",
-        description: "choice of a main, a drink and a side or dessert",
+        overview: "choice of a main, a drink and a side or dessert",
         available: true,
         price: "$21.50",
         thumbnail:
@@ -279,7 +278,7 @@ export const menuCategories = [
       },
       {
         name: "Twosome",
-        description:
+        overview:
           "choice of two mains and an option of drinks, desserts, and sides",
         available: true,
         price: "$28.00",
@@ -288,7 +287,7 @@ export const menuCategories = [
       },
       {
         name: "Threesome",
-        description:
+        overview:
           "choice of three mains and an option of drinks, desserts and sides",
         available: true,
         price: "$41.00",
@@ -297,7 +296,7 @@ export const menuCategories = [
       },
       {
         name: "Fivesome",
-        description:
+        overview:
           "choice of five mains and an option of drinks, desserts and sides",
         available: true,
         price: "$67.50",
@@ -306,7 +305,7 @@ export const menuCategories = [
       },
       {
         name: "Party Box For Five",
-        description: "choice of five mains and four sides or desserts",
+        overview: "choice of five mains and four sides or desserts",
         available: true,
         price: "$90",
         thumbnail:
@@ -314,7 +313,7 @@ export const menuCategories = [
       },
       {
         name: "Party Box For Seven",
-        description: "choice of seven mains and six sides or desserts",
+        overview: "choice of seven mains and six sides or desserts",
         available: true,
         price: "$127.50",
         thumbnail:
@@ -322,7 +321,7 @@ export const menuCategories = [
       },
       {
         name: "Party Box For Ten",
-        description: "choice of ten mains and eight sides or desserts",
+        overview: "choice of ten mains and eight sides or desserts",
         available: false,
         price: "$178.00",
         thumbnail:

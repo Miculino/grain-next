@@ -1,9 +1,11 @@
 import { useInView } from "react-intersection-observer";
-import DishCard from "./DishCard";
+import DishCard from "./ProductCard";
 import { SetStateAction, useEffect } from "react";
+import ProductCard from "./ProductCard";
 
 export default function MenuCategory({
   dishes,
+  bundles,
   category,
   description,
   setActiveCategory,
@@ -36,13 +38,21 @@ export default function MenuCategory({
       >
         {dishes &&
           dishes.map((dish, index) => (
-            <DishCard
-              className={index === 0 ? "col-span-3 flex-row" : "flex-col"}
+            <ProductCard
+              className={
+                index === 0 && category === "Regulars"
+                  ? "col-span-3 flex-row"
+                  : "flex-col"
+              }
               key={dish.name}
-              dish={dish}
+              product={dish}
+              type="dish"
             />
           ))}
-        {/* {bundles && bundles.map((bundle) => <DishCard dish={dish} />)} */}
+        {bundles &&
+          bundles.map((bundle) => (
+            <ProductCard className="flex-col" type="bundle" product={bundle} />
+          ))}
       </div>
     </div>
   );

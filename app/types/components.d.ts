@@ -1,7 +1,7 @@
 interface Dish {
   name: string;
   served: string;
-  main_ingredients: string;
+  overview: string;
   tags: string[];
   thumbnail: string;
   price: string;
@@ -20,7 +20,7 @@ interface Dish {
 
 interface Bundle {
   name: string;
-  description: string;
+  overview: string;
   available: boolean;
   price: string;
   thumbnail: string;
