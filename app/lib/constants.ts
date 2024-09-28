@@ -28,3 +28,5 @@ export const NAVBAR_ITEMS = [
     text: "Catering",
   },
 ];
+
+export const SCROLL_THRESHOLD = 60;

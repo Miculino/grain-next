@@ -15,7 +15,7 @@ export default async function MealsOnDemand() {
     <>
       <Container className="py-6">
         <Sidebar />
-        <div className="w-[calc(100%-160px)] ml-auto">
+        <div className="w-[calc(100%-184px)] ml-auto">
           <Banner />
           <div className="mt-20 flex flex-col gap-20 ">
             {menuCategories &&
