@@ -4,8 +4,9 @@ import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
 import useModalStore from "@/app/store/useModalStore";
+import { Bundle, Dish } from "@/app/types/api";
 
-export default function DishCard({
+export default function ProductCard({
   product,
   className,
   type,
@@ -16,7 +17,9 @@ export default function DishCard({
 }) {
   const { openModal } = useModalStore();
 
-  const { thumbnail, overview, name, price } = product;
+  // console.log(product);
+
+  // const { thumbnail, overview, name, price } = product;
 
   return (
     <div
@@ -26,8 +29,13 @@ export default function DishCard({
       <div className="flex-1">
         <Image
           className="w-full"
-          src={thumbnail}
-          alt={name}
+          src={
+            (product.thumbnail &&
+              product.thumbnail.asset &&
+              product.thumbnail.asset.url) ??
+            "loading"
+          }
+          alt={product.name ? product.name : ""}
           width={500}
           height={500}
         />
@@ -37,17 +45,18 @@ export default function DishCard({
           <Tag>{product.served}</Tag>
         ) : null}
 
-        <h3 className="mt-2 font-bold">{name.toLocaleUpperCase()}</h3>
-        <p className="mt-1 text-xs">{overview}</p>
+        <h3 className="mt-2 font-bold">{product?.name?.toLocaleUpperCase()}</h3>
+        <p className="mt-1 text-xs">{product.overview}</p>
 
         <div className="text-xs text-[#999] mt-3 h-[60px]">
           {type === "dish" && "tags" in product
-            ? product.tags.map((tag) => tag.toLowerCase()).join(", ")
+            ? product.tags &&
+              product.tags.map((tag) => tag.toLowerCase()).join(", ")
             : null}
         </div>
 
         <div className="justify-between flex items-center mt-auto">
-          <b>{price}</b>
+          <b>{product.price && product.price.toFixed(2)}</b>
           <Button>Add</Button>
         </div>
       </div>

@@ -4,7 +4,7 @@ interface Dish {
   overview: string;
   tags: string[];
   thumbnail: string;
-  price: string;
+  price: number;
   details: {
     story: string;
     all_ingredients: string | null;
@@ -22,6 +22,6 @@ interface Bundle {
   name: string;
   overview: string;
   available: boolean;
-  price: string;
+  price: number;
   thumbnail: string;
 }

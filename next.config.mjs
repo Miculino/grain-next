@@ -6,6 +6,10 @@ const nextConfig = {
         hostname: "storage.googleapis.com",
         protocol: "https",
       },
+      {
+        hostname: "cdn.sanity.io",
+        protocol: "https",
+      },
     ],
   },
 };

@@ -14,9 +14,9 @@ export default function Chevron({ className }: { className?: string }) {
         <path
           d="M1 1L4.81156 4.91964C4.86151 4.97109 4.9293 5 5 5C5.0707 5 5.13849 4.97109 5.18844 4.91964L9 1"
           stroke="black"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </svg>
     </span>

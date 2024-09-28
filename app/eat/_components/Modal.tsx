@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import Tag from "./Tag";
 import Button from "./Button";
 import ProductInfo from "./ProductInfo";
@@ -10,7 +11,7 @@ export default function Modal() {
   if (isOpen)
     return (
       <div
-        onClick={(e) => {
+        onClick={() => {
           closeModal();
         }}
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/20 w-full h-full grid place-content-center"
