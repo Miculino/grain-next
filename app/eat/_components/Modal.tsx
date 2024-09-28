@@ -6,9 +6,20 @@ import ProductInfo from "./ProductInfo";
 import useModalStore from "@/app/store/useModalStore";
 
 export default function Modal() {
-  const { isOpen, closeModal } = useModalStore();
+  const { isOpen, closeModal, modalContent } = useModalStore();
 
-  if (isOpen)
+  if (isOpen && modalContent !== null) {
+    const {
+      served,
+      name,
+      overview,
+      price,
+      tags,
+      details: { story, all_ingredients, nutritional_info, full_thumbnail },
+    } = modalContent as unknown as Dish;
+
+    console.log(full_thumbnail.asset.url);
+
     return (
       <div
         onClick={() => {
@@ -20,14 +31,15 @@ export default function Modal() {
           onClick={(e) => e.stopPropagation()}
           className="bg-white flex max-w-[52rem]"
         >
-          <div className="bg-[url('https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/vertical_image/1772/density_2_VERT-Thai-Green-Curry-Fish.jpg')] bg-cover flex-1 flex bg-top">
-            <div className="bg-gradient-overlay flex items-end  h-full text-white">
+          <div
+            className={`bg-cover flex-1 flex bg-top`}
+            style={{ backgroundImage: `url(${full_thumbnail.asset.url})` }}
+          >
+            <div className="bg-gradient-overlay flex items-end w-full h-full text-white">
               <div className="flex flex-col gap-2  p-4 ">
-                <Tag color="white">Warm</Tag>
-                <h3 className="font-bold">THAI GREEN CURRY FISH</h3>
-                <p>
-                  thai style green curry, seared dory, butterfly blue pea rice
-                </p>
+                <Tag color="white">{served}</Tag>
+                <h3 className="font-bold">{name}</h3>
+                <p>{overview}</p>
               </div>
             </div>
           </div>
@@ -35,39 +47,35 @@ export default function Modal() {
             <div className="h-[750px] overflow-y-scroll">
               {/* STORY */}
               <ProductInfo title="STORY">
-                <p>
-                  Our undying love for Thai street food led to the birth of this
-                  Thai dish. A truly authentic flavour experience, bringing to
-                  the table the full robust flavours of the spices paired with
-                  our flakey dory and butterfly blue pea rice — a bold,
-                  traditional, yet exciting dish.
-                </p>
+                <p>{story}</p>
               </ProductInfo>
               {/* INGREDIENTS */}
               <ProductInfo title="INGREDIENTS">
-                <p>
-                  white rice, butterfly blue pea flower, salt, vegetable stock,
-                  vegetable oil, garlic, fried shallot, dory fish, black pepper,
-                  whole cherry tomato, thyme, sugar, green curry paste, milk,
-                  cream, lemongrass, kaffir lime leaf, onion, ginger, green
-                  chilli large, curry leaf, coriander
-                </p>
+                <p>{all_ingredients}</p>
               </ProductInfo>
               {/* TAGS */}
-              <ProductInfo title="TAGS">
-                <div className="flex flex-wrap gap-2">
-                  <Tag>Vegetarian</Tag>
-                  <Tag>Eggs</Tag>
-                </div>
-              </ProductInfo>
+              {tags && (
+                <ProductInfo title="TAGS">
+                  <div className="flex flex-wrap gap-2">
+                    {tags.map((label) => (
+                      <Tag key={label}>{label}</Tag>
+                    ))}
+                  </div>
+                </ProductInfo>
+              )}
+
               {/* NUTRITIONAL INFO */}
-              <ProductInfo title="NUTRITIONAL INFO" className="border-b-0">
-                <ul>
-                  <li>Calories: 416</li>
-                  <li>Fat: 20g</li>
-                  <li>Carb: 43g</li>
-                  <li>Protein: 16g</li>
-                </ul>
+              <ProductInfo title="NUTRITIONAL INFO" border="border-b-0">
+                {nutritional_info ? (
+                  <ul>
+                    <li>Calories: {nutritional_info.calories}</li>
+                    <li>Fat: {nutritional_info.fat}g</li>
+                    <li>Carb: {nutritional_info.carb}g</li>
+                    <li>Protein: {nutritional_info.protein}g</li>
+                  </ul>
+                ) : (
+                  <p>COMING SOON</p>
+                )}
               </ProductInfo>
             </div>
             <div className="w-full absolute bottom-0 left-0 p-4 border-t-[1px] border-t-light-gray bg-white justify-between flex items-center">
@@ -78,4 +86,5 @@ export default function Modal() {
         </div>
       </div>
     );
+  }
 }

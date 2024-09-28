@@ -15,15 +15,16 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
-  const { openModal } = useModalStore();
-
-  // console.log(product);
-
-  // const { thumbnail, overview, name, price } = product;
+  const { openModal, setModalContent } = useModalStore();
 
   return (
     <div
-      onClick={() => openModal()}
+      onClick={() => {
+        if (type === "dish") {
+          setModalContent(product as Dish);
+          openModal();
+        }
+      }}
       className={clsx("border-[1px] border-[#dadada] flex", className)}
     >
       <div className="flex-1">

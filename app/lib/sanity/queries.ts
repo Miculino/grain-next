@@ -6,6 +6,7 @@ export const CATEGORIES_QUERY =
   description,
   slice_index,
   items[] -> {
+   _type,
     ...,
     _type == "dish" => {
       name,
@@ -16,6 +17,16 @@ export const CATEGORIES_QUERY =
         asset -> {
           url
         }
+      },
+      details {
+        full_thumbnail {
+          asset -> {
+            url
+          }
+        },
+        nutritional_info,
+        all_ingredients,
+        story
       }
     },
     _type == "bundle" => {

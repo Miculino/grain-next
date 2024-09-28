@@ -14,7 +14,11 @@ interface Dish {
       carb: number;
       protein: number;
     } | null;
-    full_thumbnail: string;
+    full_thumbnail: {
+      asset: {
+        url: string;
+      };
+    };
   };
 }
 

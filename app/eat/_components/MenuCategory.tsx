@@ -55,7 +55,7 @@ export default function MenuCategory({
                   }
                   key={product.name}
                   product={product}
-                  type="dish"
+                  type={product._type}
                 />
               ))}
             </div>
@@ -72,44 +72,12 @@ export default function MenuCategory({
                   }
                   key={product.name}
                   product={product}
-                  type="dish"
+                  type={product._type}
                 />
               ))}
             </div>
           </>
         )}
-        {/* 
-        {bundles && (
-          <>
-            <div
-              className={`grid gap-4`}
-              style={{ gridTemplateColumns: `repeat(2, 1fr)` }}
-            >
-              {bundles.slice(0, sliceIndex).map((bundle) => (
-                <ProductCard
-                  className="flex-col w-full"
-                  key={bundle.name}
-                  type="bundle"
-                  product={bundle}
-                />
-              ))}
-            </div>
-
-            <div
-              className={`grid  gap-4 mt-4`}
-              style={{ gridTemplateColumns: `repeat(3, 1fr)` }}
-            >
-              {bundles.slice(sliceIndex).map((bundle) => (
-                <ProductCard
-                  className="flex-col w-full"
-                  key={bundle.name}
-                  type="bundle"
-                  product={bundle}
-                />
-              ))}
-            </div>
-          </>
-        )} */}
       </div>
     </div>
   );
