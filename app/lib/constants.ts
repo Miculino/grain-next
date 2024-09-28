@@ -13,3 +13,18 @@ export const SIDEBAR_SECTION_EMBER_SMOKERY_ITEMS = [
   "Smoked Meats",
   "Sauces",
 ];
+
+export const NAVBAR_ITEMS = [
+  {
+    url: "/eat",
+    text: "Meals On Demand",
+  },
+  {
+    url: "https://occasions.grain.com.sg/weddings",
+    text: "Weddings",
+  },
+  {
+    url: "https://grain.com.sg/catering",
+    text: "Catering",
+  },
+];

@@ -13,7 +13,7 @@ export default async function MealsOnDemand() {
 
   return (
     <>
-      <Container>
+      <Container className="py-6">
         <Sidebar />
         <div className="w-[calc(100%-160px)] ml-auto">
           <Banner />

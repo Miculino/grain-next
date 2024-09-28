@@ -29,14 +29,14 @@ export default function SidebarSection({
     <div className="cursor-pointer">
       <div
         onClick={handleSidebarSectionSelection}
-        className="p-1 flex items-center border-l-4 border-transparent hover:border-l-primary"
+        className="px-1 flex items-center border-l-4 border-transparent hover:border-l-primary"
       >
         <Image src={logo} width={92} height={36} alt={`${type} logo`} />
         <Chevron className={`${isSidebarSectionSelected ? "rotate-0" : ""}`} />
       </div>
 
       {isSidebarSectionSelected ? (
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 mt-2">
           {sidebarItems.map((sidebarItem) => (
             <Link
               href={`#${sidebarItem.toLocaleLowerCase()}`}

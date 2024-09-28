@@ -14,7 +14,7 @@ export default function Sidebar() {
   >("grain");
 
   return (
-    <div className="fixed top-0 h-screen w-[160px] px-6 pt-2">
+    <div className="h-screen w-[160px] px-6">
       <SidebarSection
         activeSidebarSection={activeSidebarSection}
         setActiveSidebarSection={setActiveSidebarSection}

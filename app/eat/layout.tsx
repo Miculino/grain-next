@@ -2,13 +2,16 @@
 
 import { useEffect } from "react";
 import useModalStore from "../store/useModalStore";
+import StickyNavbar from "./_components/StickyNavbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { closeModal } = useModalStore();
 
   useEffect(() => {
-    const handleCloseModalOnEscape = () => {
-      closeModal();
+    const handleCloseModalOnEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
     };
 
     window.addEventListener("keydown", handleCloseModalOnEscape);
@@ -18,5 +21,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  return <div>{children}</div>;
+  return (
+    <>
+      <StickyNavbar />
+
+      <main>{children}</main>
+    </>
+  );
 }
