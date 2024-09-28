@@ -5,9 +5,11 @@ import Sidebar from "./_components/Sidebar";
 import Modal from "./_components/Modal";
 import { client } from "../lib/sanity/client";
 import { CATEGORIES_QUERY } from "../lib/sanity/queries";
+import { CATEGORIES_QUERYResult } from "../types/sanity";
 
 export default async function MealsOnDemand() {
-  const menuCategories = await client.fetch(CATEGORIES_QUERY);
+  const menuCategories =
+    await client.fetch<CATEGORIES_QUERYResult>(CATEGORIES_QUERY);
 
   return (
     <>
