@@ -1,8 +1,11 @@
 "use client";
 
-// import { useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 import ProductCard from "./ProductCard";
 import { SanityItems } from "@/app/types/api";
+
+import { useEffect } from "react";
+import useCategoryStore from "@/app/store/useCategoryStore";
 
 export default function MenuCategory({
   items,
@@ -15,18 +18,20 @@ export default function MenuCategory({
   items: SanityItems;
   sliceIndex: number | undefined;
 }) {
-  // const { ref, inView } = useInView({
-  //   threshold: 0.5,
-  // });
+  const { setActiveCategory } = useCategoryStore();
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     setActiveCategory(category);
-  //   }
-  // }, [inView, category, setActiveCategory]);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setActiveCategory(categoryName);
+    }
+  }, [inView, categoryName, setActiveCategory]);
 
   return (
-    <div id={categoryName ? categoryName.toLocaleLowerCase() : ""}>
+    <div ref={ref} id={categoryName ? categoryName.toLocaleLowerCase() : ""}>
       <h2 className="text-3xl font-bold mb-1">{categoryName}</h2>
       <p>{description}</p>
 

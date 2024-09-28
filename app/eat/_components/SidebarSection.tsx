@@ -10,7 +10,6 @@ export default function SidebarSection({
   type,
   setActiveSidebarSection,
   activeSidebarSection,
-  activeCategory,
 }: {
   sidebarItems: string[];
   logo: string;
@@ -19,7 +18,6 @@ export default function SidebarSection({
     SetStateAction<"grain" | "ember_smokery">
   >;
   activeSidebarSection: "grain" | "ember_smokery";
-  activeCategory: string | null;
 }) {
   const isSidebarSectionSelected = activeSidebarSection === type;
 
@@ -44,7 +42,7 @@ export default function SidebarSection({
               href={`#${sidebarItem.toLocaleLowerCase()}`}
               key={sidebarItem}
             >
-              <SidebarItem activeCategory={activeCategory} item={sidebarItem} />
+              <SidebarItem item={sidebarItem} />
             </Link>
           ))}
         </ul>

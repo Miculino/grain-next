@@ -12,7 +12,7 @@ export default async function MealsOnDemand() {
   return (
     <>
       <Container>
-        <Sidebar activeCategory={"test"} />
+        <Sidebar />
         <div className="flex-1 overflow-y-auto">
           <Banner />
           <div className="mt-20 flex flex-col gap-20">

@@ -1,12 +1,9 @@
+import useCategoryStore from "@/app/store/useCategoryStore";
 import clsx from "clsx";
 
-export default function SidebarItem({
-  item,
-  activeCategory,
-}: {
-  item: string;
-  activeCategory: string | null;
-}) {
+export default function SidebarItem({ item }: { item: string }) {
+  const { activeCategory } = useCategoryStore();
+
   const isSidebarItemActive = activeCategory === item;
 
   return (

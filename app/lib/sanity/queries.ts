@@ -1,6 +1,7 @@
 import { defineQuery } from "next-sanity";
 
-export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"] {
+export const CATEGORIES_QUERY =
+  defineQuery(`*[_type == "category"] | order(_createdAt asc) {
   name,
   description,
   slice_index,

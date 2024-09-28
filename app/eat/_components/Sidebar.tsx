@@ -8,11 +8,7 @@ import {
 } from "@/app/lib/constants";
 import Divider from "./Divider";
 
-export default function Sidebar({
-  activeCategory,
-}: {
-  activeCategory: string | null;
-}) {
+export default function Sidebar() {
   const [activeSidebarSection, setActiveSidebarSection] = useState<
     "grain" | "ember_smokery"
   >("grain");
@@ -25,7 +21,6 @@ export default function Sidebar({
         type="grain"
         logo="https://storage.googleapis.com/spineproduction/uploads/menu_section/menu_nav/91/2.png"
         sidebarItems={SIDEBAR_SECTION_GRAIN_ITEMS}
-        activeCategory={activeCategory}
       />
       <Divider />
       <SidebarSection
@@ -34,7 +29,6 @@ export default function Sidebar({
         type="ember_smokery"
         logo="https://storage.googleapis.com/spineproduction/uploads/menu_section/menu_nav/67/ember_web.svg"
         sidebarItems={SIDEBAR_SECTION_EMBER_SMOKERY_ITEMS}
-        activeCategory={activeCategory}
       />
     </div>
   );
