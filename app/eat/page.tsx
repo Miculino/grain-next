@@ -15,9 +15,9 @@ export default async function MealsOnDemand() {
     <>
       <Container>
         <Sidebar />
-        <div className="flex-1 overflow-y-auto">
+        <div className="w-[calc(100%-160px)] ml-auto">
           <Banner />
-          <div className="mt-20 flex flex-col gap-20">
+          <div className="mt-20 flex flex-col gap-20 ">
             {menuCategories &&
               menuCategories.length > 0 &&
               menuCategories
