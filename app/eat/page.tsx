@@ -11,6 +11,9 @@ export default async function MealsOnDemand() {
   const menuCategories =
     await client.fetch<CATEGORIES_QUERYResult>(CATEGORIES_QUERY);
 
+  // TODO: Add default text for empty state
+  // Hello hungry human. We’re closed today as it’s important to give our chefs a break to rest and recharge — try a different date?
+
   return (
     <>
       <Container className="py-6">

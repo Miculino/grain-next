@@ -29,3 +29,8 @@ interface Bundle {
   price: number;
   thumbnail: string;
 }
+
+interface AddressPickerOptionProps {
+  type: "pick_up" | "delivery";
+  title: string;
+}
