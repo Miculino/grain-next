@@ -24,7 +24,6 @@ export default function RadioInput({
         type="radio"
         name={name}
         id={type}
-        value={""}
         checked={isAddressSelected}
       />
       <div

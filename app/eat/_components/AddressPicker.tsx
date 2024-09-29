@@ -55,7 +55,11 @@ export default function AddressPicker() {
           ref={dropdownRef}
           className="bg-white p-5 shadow-md absolute -bottom-6 w-[460px] translate-y-full border-[1px]"
         >
-          <AddressPickerOption type={"delivery"} title="Delivery address" />
+          <AddressPickerOption
+            setIsDropdownOpen={setIsDropdownOpen}
+            type={"delivery"}
+            title="Delivery address"
+          />
           <MultiDivider />
           <AddressPickerOption
             type={"pick_up"}

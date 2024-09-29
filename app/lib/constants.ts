@@ -30,3 +30,6 @@ export const NAVBAR_ITEMS = [
 ];
 
 export const SCROLL_THRESHOLD = 60;
+
+export const DEFAULT_FOOD_PICK_UP_ADDRESS =
+  "Grain's kitchen at 5 Burn Road #05-01 (entrance along Harrison Road)";

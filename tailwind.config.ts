@@ -15,6 +15,7 @@ const config: Config = {
         primary: "var(--primary)",
         "light-gray": "var(--light-gray)",
         "dark-gray": "var(--dark-gray)",
+        gray: "var(--gray)",
       },
       backgroundImage: {
         "gradient-overlay": "linear-gradient(0deg, #000 13%, transparent 50%);",

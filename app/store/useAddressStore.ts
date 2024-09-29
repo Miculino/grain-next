@@ -1,11 +1,11 @@
 import { create } from "zustand";
 import { AddressState } from "../types/store";
+import { DEFAULT_FOOD_PICK_UP_ADDRESS } from "../lib/constants";
 
 const useAddressStore = create<AddressState>((set) => ({
   address: {
     type: "delivery",
-    location:
-      "Grain's kitchen at 5 Burn Road #05-01 (entrance along Harrison Road)",
+    location: "Please add an address first.",
   },
   setAddress: (address) => set({ address }),
 }));

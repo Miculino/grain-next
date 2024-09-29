@@ -1,4 +1,5 @@
 import { VariantProps } from "class-variance-authority";
+import { SetStateAction } from "react";
 
 interface Dish {
   name: string;
@@ -35,4 +36,5 @@ interface Bundle {
 interface AddressPickerOptionProps {
   type: "pick_up" | "delivery";
   title: string;
+  setIsDropdownOpen?: React.Dispatch<SetStateAction<boolean>>;
 }

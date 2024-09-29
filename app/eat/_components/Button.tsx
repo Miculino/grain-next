@@ -20,6 +20,7 @@ const button = cva("button", {
         "items-center",
       ],
       link: ["underline", "hover:text-light-gray"],
+      disabled: "bg-gray py-2 px-6 text-white",
     },
   },
 });
@@ -27,6 +28,7 @@ const button = cva("button", {
 export default function Button({
   children,
   intent = "primary",
+  className,
   ...props
 }: ButtonProps) {
   return (
@@ -34,7 +36,8 @@ export default function Button({
       {...props}
       className={clsx(
         button({ intent }),
-        "max-w-fit transition-alll transition-100"
+        "max-w-fit transition-alll transition-100",
+        className
       )}
     >
       {children}
