@@ -4,7 +4,8 @@ import { AddressState } from "../types/store";
 const useAddressStore = create<AddressState>((set) => ({
   address: {
     type: "delivery",
-    location: "Select a delivery address or a Food Point",
+    location:
+      "Grain's kitchen at 5 Burn Road #05-01 (entrance along Harrison Road)",
   },
   setAddress: (address) => set({ address }),
 }));
