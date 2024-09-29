@@ -1,22 +1,36 @@
+import useAddressStore from "@/app/store/useAddressStore";
 import clsx from "clsx";
 import { useState } from "react";
 
-export default function RadioInput({ text }: { text: string }) {
-  const [isInputChecked, setIsInputChecked] = useState<boolean>(false);
+export default function RadioInput({
+  text,
+  name,
+}: {
+  text: string;
+  name: "delivery" | "pick_up";
+}) {
+  const {
+    address: { type },
+    setAddress,
+  } = useAddressStore();
+
+  const isAddressSelected = type === name;
 
   return (
     <label className="flex items-center gap-2 cursor-pointer max-w-fit">
       <input
-        onInput={() => setIsInputChecked((prev) => !prev)}
+        onChange={() => setAddress({ location: text, type: name })}
         className="hidden"
         type="radio"
-        name="delivery_address"
+        name={name}
+        id={type}
         value={""}
+        checked={isAddressSelected}
       />
       <div
         className={clsx(
           "w-4 h-4 border-2 border-black rounded-full",
-          isInputChecked && "bg-black"
+          isAddressSelected && "bg-slate-900/80"
         )}
       ></div>
       <span className="text-[#4D4D4D] text-sm">{text}</span>

@@ -9,7 +9,7 @@ export default function AddressPickerOption({
     <>
       <div className="flex flex-col gap-3">
         <p className="font-bold text-2xl">{title}</p>
-        <RadioInput text="Street number 245" />
+        <RadioInput name={type} text="Street number 245" />
       </div>
     </>
   );

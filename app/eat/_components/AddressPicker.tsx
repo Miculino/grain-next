@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import LocationPinpoint from "../icons/LocationPinpoint";
 import Chevron from "../icons/Chevron";
-import RadioInput from "./RadioInput";
-import Divider, { MultiDivider } from "./Divider";
+import { MultiDivider } from "./Divider";
 import AddressPickerOption from "./AddressPickerOption";
+import useAddressStore from "@/app/store/useAddressStore";
 
 export default function AddressPicker() {
+  const {
+    address: { location },
+  } = useAddressStore();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const [address, setAddress] = useState(
-    "Select a delivery address or a Food Point"
-  );
 
   const buttonRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,9 +45,7 @@ export default function AddressPicker() {
         className="flex items-center gap-1 font-bold cursor-pointer"
       >
         <LocationPinpoint />
-        <p className="border-b-2 border-black">
-          Select a delivery address or Food Point
-        </p>
+        <p className="border-b-2 border-black">{location}</p>
         <Chevron
           className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
         />
@@ -54,7 +53,7 @@ export default function AddressPicker() {
       {isDropdownOpen && (
         <div
           ref={dropdownRef}
-          className="bg-white p-5 shadow-md absolute -bottom-80 mt-2 w-full"
+          className="bg-white p-5 shadow-md absolute -bottom-6 translate-y-full w-full border-[1px]"
         >
           <AddressPickerOption type={"delivery"} title="Delivery address" />
           <MultiDivider />

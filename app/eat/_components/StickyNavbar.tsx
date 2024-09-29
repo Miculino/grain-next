@@ -14,9 +14,6 @@ export default function StickyNavbar() {
           <ShoppingCart />
           <span>$0.00</span>
         </Button>
-        <div className="bg-white shadow-sm absolute bottom-0 translate-y-full">
-          pdsadsa
-        </div>
       </Container>
     </div>
   );
