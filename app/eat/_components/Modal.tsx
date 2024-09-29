@@ -2,6 +2,7 @@
 
 import useModalStore from "@/app/store/useModalStore";
 import ProductDetails from "./ProductDetails";
+import AddressSearch from "./AddressSearch";
 
 export default function Modal() {
   const { isOpen, closeModal, modalContentType } = useModalStore();
@@ -19,9 +20,7 @@ export default function Modal() {
             <ProductDetails className="max-w-[52rem]" />
           ) : null}
 
-          {modalContentType === "address_search" ? (
-            <div>Look up google address</div>
-          ) : null}
+          {modalContentType === "address_search" ? <AddressSearch /> : null}
         </div>
       </div>
     );
