@@ -24,9 +24,14 @@ const button = cva("button", {
   },
 });
 
-export default function Button({ children, intent = "primary" }: ButtonProps) {
+export default function Button({
+  children,
+  intent = "primary",
+  ...props
+}: ButtonProps) {
   return (
     <button
+      {...props}
       className={clsx(
         button({ intent }),
         "max-w-fit transition-alll transition-100"

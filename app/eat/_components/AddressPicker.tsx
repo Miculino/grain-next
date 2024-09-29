@@ -42,7 +42,7 @@ export default function AddressPicker() {
       <div
         ref={buttonRef}
         onClick={handleClick}
-        className="flex items-center gap-1 font-bold cursor-pointer"
+        className="flex items-center gap-1 font-bold cursor-pointer max-w-fit"
       >
         <LocationPinpoint />
         <p className="border-b-2 border-black truncate ">{location}</p>

@@ -12,7 +12,7 @@ export default function Modal() {
         onClick={() => {
           closeModal();
         }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/20 w-full h-full grid place-content-center"
+        className="fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/20 w-full h-full grid place-content-center"
       >
         <div onClick={(e) => e.stopPropagation()}>
           {modalContentType === "product_details" ? (
