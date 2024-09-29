@@ -9,7 +9,7 @@ export default function StickyNavbar() {
       <Container className="justify-between items-center">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <AddressPicker />
-          <div className="min-w-[50%]">Select date and time slot</div>
+          <div>Select date and time slot</div>
         </div>
 
         <Button>

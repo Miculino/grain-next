@@ -1,8 +1,37 @@
+import { cva, type VariantProps } from "class-variance-authority";
+import clsx from "clsx";
 import React from "react";
 
-export default function Button({ children }: { children: React.ReactNode }) {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof button> {}
+
+const button = cva("button", {
+  variants: {
+    intent: {
+      primary: [
+        "bg-primary",
+        "hover:bg-[#e3b517]",
+        "font-bold",
+        "py-2",
+        "px-6",
+        "gap-2",
+        "flex",
+        "items-center",
+      ],
+      link: ["underline", "hover:text-light-gray"],
+    },
+  },
+});
+
+export default function Button({ children, intent = "primary" }: ButtonProps) {
   return (
-    <button className="bg-primary hover:bg-[#e3b517] rounded-sm font-bold py-2 px-6 gap-2 transition-all transition-100 flex items-center">
+    <button
+      className={clsx(
+        button({ intent }),
+        "max-w-fit transition-alll transition-100"
+      )}
+    >
       {children}
     </button>
   );

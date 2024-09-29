@@ -38,14 +38,14 @@ export default function AddressPicker() {
   }, []);
 
   return (
-    <div className="relative min-w-[400px]">
+    <div className="relative w-[400px]">
       <div
         ref={buttonRef}
         onClick={handleClick}
         className="flex items-center gap-1 font-bold cursor-pointer"
       >
         <LocationPinpoint />
-        <p className="border-b-2 border-black truncate">{location}</p>
+        <p className="border-b-2 border-black truncate ">{location}</p>
         <Chevron
           className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
         />
@@ -53,7 +53,7 @@ export default function AddressPicker() {
       {isDropdownOpen && (
         <div
           ref={dropdownRef}
-          className="bg-white p-5 shadow-md absolute -bottom-6 min-w-lg translate-y-full border-[1px]"
+          className="bg-white p-5 shadow-md absolute -bottom-6 w-[460px] translate-y-full border-[1px]"
         >
           <AddressPickerOption type={"delivery"} title="Delivery address" />
           <MultiDivider />

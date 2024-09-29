@@ -1,3 +1,5 @@
+import { VariantProps } from "class-variance-authority";
+
 interface Dish {
   name: string;
   served: string;

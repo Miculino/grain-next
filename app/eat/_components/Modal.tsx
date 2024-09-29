@@ -4,6 +4,7 @@ import Tag from "./Tag";
 import Button from "./Button";
 import ProductInfo from "./ProductInfo";
 import useModalStore from "@/app/store/useModalStore";
+import { Dish } from "@/app/types/components";
 
 export default function Modal() {
   const { isOpen, closeModal, modalContent } = useModalStore();
@@ -57,7 +58,7 @@ export default function Modal() {
               {tags && (
                 <ProductInfo title="TAGS">
                   <div className="flex flex-wrap gap-2">
-                    {tags.map((label) => (
+                    {tags.map((label: string) => (
                       <Tag key={label}>{label}</Tag>
                     ))}
                   </div>
