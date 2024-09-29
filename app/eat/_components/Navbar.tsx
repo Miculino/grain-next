@@ -21,7 +21,9 @@ export default function Navbar() {
           />
           <div className="flex items-center gap-5 ml-5">
             {NAVBAR_ITEMS.map(({ url, text }) => (
-              <NavbarItem url={url}>{text}</NavbarItem>
+              <NavbarItem key={text} url={url}>
+                {text}
+              </NavbarItem>
             ))}
           </div>
         </div>

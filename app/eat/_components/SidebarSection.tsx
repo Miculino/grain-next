@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Chevron from "./Chevron";
+import Chevron from "../icons/Chevron";
 import SidebarItem from "./SidebarItem";
 import { SetStateAction } from "react";
 import Link from "next/link";
