@@ -5,12 +5,16 @@ interface AddressOptions {
   location: string;
 }
 
+type ContentType = "product_details" | "bundle" | "address_search" | null;
+
 interface ModalState {
   isOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
   modalContent: Dish | null;
+  modalContentType: ContentType;
   setModalContent: (content: Dish) => void;
+  setModalContentType: (type: ContentType) => void;
 }
 
 interface CategoryState {
