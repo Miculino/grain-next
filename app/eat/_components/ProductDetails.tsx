@@ -4,8 +4,9 @@ import React from "react";
 import Button from "./Button";
 import ProductInfo from "./ProductInfo";
 import Tag from "./Tag";
+import clsx from "clsx";
 
-export default function ProductDetails() {
+export default function ProductDetails({ className }: { className?: string }) {
   const { isOpen, closeModal, modalContent } = useModalStore();
 
   if (modalContent) {
@@ -19,7 +20,7 @@ export default function ProductDetails() {
     } = modalContent as unknown as Dish;
 
     return (
-      <div className="flex">
+      <div className={clsx("flex bg-white", className)}>
         <div
           className={`bg-cover flex-1 flex bg-top`}
           style={{ backgroundImage: `url(${full_thumbnail.asset.url})` }}
