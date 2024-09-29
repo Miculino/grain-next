@@ -17,15 +17,13 @@ export default function Sidebar() {
     "grain" | "ember_smokery"
   >("grain");
 
-  const handleScroll = (e: Event) => {
+  const handleScroll = () => {
     if (window.scrollY > SCROLL_THRESHOLD) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
   };
-
-  console.log(isScrolled);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -37,10 +35,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={clsx(
-        "h-screen w-[160px] px-6 pt-0 top-20",
-        isScrolled && "fixed"
-      )}
+      className={clsx("h-screen w-[160px] px-6 top-20", isScrolled && "fixed")}
     >
       <SidebarSection
         activeSidebarSection={activeSidebarSection}
