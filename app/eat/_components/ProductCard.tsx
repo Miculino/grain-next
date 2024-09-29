@@ -15,12 +15,13 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
-  const { openModal, setModalContent } = useModalStore();
+  const { openModal, setModalContent, setModalContentType } = useModalStore();
 
   return (
     <div
       onClick={() => {
         if (type === "dish") {
+          setModalContentType("product_details");
           setModalContent(product as Dish);
           openModal();
         }
