@@ -3,13 +3,13 @@ import Cross from "../icons/Cross";
 import useModalStore from "@/app/store/useModalStore";
 import Button from "./Button";
 import useAddressStore from "@/app/store/useAddressStore";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 export default function AddressSearch() {
   const [selectedPlace, setSelectedPlace] = useState<string>("");
 
   const { closeModal } = useModalStore();
-  const { setAddress } = useAddressStore();
+  const { setDeliveryAddress, setSelectedAddressType } = useAddressStore();
 
   const handlePlaceSelected = (place: { formatted_address: string }) => {
     console.log(place);
@@ -20,7 +20,8 @@ export default function AddressSearch() {
 
   const handleAddAddress = () => {
     if (selectedPlace) {
-      setAddress({ location: selectedPlace, type: "delivery" });
+      setDeliveryAddress(selectedPlace);
+      setSelectedAddressType("delivery");
       closeModal();
     }
   };

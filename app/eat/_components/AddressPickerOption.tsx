@@ -12,7 +12,7 @@ export default function AddressPickerOption({
   setIsDropdownOpen,
 }: AddressPickerOptionProps) {
   const { setModalContentType, openModal } = useModalStore();
-  const { address } = useAddressStore();
+  const { deliveryAddress, pickUpAddress } = useAddressStore();
 
   const handleClick = () => {
     openModal();
@@ -27,11 +27,7 @@ export default function AddressPickerOption({
         <p className="font-bold text-2xl">{title}</p>
         <RadioInput
           name={type}
-          text={
-            type === "delivery"
-              ? address.location
-              : DEFAULT_FOOD_PICK_UP_ADDRESS
-          }
+          text={type === "delivery" ? deliveryAddress : pickUpAddress}
         />
         {type === "delivery" && (
           <Button onClick={handleClick} intent={"link"}>

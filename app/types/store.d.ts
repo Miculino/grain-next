@@ -23,6 +23,10 @@ interface CategoryState {
 }
 
 interface AddressState {
-  address: AddressOptions;
-  setAddress: (address: AddressOptions) => void;
+  deliveryAddress: string;
+  pickUpAddress: string;
+  selectedAddressType: "delivery" | "pick_up";
+  setSelectedAddressType: (selectedAddressType: "delivery" | "pick_up") => void;
+  setDeliveryAddress: (deliveryAddress: string) => void;
+  setPickUpAddress: (pickUpAddress: string) => void;
 }

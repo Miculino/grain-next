@@ -6,9 +6,8 @@ import AddressPickerOption from "./AddressPickerOption";
 import useAddressStore from "@/app/store/useAddressStore";
 
 export default function AddressPicker() {
-  const {
-    address: { location },
-  } = useAddressStore();
+  const { selectedAddressType, deliveryAddress, pickUpAddress } =
+    useAddressStore();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
@@ -45,7 +44,9 @@ export default function AddressPicker() {
         className="flex items-center gap-1 font-bold cursor-pointer max-w-fit"
       >
         <LocationPinpoint />
-        <p className="border-b-2 border-black truncate ">{location}</p>
+        <p className="border-b-2 border-black truncate ">
+          {selectedAddressType === "delivery" ? deliveryAddress : pickUpAddress}
+        </p>
         <Chevron
           className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
         />

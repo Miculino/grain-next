@@ -9,21 +9,17 @@ export default function RadioInput({
   text: string;
   name: "delivery" | "pick_up";
 }) {
-  const {
-    address: { type },
-    setAddress,
-  } = useAddressStore();
+  const { setSelectedAddressType, selectedAddressType } = useAddressStore();
 
-  const isAddressSelected = type === name;
+  const isAddressSelected = name === selectedAddressType;
 
   return (
     <label className="flex items-center gap-2 cursor-pointer max-w-fit">
       <input
-        onChange={() => setAddress({ location: text, type: name })}
+        onChange={() => setSelectedAddressType(name)}
         className="hidden"
         type="radio"
         name={name}
-        id={type}
         checked={isAddressSelected}
       />
       <div
