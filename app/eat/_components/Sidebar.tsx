@@ -35,7 +35,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={clsx("h-screen w-[160px] px-6 top-20", isScrolled && "fixed")}
+      className={clsx("h-screen w-[160px] px-6 top-24", isScrolled && "fixed")}
     >
       <SidebarSection
         activeSidebarSection={activeSidebarSection}
