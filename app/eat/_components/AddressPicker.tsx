@@ -5,6 +5,7 @@ import AddressPickerOption from "./AddressPickerOption";
 import useAddressStore from "@/app/store/useAddressStore";
 import OrderNavigation from "./OrderNavigation";
 import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
+import DropdownContainer from "./DropdownContainer";
 
 export default function AddressPicker() {
   const { selectedAddressType, deliveryAddress, pickUpAddress } =
@@ -35,10 +36,7 @@ export default function AddressPicker() {
         isDropdownOpen={isDropdownOpen}
       />
       {isDropdownOpen && (
-        <div
-          ref={dropdownRef}
-          className="bg-white p-5 shadow-md absolute -bottom-6 w-[460px] translate-y-full border-[1px]"
-        >
+        <DropdownContainer className="-bottom-6">
           <AddressPickerOption
             setIsDropdownOpen={setIsDropdownOpen}
             type={"delivery"}
@@ -49,7 +47,7 @@ export default function AddressPicker() {
             type={"pick_up"}
             title="Pick up for free from a Food point"
           />
-        </div>
+        </DropdownContainer>
       )}
     </div>
   );

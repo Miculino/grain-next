@@ -39,9 +39,13 @@ interface AddressPickerOptionProps {
   setIsDropdownOpen?: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export interface OrderNavigationProps
+interface OrderNavigationProps
   extends React.HtmlHTMLAttributes<HTMLDivElement> {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   text: string;
   isDropdownOpen: boolean;
+}
+
+interface DropdownContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
 }
