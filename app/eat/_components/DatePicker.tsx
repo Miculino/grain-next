@@ -9,6 +9,7 @@ import {
 } from "@/app/lib/constants";
 import Button from "./Button";
 import getCurrentWeekDays from "@/app/utils/getCurrentWeekDays";
+import formatDate from "@/app/utils/formatDate";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -38,13 +39,22 @@ export default function DatePicker() {
           <div className="font-bold border-b border-b-gray p-4">
             <p className="text-base text-center">Select date and time slot</p>
           </div>
-          <div className="flex justify-between">
-            <div>
-              <div className="flex flex-col p-2 min-w-20">
-                <span>Mon</span>
-                <span>Sep 30</span>
-              </div>
+          <div className="flex justify-between h-[500px]">
+            {/* <div> */}
+            <div className="flex flex-col min-w-28 border-r border-r-gray justify-between">
+              {currentWeekDays.map((weekDay) => (
+                <div className="flex flex-col h-full justify-center items-center border-b border-b-gray border-l-transparent border-l-2 hover:border-l-primary">
+                  {formatDate(weekDay)
+                    .split(",")
+                    .map((day, index) => (
+                      <span className={index === 0 ? "text-xs" : ""}>
+                        {day}
+                      </span>
+                    ))}
+                </div>
+              ))}
             </div>
+            {/* </div> */}
             <div className="p-8  w-full">
               <p className="text-center text-sm mb-6">
                 Order 15 minutes before any time slot
