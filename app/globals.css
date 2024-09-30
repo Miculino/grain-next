@@ -55,3 +55,12 @@ body {
     text-wrap: balance;
   }
 }
+
+/* SWIPER */
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
+
+.swiper-slide {
+  margin-top: 12px;
+}

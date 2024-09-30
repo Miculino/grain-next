@@ -3,8 +3,11 @@ import Button from "./Button";
 import ShoppingCart from "../icons/ShoppingCart";
 import AddressPicker from "./AddressPicker";
 import DatePicker from "./DatePicker";
+import useModalStore from "@/app/store/useModalStore";
 
 export default function StickyNavbar() {
+  const { openModal, setModalContentType } = useModalStore();
+
   return (
     <div className="sticky top-0 bg-white py-4 z-10">
       <Container className="justify-between items-center">
@@ -13,7 +16,12 @@ export default function StickyNavbar() {
           <DatePicker />
         </div>
 
-        <Button>
+        <Button
+          onClick={() => {
+            openModal();
+            setModalContentType("shopping_cart");
+          }}
+        >
           <ShoppingCart />
           <span>$0.00</span>
         </Button>

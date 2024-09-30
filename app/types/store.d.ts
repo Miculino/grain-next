@@ -5,7 +5,12 @@ interface AddressOptions {
   location: string;
 }
 
-type ContentType = "product_details" | "bundle" | "address_search" | null;
+type ContentType =
+  | "product_details"
+  | "bundle"
+  | "address_search"
+  | "shopping_cart"
+  | null;
 
 interface ModalState {
   isOpen: boolean;
