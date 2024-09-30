@@ -26,7 +26,10 @@ export default function ProductCard({
           openModal();
         }
       }}
-      className={clsx("border-[1px] border-[#dadada] flex", className)}
+      className={clsx(
+        "border-[1px] border-[#dadada] cursor-pointer flex",
+        className
+      )}
     >
       <div className="flex-1">
         <Image
@@ -53,12 +56,12 @@ export default function ProductCard({
         <div className="text-xs text-[#999] mt-3 h-[60px]">
           {type === "dish" && "tags" in product
             ? product.tags &&
-              product.tags.map((tag) => tag.toLowerCase()).join(", ")
+              product.tags.map((tag) => tag.toLowerCase().trim()).join(", ")
             : null}
         </div>
 
         <div className="justify-between flex items-center mt-auto">
-          <b>{product.price && product.price.toFixed(2)}</b>
+          <b>${product.price && product.price.toFixed(2)}</b>
           <Button>Add</Button>
         </div>
       </div>
