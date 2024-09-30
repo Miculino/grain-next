@@ -13,14 +13,26 @@ const button = cva("button", {
         "bg-primary",
         "hover:bg-[#e3b517]",
         "font-bold",
+        "gap-2",
         "py-2",
         "px-6",
-        "gap-2",
-        "flex",
-        "items-center",
       ],
       link: ["underline", "hover:text-light-gray"],
       disabled: "bg-gray py-2 px-6 text-white",
+      outline: [
+        "hover:bg-[#e3b517]",
+        "hover:font-bold",
+        "hover:text-black",
+        "py-2",
+        "px-6",
+        "border",
+        "border-gray",
+        "text-[#777]",
+      ],
+    },
+    size: {
+      default: ["max-w-fit"],
+      full: "w-full",
     },
   },
 });
@@ -28,6 +40,7 @@ const button = cva("button", {
 export default function Button({
   children,
   intent = "primary",
+  size = "default",
   className,
   ...props
 }: ButtonProps) {
@@ -35,8 +48,8 @@ export default function Button({
     <button
       {...props}
       className={clsx(
-        button({ intent }),
-        "max-w-fit transition-alll transition-100",
+        button({ intent, size }),
+        "transition-alll transition-100 flex items-center justify-center",
         className
       )}
     >

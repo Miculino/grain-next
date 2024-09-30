@@ -33,3 +33,10 @@ export const SCROLL_THRESHOLD = 60;
 
 export const DEFAULT_FOOD_PICK_UP_ADDRESS =
   "Grain's kitchen at 5 Burn Road #05-01 (entrance along Harrison Road)";
+
+export const AVAILABLE_LUNCH_TIMES = [
+  "10:30AM-11:30AM",
+  "11:30AM-12:30PM",
+  "12:30PM-1:30PM",
+];
+export const AVAILABLE_DINNER_TIMES = ["5:30PM-6:30PM", "6:30PM-7:30PM"];
