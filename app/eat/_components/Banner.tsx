@@ -1,9 +1,11 @@
+import { BANNER_URL } from "@/app/lib/constants";
 import React from "react";
 
 export default function Banner() {
   return (
     <div
-      className={`bg-[url("https://storage.googleapis.com/spineproduction/uploads/banner/picture/134/picture.jpeg")] w-full bg-cover text-white`}
+      className={`w-full bg-cover text-white`}
+      style={{ backgroundImage: `url(${BANNER_URL})` }}
     >
       <div className="p-6 min-h-[420px] flex justify-center gap-2 flex-col">
         <p className="text-[40px] font-bold w-1/2">Can you keep a secret?</p>

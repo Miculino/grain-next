@@ -40,3 +40,6 @@ export const AVAILABLE_LUNCH_TIMES = [
   "12:30PM-1:30PM",
 ];
 export const AVAILABLE_DINNER_TIMES = ["5:30PM-6:30PM", "6:30PM-7:30PM"];
+
+export const BANNER_URL =
+  "https://storage.googleapis.com/spineproduction/uploads/banner/picture/134/picture.jpeg";
