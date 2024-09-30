@@ -32,7 +32,7 @@ export default function AddressPicker() {
         ref={dropdownTriggerRef}
         onClick={handleClick}
         icon={LocationPinpoint}
-        text={address}
+        text={!address ? "Select an adress first" : address}
         isDropdownOpen={isDropdownOpen}
       />
       {isDropdownOpen && (

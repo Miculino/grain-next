@@ -31,7 +31,7 @@ export default function AddressSearch() {
   };
 
   return (
-    <div className="bg-white max-w-[460px] mx-auto p-6 flex flex-col">
+    <div className="bg-white w-[500px] mx-auto p-6 flex flex-col">
       <Cross className="self-end cursor-pointer" onClick={handleClick} />
       <span className="font-bold text-lg inline-block mb-2">
         Add a new address

@@ -3,7 +3,7 @@ import { DateState } from "../types/store";
 
 const useDateStore = create<DateState>((set) => ({
   setDate: (date) => set({ date }),
-  date: "",
+  date: "Select an address first",
 }));
 
 export default useDateStore;
