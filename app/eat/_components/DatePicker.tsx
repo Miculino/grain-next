@@ -8,6 +8,7 @@ import {
   AVAILABLE_LUNCH_TIMES,
 } from "@/app/lib/constants";
 import Button from "./Button";
+import getCurrentWeekDays from "@/app/utils/getCurrentWeekDays";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -20,6 +21,8 @@ export default function DatePicker() {
   };
 
   useHandleClickOutside({ dropdownTriggerRef, dropdownRef, setIsDropdownOpen });
+
+  const currentWeekDays = getCurrentWeekDays();
 
   return (
     <div>
