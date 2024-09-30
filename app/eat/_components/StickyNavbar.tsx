@@ -21,6 +21,7 @@ export default function StickyNavbar() {
             openModal();
             setModalContentType("shopping_cart");
           }}
+          className="px-6 py-2"
         >
           <ShoppingCart />
           <span>$0.00</span>

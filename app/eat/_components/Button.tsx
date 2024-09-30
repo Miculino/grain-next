@@ -9,16 +9,9 @@ interface ButtonProps
 const button = cva("button", {
   variants: {
     intent: {
-      primary: [
-        "bg-primary",
-        "hover:bg-[#e3b517]",
-        "font-bold",
-        "gap-2",
-        "py-2",
-        "px-6",
-      ],
+      primary: ["bg-primary", "hover:bg-[#e3b517]", "font-bold", "gap-2"],
       link: ["underline", "hover:text-light-gray"],
-      disabled: "bg-gray py-2 px-6 text-white",
+      disabled: "bg-gray py-2 px-6 text-white font-bold",
       outline: [
         "hover:bg-[#e3b517]",
         "hover:font-bold",

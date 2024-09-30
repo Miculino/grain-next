@@ -57,10 +57,10 @@ body {
 }
 
 /* SWIPER */
-.swiper-pagination-bullet-active {
-  background-color: #000 !important;
+.swiper-pagination {
+  display: none !important;
 }
 
-.swiper-slide {
-  margin-top: 12px;
+.swiper {
+  border: 1px solid #dadada;
 }

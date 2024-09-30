@@ -62,7 +62,7 @@ export default function ProductCard({
 
         <div className="justify-between flex items-center mt-auto">
           <b>${product.price && product.price.toFixed(2)}</b>
-          <Button>Add</Button>
+          <Button className="px-6 py-2">Add</Button>
         </div>
       </div>
     </div>

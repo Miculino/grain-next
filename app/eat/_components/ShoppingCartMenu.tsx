@@ -3,6 +3,7 @@ import Cross from "../icons/Cross";
 import Button from "./Button";
 import useModalStore from "@/app/store/useModalStore";
 import ProductCarousel from "./ProductCarousel";
+import { STATIC_RECOMMENDATIONS } from "@/app/lib/constants";
 
 export default function ShoppingCartMenu() {
   const { closeModal } = useModalStore();
@@ -15,12 +16,7 @@ export default function ShoppingCartMenu() {
       </div>
       <div className="h-full flex flex-col justify-end">
         <div className="bg-light-gray px-4 py-2">
-          <div className="relative mt-2">
-            <p className="font-bold text-sm absolute bottom-2">
-              Better paired with
-            </p>
-            <ProductCarousel />
-          </div>
+          <ProductCarousel products={STATIC_RECOMMENDATIONS} />
           <div className="mt-4">
             <p>Ready to rock and roll!</p>
             <div className="w-full h-1 rounded-md bg-green-600"></div>
@@ -32,7 +28,7 @@ export default function ShoppingCartMenu() {
           </div>
         </div>
         <div className="p-4">
-          <Button disabled intent={"disabled"}>
+          <Button disabled intent={"disabled"} size={"full"}>
             Go to checkout - $58.50
           </Button>
         </div>

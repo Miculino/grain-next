@@ -47,3 +47,24 @@ export const AVAILABLE_TIMES = [
 
 export const BANNER_URL =
   "https://storage.googleapis.com/spineproduction/uploads/banner/picture/134/picture.jpeg";
+
+export const STATIC_RECOMMENDATIONS = [
+  {
+    product_thumbnail:
+      "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1624/daily_normal_Ondeh_Ondeh_Pandan_Cake-HORZ.jpg",
+    product_name: "Ondeh Ondeh Pandan Cake",
+    product_price: "$6.50",
+  },
+  {
+    product_thumbnail:
+      "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1855/daily_normal_HORZ-four-seasons-oolong.jpg",
+    product_name: "Four Seasons Olong",
+    product_price: "$5.00",
+  },
+  {
+    product_thumbnail:
+      "https://storage.googleapis.com/spineproduction/uploads/alacarte_bundle_template/horizontal_image/1620/daily_normal_Grilled-Forest-Mushroom-Salad-HORZ.jpg",
+    product_name: "Grilled Forest Mushroom Salad",
+    product_price: "$7.00",
+  },
+];

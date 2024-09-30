@@ -69,7 +69,7 @@ export default function ProductDetails({ className }: { className?: string }) {
           </div>
           <div className="w-full absolute bottom-0 left-0 p-4 border-t-[1px] border-t-light-gray bg-white justify-between flex items-center">
             <b>$17.50</b>
-            <Button>Add</Button>
+            <Button className="py-2 px-6">Add</Button>
           </div>
         </div>
       </div>
