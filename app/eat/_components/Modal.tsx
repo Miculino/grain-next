@@ -11,13 +11,14 @@ export default function Modal() {
     return (
       <div
         onClick={() => {
+          console.log("hello world");
           closeModal();
         }}
         className="fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/20 grid items-center w-full h-full"
       >
-        <div onClick={(e) => e.stopPropagation()}>
+        <div onClick={(e) => e.stopPropagation()} className="max-w-fit">
           {modalContentType === "product_details" ? (
-            <ProductDetails className="max-w-[52rem]" />
+            <ProductDetails className="max-w-[52rem] mx-auto" />
           ) : null}
 
           {modalContentType === "address_search" ? <AddressSearch /> : null}
