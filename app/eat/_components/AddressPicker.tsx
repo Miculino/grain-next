@@ -36,7 +36,7 @@ export default function AddressPicker() {
         isDropdownOpen={isDropdownOpen}
       />
       {isDropdownOpen && (
-        <DropdownContainer className="-bottom-6">
+        <DropdownContainer ref={dropdownRef} className="-bottom-6">
           <AddressPickerOption
             setIsDropdownOpen={setIsDropdownOpen}
             type={"delivery"}

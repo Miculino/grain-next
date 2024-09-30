@@ -1,32 +1,34 @@
-import { useState } from "react";
-import Chevron from "../icons/Chevron";
+import { useRef, useState } from "react";
 import Clock from "../icons/Clock";
+import DropdownContainer from "./DropdownContainer";
+import OrderNavigation from "./OrderNavigation";
+import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+
+  const dropdownTriggerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
+  useHandleClickOutside({ dropdownTriggerRef, dropdownRef, setIsDropdownOpen });
+
   return (
     <div>
-      <div
+      <OrderNavigation
+        ref={dropdownTriggerRef}
         onClick={handleClick}
-        className="flex gap-1 items-center font-bold cursor-pointer"
-      >
-        <Clock />
-        <p className="border-b-2 border-black truncate ">
-          Oct 1, Tue at 12:30PM-1:30PM
-        </p>
-        <Chevron
-          className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-        />
-      </div>
+        icon={Clock}
+        text={"Oct 1, Tue at 12:30PM-1:30PM"}
+        isDropdownOpen={isDropdownOpen}
+      />
       {isDropdownOpen && (
-        <div className="bg-white p-5 shadow-md absolute -bottom-0 w-[460px] translate-y-full border-[1px]">
-          Dropdown
-        </div>
+        <DropdownContainer ref={dropdownRef} className="bottom-0">
+          test
+        </DropdownContainer>
       )}
     </div>
   );
