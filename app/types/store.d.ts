@@ -1,4 +1,4 @@
-import { Bundle, Dish } from "./api";
+import { Dish } from "./api";
 
 interface AddressOptions {
   type: "delivery" | "pick_up";

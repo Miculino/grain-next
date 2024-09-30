@@ -1,5 +1,5 @@
 export default function getCurrentWeekDays() {
-  let days = [];
+  const days = [];
 
   const currentDate = new Date();
   // Get today's date

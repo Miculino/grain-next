@@ -2,9 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Container from "./Container";
 import { NAVBAR_ITEMS } from "@/app/lib/constants";
-import Link from "next/link";
 import NavbarItem from "./NavbarItem";
-import StickyNavbar from "./StickyNavbar";
 
 export default function Navbar() {
   return (

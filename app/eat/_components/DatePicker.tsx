@@ -41,13 +41,16 @@ export default function DatePicker() {
           </div>
           <div className="flex justify-between h-[500px]">
             {/* <div> */}
-            <div className="flex flex-col min-w-28 border-r border-r-gray justify-between">
+            <div className="flex flex-col min-w-24 border-r border-r-gray justify-between">
               {currentWeekDays.map((weekDay) => (
-                <div className="flex flex-col h-full justify-center items-center border-b border-b-gray border-l-transparent border-l-2 hover:border-l-primary">
+                <div
+                  key={weekDay.getTime()}
+                  className="flex flex-col h-full justify-center items-center border-b border-b-gray border-l-transparent border-l-2 hover:border-l-primary cursor-pointer"
+                >
                   {formatDate(weekDay)
                     .split(",")
                     .map((day, index) => (
-                      <span className={index === 0 ? "text-xs" : ""}>
+                      <span key={day} className={index === 0 ? "text-xs" : ""}>
                         {day}
                       </span>
                     ))}

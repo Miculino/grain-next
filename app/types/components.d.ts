@@ -1,4 +1,3 @@
-import { VariantProps } from "class-variance-authority";
 import { ComponentType, SetStateAction, SVGProps } from "react";
 
 interface Dish {

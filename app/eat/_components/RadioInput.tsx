@@ -1,6 +1,5 @@
 import useAddressStore from "@/app/store/useAddressStore";
 import clsx from "clsx";
-import { useState } from "react";
 
 export default function RadioInput({
   text,

@@ -7,7 +7,7 @@ import Tag from "./Tag";
 import clsx from "clsx";
 
 export default function ProductDetails({ className }: { className?: string }) {
-  const { isOpen, closeModal, modalContent } = useModalStore();
+  const { modalContent } = useModalStore();
 
   if (modalContent) {
     const {
