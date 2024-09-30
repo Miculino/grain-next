@@ -4,6 +4,7 @@ import Chevron from "../icons/Chevron";
 import { MultiDivider } from "./Divider";
 import AddressPickerOption from "./AddressPickerOption";
 import useAddressStore from "@/app/store/useAddressStore";
+import OrderNavigation from "./OrderNavigation";
 
 export default function AddressPicker() {
   const { selectedAddressType, deliveryAddress, pickUpAddress } =
@@ -17,6 +18,9 @@ export default function AddressPicker() {
   const handleClick = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+
+  const address =
+    selectedAddressType === "delivery" ? deliveryAddress : pickUpAddress;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -38,19 +42,13 @@ export default function AddressPicker() {
 
   return (
     <div className="relative w-[400px]">
-      <div
+      <OrderNavigation
         ref={buttonRef}
         onClick={handleClick}
-        className="flex items-center gap-1 font-bold cursor-pointer max-w-fit"
-      >
-        <LocationPinpoint />
-        <p className="border-b-2 border-black truncate ">
-          {selectedAddressType === "delivery" ? deliveryAddress : pickUpAddress}
-        </p>
-        <Chevron
-          className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-        />
-      </div>
+        icon={LocationPinpoint}
+        text={address}
+        isDropdownOpen={isDropdownOpen}
+      />
       {isDropdownOpen && (
         <div
           ref={dropdownRef}

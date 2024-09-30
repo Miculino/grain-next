@@ -1,5 +1,5 @@
 import { VariantProps } from "class-variance-authority";
-import { SetStateAction } from "react";
+import { ComponentType, SetStateAction, SVGProps } from "react";
 
 interface Dish {
   name: string;
@@ -37,4 +37,11 @@ interface AddressPickerOptionProps {
   type: "pick_up" | "delivery";
   title: string;
   setIsDropdownOpen?: React.Dispatch<SetStateAction<boolean>>;
+}
+
+export interface OrderNavigationProps
+  extends React.HtmlHTMLAttributes<HTMLDivElement> {
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  text: string;
+  isDropdownOpen: boolean;
 }
