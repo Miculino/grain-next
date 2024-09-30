@@ -16,7 +16,9 @@ export default function AddressPickerOption({
     openModal();
     setModalContentType("address_search");
 
-    type === "delivery" && setIsDropdownOpen && setIsDropdownOpen(false);
+    if (type === "delivery" && setIsDropdownOpen) {
+      setIsDropdownOpen(false);
+    }
   };
 
   return (

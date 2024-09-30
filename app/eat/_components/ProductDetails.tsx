@@ -14,7 +14,6 @@ export default function ProductDetails({ className }: { className?: string }) {
       served,
       name,
       overview,
-      price,
       tags,
       details: { story, all_ingredients, nutritional_info, full_thumbnail },
     } = modalContent as unknown as Dish;

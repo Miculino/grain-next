@@ -69,7 +69,7 @@ export default function DatePicker() {
                   </span>
                   <div className="flex flex-col gap-2">
                     {AVAILABLE_LUNCH_TIMES.map((time) => (
-                      <Button size={"full"} intent={"outline"}>
+                      <Button key={time} size={"full"} intent={"outline"}>
                         {time}
                       </Button>
                     ))}
@@ -81,7 +81,7 @@ export default function DatePicker() {
                   </span>
                   <div className="flex flex-col gap-2">
                     {AVAILABLE_DINNER_TIMES.map((time) => (
-                      <Button size={"full"} intent={"outline"}>
+                      <Button key={time} size={"full"} intent={"outline"}>
                         {time}
                       </Button>
                     ))}
