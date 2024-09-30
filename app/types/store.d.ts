@@ -30,3 +30,7 @@ interface AddressState {
   setDeliveryAddress: (deliveryAddress: string) => void;
   setPickUpAddress: (pickUpAddress: string) => void;
 }
+
+interface DateState {
+  date: string;
+}

@@ -10,15 +10,28 @@ import {
 import Button from "./Button";
 import getCurrentWeekDays from "@/app/utils/getCurrentWeekDays";
 import formatDate from "@/app/utils/formatDate";
+import clsx from "clsx";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [orderDate, setOrderDate] = useState<string>("");
 
   const dropdownTriggerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const hoverLineRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleSelectDate = (date: string) => {
+    setOrderDate(date);
+  };
+
+  const handleMouseEnter = (elementIndex: number) => {
+    if (hoverLineRef.current) {
+      hoverLineRef.current.style.top = `${62.28 * elementIndex}px`;
+    }
   };
 
   useHandleClickOutside({ dropdownTriggerRef, dropdownRef, setIsDropdownOpen });
@@ -39,13 +52,23 @@ export default function DatePicker() {
           <div className="font-bold border-b border-b-gray p-4">
             <p className="text-base text-center">Select date and time slot</p>
           </div>
-          <div className="flex justify-between h-[500px]">
-            {/* <div> */}
-            <div className="flex flex-col min-w-24 border-r border-r-gray justify-between">
-              {currentWeekDays.map((weekDay) => (
+          <div className="flex justify-between">
+            <div className="flex flex-col min-w-24 border-r border-r-gray justify-between relative">
+              <div
+                ref={hoverLineRef}
+                className="bg-primary h-[62px] w-1 absolute left-0 top-0 transition-all duration-300 ease-in-out"
+              ></div>
+              {currentWeekDays.map((weekDay, index) => (
                 <div
                   key={weekDay.getTime()}
-                  className="flex flex-col h-full justify-center items-center border-b border-b-gray border-l-transparent border-l-2 hover:border-l-primary cursor-pointer"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onClick={() => handleSelectDate(formatDate(weekDay))}
+                  className={clsx(
+                    "flex flex-col h-full justify-center items-center border-b border-b-gray hover:border-l-primary cursor-pointer",
+                    orderDate === formatDate(weekDay)
+                      ? "border-l-primary border-l-4"
+                      : ""
+                  )}
                 >
                   {formatDate(weekDay)
                     .split(",")
@@ -57,7 +80,6 @@ export default function DatePicker() {
                 </div>
               ))}
             </div>
-            {/* </div> */}
             <div className="p-8  w-full">
               <p className="text-center text-sm mb-6">
                 Order 15 minutes before any time slot
