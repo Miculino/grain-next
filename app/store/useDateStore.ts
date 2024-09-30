@@ -1,7 +1,8 @@
-import { createStore } from "zustand";
+import { create } from "zustand";
 import { DateState } from "../types/store";
 
-const useDateStore = createStore<DateState>((set) => ({
+const useDateStore = create<DateState>((set) => ({
+  setDate: (date) => set({ date }),
   date: "",
 }));
 

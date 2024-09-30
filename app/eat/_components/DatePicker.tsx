@@ -1,36 +1,49 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Clock from "../icons/Clock";
 import DropdownContainer from "./DropdownContainer";
 import OrderNavigation from "./OrderNavigation";
 import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
-import {
-  AVAILABLE_DINNER_TIMES,
-  AVAILABLE_LUNCH_TIMES,
-} from "@/app/lib/constants";
+import { AVAILABLE_TIMES } from "@/app/lib/constants";
 import Button from "./Button";
 import getCurrentWeekDays from "@/app/utils/getCurrentWeekDays";
 import formatDate from "@/app/utils/formatDate";
 import clsx from "clsx";
+import useDateStore from "@/app/store/useDateStore";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [orderDate, setOrderDate] = useState<string>("");
+  const [orderTime, setOrderTime] = useState<string>("");
 
   const dropdownTriggerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const hoverLineRef = useRef<HTMLDivElement>(null);
 
+  const { setDate, date } = useDateStore();
+
   const handleClick = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const handleSelectDate = (date: string) => {
+  const handleSelectOrderDate = (date: string) => {
     setOrderDate(date);
+  };
+
+  const handleSelectOrderTime = (time: string) => {
+    setOrderTime(time);
   };
 
   const handleMouseEnter = (elementIndex: number) => {
     if (hoverLineRef.current) {
+      hoverLineRef.current.style.opacity = "100%";
       hoverLineRef.current.style.top = `${62.28 * elementIndex}px`;
+    }
+  };
+
+  const handlemouseLeave = (elementIndex: number) => {
+    if (hoverLineRef.current) {
+      hoverLineRef.current.style.top = `${62.28 * elementIndex}px`;
+      hoverLineRef.current.style.opacity = "0%";
     }
   };
 
@@ -38,13 +51,19 @@ export default function DatePicker() {
 
   const currentWeekDays = getCurrentWeekDays();
 
+  useEffect(() => {
+    if (orderTime && orderDate) {
+      setDate(`${orderDate} at ${orderTime}`);
+    }
+  }, [orderTime, orderDate]);
+
   return (
     <div>
       <OrderNavigation
         ref={dropdownTriggerRef}
         onClick={handleClick}
         icon={Clock}
-        text={"Oct 1, Tue at 12:30PM-1:30PM"}
+        text={date ?? "Oct 1, Tue at 12:30PM-1:30PM"}
         isDropdownOpen={isDropdownOpen}
       />
       {isDropdownOpen && (
@@ -62,7 +81,8 @@ export default function DatePicker() {
                 <div
                   key={weekDay.getTime()}
                   onMouseEnter={() => handleMouseEnter(index)}
-                  onClick={() => handleSelectDate(formatDate(weekDay))}
+                  onMouseLeave={() => handlemouseLeave(index)}
+                  onClick={() => handleSelectOrderDate(formatDate(weekDay))}
                   className={clsx(
                     "flex flex-col h-full justify-center items-center border-b border-b-gray hover:border-l-primary cursor-pointer",
                     orderDate === formatDate(weekDay)
@@ -85,30 +105,27 @@ export default function DatePicker() {
                 Order 15 minutes before any time slot
               </p>
               <div className="flex flex-col gap-8">
-                <div>
-                  <span className="inline-block mx-auto font-bold text-sm text-center mb-2 w-full">
-                    Lunch
-                  </span>
-                  <div className="flex flex-col gap-2">
-                    {AVAILABLE_LUNCH_TIMES.map((time) => (
-                      <Button key={time} size={"full"} intent={"outline"}>
-                        {time}
-                      </Button>
-                    ))}
+                {AVAILABLE_TIMES.map(({ time_of_day, intervals }) => (
+                  <div>
+                    <span className="inline-block mx-auto font-bold text-sm text-center mb-2 w-full">
+                      {time_of_day}
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      {intervals.map((interval) => (
+                        <Button
+                          onClick={() => handleSelectOrderTime(interval)}
+                          key={interval}
+                          size={"full"}
+                          intent={
+                            orderTime === interval ? "primary" : "outline"
+                          }
+                        >
+                          {interval}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <span className="inline-block mx-auto font-bold text-sm text-center mb-2 w-full">
-                    Dinner
-                  </span>
-                  <div className="flex flex-col gap-2">
-                    {AVAILABLE_DINNER_TIMES.map((time) => (
-                      <Button key={time} size={"full"} intent={"outline"}>
-                        {time}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

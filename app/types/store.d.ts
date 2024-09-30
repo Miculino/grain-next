@@ -32,5 +32,6 @@ interface AddressState {
 }
 
 interface DateState {
+  setDate: (date: string) => void;
   date: string;
 }
