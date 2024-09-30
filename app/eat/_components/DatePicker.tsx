@@ -27,7 +27,9 @@ export default function DatePicker() {
       />
       {isDropdownOpen && (
         <DropdownContainer ref={dropdownRef} className="bottom-0">
-          test
+          <div className="font-bold border-b border-b-gray p-4">
+            <p className="text-base text-center">Select date and time slot</p>
+          </div>
         </DropdownContainer>
       )}
     </div>

@@ -11,7 +11,7 @@ function DropdownContainer(
       {...props}
       ref={ref}
       className={clsx(
-        "bg-white p-5 shadow-md absolute w-[460px] translate-y-full border-[1px]",
+        "bg-white shadow-md absolute w-[460px] translate-y-full border border-gray",
         className
       )}
     >
