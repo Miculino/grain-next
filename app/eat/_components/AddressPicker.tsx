@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import LocationPinpoint from "../icons/LocationPinpoint";
-import Chevron from "../icons/Chevron";
 import { MultiDivider } from "./Divider";
 import AddressPickerOption from "./AddressPickerOption";
 import useAddressStore from "@/app/store/useAddressStore";
 import OrderNavigation from "./OrderNavigation";
+import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
 
 export default function AddressPicker() {
   const { selectedAddressType, deliveryAddress, pickUpAddress } =
@@ -12,7 +12,7 @@ export default function AddressPicker() {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const dropdownTriggerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
@@ -22,28 +22,13 @@ export default function AddressPicker() {
   const address =
     selectedAddressType === "delivery" ? deliveryAddress : pickUpAddress;
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node) &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // Hooks
+  useHandleClickOutside({ dropdownTriggerRef, dropdownRef, setIsDropdownOpen });
 
   return (
     <div className="relative w-[400px]">
       <OrderNavigation
-        ref={buttonRef}
+        ref={dropdownTriggerRef}
         onClick={handleClick}
         icon={LocationPinpoint}
         text={address}
