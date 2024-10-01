@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { SetStateAction, useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
@@ -19,7 +19,7 @@ export default function ProductCard({
   const [itemsToOrder, setItemsToOrder] = useState<number>(0);
 
   const { openModal, setModalContent, setModalContentType } = useModalStore();
-  const { addProduct, increaseProductQuantity } = useShoppingCart();
+  const { addProduct, updateProductQuantity } = useShoppingCart();
 
   const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -35,8 +35,19 @@ export default function ProductCard({
   const handleIncreaseProductQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
     setItemsToOrder((quantity) => quantity + 1);
-    increaseProductQuantity(product.name as string);
+    // updateProductQuantity(product.name as string, "increase");
   };
+
+  const handleDecreaseProductQuantity = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setItemsToOrder((quantity) => quantity - 1);
+    // updateProductQuantity(product.name as string, "decrease");
+  };
+
+  useEffect(() => {
+    updateProductQuantity(product.name as string, itemsToOrder);
+    console.log(itemsToOrder);
+  }, [itemsToOrder]);
 
   return (
     <div
@@ -87,6 +98,7 @@ export default function ProductCard({
           {itemsToOrder >= 1 ? (
             <QuantityControl
               handleIncreaseProductQuantity={handleIncreaseProductQuantity}
+              handleDecreaseProductQuantity={handleDecreaseProductQuantity}
               quantity={itemsToOrder}
               setQuantity={setItemsToOrder}
             />
@@ -103,22 +115,18 @@ export default function ProductCard({
 
 function QuantityControl({
   quantity,
-  setQuantity,
   handleIncreaseProductQuantity,
+  handleDecreaseProductQuantity,
 }: {
   quantity: number;
   setQuantity: React.Dispatch<SetStateAction<number>>;
   handleIncreaseProductQuantity: (event: React.MouseEvent) => void;
+  handleDecreaseProductQuantity: (event: React.MouseEvent) => void;
 }) {
-  const handleDecreaseQuantity = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setQuantity((prev) => prev - 1);
-  };
-
   return (
     <div className="flex items-center gap-2">
       <Button
-        onClick={handleDecreaseQuantity}
+        onClick={handleDecreaseProductQuantity}
         intent={"outline"}
         className="py-2 px-4"
       >
