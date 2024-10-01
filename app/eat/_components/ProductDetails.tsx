@@ -11,9 +11,12 @@ import clsx from "clsx";
 
 // Types
 import { Dish } from "@/app/types/components";
+import useShoppingCart from "@/app/store/useShoppingCart";
+import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 
 export default function ProductDetails({ className }: { className?: string }) {
   const { modalContent } = useModalStore();
+  const { addProduct } = useShoppingCart();
 
   if (modalContent) {
     const {
@@ -21,6 +24,7 @@ export default function ProductDetails({ className }: { className?: string }) {
       name,
       overview,
       tags,
+      price,
       details: { story, all_ingredients, nutritional_info, full_thumbnail },
     } = modalContent as unknown as Dish;
 
@@ -74,8 +78,10 @@ export default function ProductDetails({ className }: { className?: string }) {
             </ProductInfo>
           </div>
           <div className="w-full absolute bottom-0 left-0 p-4 border-t-[1px] border-t-light-gray bg-white justify-between flex items-center">
-            <b>$17.50</b>
-            <Button className="py-2 px-6">Add</Button>
+            <ProductPriceAndQuantity
+              targetProductName={name}
+              targetProductPrice={price}
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 // Components
 import Tag from "./Tag";
-import Button from "./Button";
 
 // Next
 import Image from "next/image";
@@ -14,6 +13,7 @@ import clsx from "clsx";
 
 // Types
 import { Bundle, Dish } from "@/app/types/api";
+import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 
 export default function ProductCard({
   product,
@@ -25,31 +25,11 @@ export default function ProductCard({
   type: "dish" | "bundle";
 }) {
   const { openModal, setModalContent, setModalContentType } = useModalStore();
-  const { addProduct, updateProductQuantity, shoppingCart } = useShoppingCart();
+  const { shoppingCart } = useShoppingCart();
 
   const currentProduct = shoppingCart.find(
     (shoppingCartProduct) => shoppingCartProduct.name === product.name
   );
-
-  const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    addProduct({
-      name: product.name as string,
-      price: product.price as number,
-      quantity: 1,
-      total_price: product.price as number,
-    });
-  };
-
-  const handleIncreaseProductQuantity = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    updateProductQuantity(product.name as string, 1);
-  };
-
-  const handleDecreaseProductQuantity = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    updateProductQuantity(product.name as string, -1);
-  };
 
   return (
     <div
@@ -97,47 +77,11 @@ export default function ProductCard({
             : null}
         </div>
 
-        <div className="justify-between flex items-center mt-auto">
-          <b>${product.price && product.price.toFixed(2)}</b>
-          {currentProduct?.quantity >= 1 ? (
-            <QuantityControl
-              handleIncreaseProductQuantity={handleIncreaseProductQuantity}
-              handleDecreaseProductQuantity={handleDecreaseProductQuantity}
-              quantity={currentProduct.quantity}
-            />
-          ) : (
-            <Button onClick={handleAddItemToShoppingCart} className="px-6 py-2">
-              Add
-            </Button>
-          )}
-        </div>
+        <ProductPriceAndQuantity
+          targetProductName={product.name ?? "Missing name"}
+          targetProductPrice={product.price ?? 0}
+        />
       </div>
-    </div>
-  );
-}
-
-function QuantityControl({
-  quantity,
-  handleIncreaseProductQuantity,
-  handleDecreaseProductQuantity,
-}: {
-  quantity: number;
-  handleIncreaseProductQuantity: (event: React.MouseEvent) => void;
-  handleDecreaseProductQuantity: (event: React.MouseEvent) => void;
-}) {
-  return (
-    <div className="flex items-center gap-2">
-      <Button
-        onClick={handleDecreaseProductQuantity}
-        intent={"outline"}
-        className="py-2 px-4"
-      >
-        -
-      </Button>
-      <span className="w-8 text-center">{quantity}</span>
-      <Button onClick={handleIncreaseProductQuantity} className="py-2 px-4">
-        +
-      </Button>
     </div>
   );
 }
