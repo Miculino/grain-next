@@ -16,7 +16,12 @@ export default function BundleProduct({ product }: { product: Dish }) {
         height={100}
       />
       <div className="p-4">
-        <span className="font-bold text-sm">{product.name}</span>
+        <div className="flex flex-col items-start text-left">
+          <span className="font-bold text-sm">{product.name}</span>
+          <p className="text-xs text-dark-gray">
+            {product.tags.join(", ").toLowerCase()}
+          </p>
+        </div>
       </div>
     </div>
   );

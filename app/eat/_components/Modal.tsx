@@ -12,6 +12,7 @@ import useModalStore from "@/app/store/useModalStore";
 // CLSX
 import clsx from "clsx";
 import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
+import { useEffect } from "react";
 
 export default function Modal({
   menuCategories,
@@ -23,6 +24,14 @@ export default function Modal({
   const handleCloseModal = () => {
     closeModal();
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   if (isOpen) {
     return (
