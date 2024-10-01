@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
@@ -15,7 +15,14 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
+  const [itemsToOrder, setItemsToOrder] = useState<number>(0);
+
   const { openModal, setModalContent, setModalContentType } = useModalStore();
+
+  const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setItemsToOrder((prev) => prev + 1);
+  };
 
   return (
     <div
@@ -31,7 +38,8 @@ export default function ProductCard({
         className
       )}
     >
-      <div className="flex-1">
+      <div className="flex-1 relative">
+        {Boolean(itemsToOrder) && <ItemAddedOverlay quantity={itemsToOrder} />}
         <Image
           className="w-full"
           src={
@@ -62,9 +70,21 @@ export default function ProductCard({
 
         <div className="justify-between flex items-center mt-auto">
           <b>${product.price && product.price.toFixed(2)}</b>
-          <Button className="px-6 py-2">Add</Button>
+          <Button onClick={handleAddItemToShoppingCart} className="px-6 py-2">
+            Add
+          </Button>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ItemAddedOverlay({ quantity }: { quantity: number }) {
+  return (
+    <div className="absolute top-0 left-0 w-full h-full bg-[#fecc07b3] grid place-content-center font-bold">
+      <p>
+        {quantity} item{quantity > 1 ? "s" : ""} added to cart
+      </p>
     </div>
   );
 }
