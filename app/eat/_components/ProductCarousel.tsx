@@ -5,7 +5,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import Button from "./Button";
 import Image from "next/image";
-import { act, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper as SwiperType } from "swiper/types";
 import clsx from "clsx";
 
@@ -28,9 +28,9 @@ export default function ProductCarousel({
   };
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 px-4 py-3 pb-4">
       <div className="flex gap-4 mb-2">
-        <span className="font-bold text-base">Better paired with</span>
+        <span className="font-bold text-sm">Better paired with</span>
         <CarouselPagination activeSlideIndex={activeSlideIndex} />
       </div>
 
@@ -59,7 +59,7 @@ export default function ProductCarousel({
               />
               <div className="w-full p-2 flex flex-col gap-4">
                 <p className="font-bold text-xs">{product_name}</p>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-1">
                   <span className="font-bold text-xs">{product_price}</span>
                   <Button intent={"primary"} className="py-1 px-2">
                     Add
@@ -80,11 +80,11 @@ function CarouselPagination({
   activeSlideIndex: number;
 }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 ml-4">
       {[...Array(3)].map((_, index) => (
         <div
           className={clsx(
-            "w-2 h-2 rounded-full transition-all duration-100",
+            "w-[6px] h-[6px] rounded-full transition-all duration-100",
             activeSlideIndex === index ? "bg-black" : "bg-gray"
           )}
         ></div>
