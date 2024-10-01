@@ -5,41 +5,45 @@ import Autocomplete from "react-google-autocomplete";
 import Button from "./Button";
 
 export default function OrderFulfillmentOptions() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const [isSearchEnabled, setIsSearchEnabled] = useState<boolean>(false);
-  const [selectedPlace, setSelectedPlace] = useState<string>("");
+  const [dropdownState, setDropdownState] = useState({
+    isOpen: false,
+    isSearchEnabled: false,
+  });
   const [selectedAddressType, setSelectedAddressType] = useState<string>("");
-
   const { deliveryAddress, setDeliveryAddress } = useAddressStore();
 
   const handleDropdownToggle = () => {
-    setIsDropdownOpen((prev) => !prev);
-    setIsSearchEnabled(false); // Reset search state when toggling the dropdown
+    setDropdownState((prev) => ({
+      ...prev,
+      isOpen: !prev.isOpen,
+      isSearchEnabled: false,
+    }));
   };
 
   const handleToggleSearch = (event: React.MouseEvent) => {
     event.stopPropagation();
-    setIsSearchEnabled((prev) => !prev);
+    setDropdownState((prev) => ({
+      ...prev,
+      isSearchEnabled: !prev.isSearchEnabled,
+    }));
   };
 
   const handlePlaceSelected = (place: { formatted_address: string }) => {
     if (place) {
-      setSelectedPlace(place.formatted_address);
+      setDeliveryAddress(place.formatted_address);
     }
   };
 
   const handleAddDeliveryAddress = (event: React.MouseEvent) => {
     event.stopPropagation();
-    if (selectedPlace) {
-      // Set the selected address type based on the dropdown state
-      setDeliveryAddress(selectedPlace);
-      setIsSearchEnabled(false);
-      setIsDropdownOpen(false);
-      // Toggle the address type based on previous selection
-      setSelectedAddressType((prev) =>
-        prev === "pick_up" ? "delivery" : "pick_up"
-      );
-    }
+    setSelectedAddressType(
+      selectedAddressType === "pick_up" ? "delivery" : "pick_up"
+    );
+    setDropdownState({
+      ...dropdownState,
+      isSearchEnabled: false,
+      isOpen: false,
+    });
   };
 
   return (
@@ -63,31 +67,28 @@ export default function OrderFulfillmentOptions() {
               : "Pick up for free at the nearest Food Point"
           }
           small
-          isDropdownOpen={isDropdownOpen}
+          isDropdownOpen={dropdownState.isOpen}
         />
-        {isDropdownOpen && (
+        {dropdownState.isOpen && (
           <div className="shadow-sm">
-            {/* Show Delivery Address when Pickup is selected */}
             {selectedAddressType === "pick_up" && deliveryAddress && (
               <div className="bg-white border-b border-b-gray p-2 cursor-pointer hover:font-bold hover:bg-[#f7f7f7]">
                 <p className="text-xs">{deliveryAddress}</p>
               </div>
             )}
-
-            {/* Search for new address */}
             <div
               onClick={handleToggleSearch}
               className="bg-white p-2 cursor-pointer"
             >
-              {!isSearchEnabled ? (
+              {!dropdownState.isSearchEnabled ? (
                 <p className="text-xs underline">Add new address</p>
               ) : (
                 <div onClick={(e) => e.stopPropagation()}>
                   <Autocomplete
                     apiKey="AIzaSyDz9wEqFecagZ1tGabdzQzLUEE7JHdbMSs"
                     options={{
-                      componentRestrictions: { country: "SG" }, // Restrict to Singapore
-                      types: ["address"], // Specify types to get address locations
+                      componentRestrictions: { country: "SG" },
+                      types: ["address"],
                     }}
                     placeholder="Please enter three or more characters"
                     onPlaceSelected={handlePlaceSelected}
@@ -95,12 +96,12 @@ export default function OrderFulfillmentOptions() {
                       width: "100%",
                       padding: "8px 8px",
                       border: "1px solid #bfbfbf",
-                    }} // Optional: Style for better UX
+                    }}
                   />
                   <Button
                     onClick={handleAddDeliveryAddress}
-                    disabled={!selectedPlace}
-                    intent={selectedPlace ? "primary" : "disabled"}
+                    disabled={!deliveryAddress}
+                    intent={deliveryAddress ? "primary" : "disabled"}
                     className="py-2"
                     size={"full"}
                   >
@@ -109,8 +110,6 @@ export default function OrderFulfillmentOptions() {
                 </div>
               )}
             </div>
-
-            {/* Show Pick Up Point when Delivery is selected */}
             {selectedAddressType === "delivery" && (
               <div className="bg-white p-2">
                 <p className="text-xs">Pick up point</p>
