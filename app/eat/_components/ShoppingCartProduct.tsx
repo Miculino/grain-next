@@ -13,7 +13,6 @@ export default function ShoppingCartProduct({
           {quantity} x ${name}
         </p>
       </div>
-
       <span>${total_price.toFixed(2)}</span>
     </div>
   );

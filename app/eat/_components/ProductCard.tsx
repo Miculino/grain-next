@@ -19,7 +19,7 @@ export default function ProductCard({
   const [itemsToOrder, setItemsToOrder] = useState<number>(0);
 
   const { openModal, setModalContent, setModalContentType } = useModalStore();
-  const { addProduct } = useShoppingCart();
+  const { addProduct, increaseProductQuantity } = useShoppingCart();
 
   const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -30,6 +30,12 @@ export default function ProductCard({
       quantity: 1,
       total_price: product.price as number,
     });
+  };
+
+  const handleIncreaseProductQuantity = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setItemsToOrder((quantity) => quantity + 1);
+    increaseProductQuantity(product.name as string);
   };
 
   return (
@@ -80,6 +86,7 @@ export default function ProductCard({
           <b>${product.price && product.price.toFixed(2)}</b>
           {itemsToOrder >= 1 ? (
             <QuantityControl
+              handleIncreaseProductQuantity={handleIncreaseProductQuantity}
               quantity={itemsToOrder}
               setQuantity={setItemsToOrder}
             />
@@ -97,18 +104,15 @@ export default function ProductCard({
 function QuantityControl({
   quantity,
   setQuantity,
+  handleIncreaseProductQuantity,
 }: {
   quantity: number;
   setQuantity: React.Dispatch<SetStateAction<number>>;
+  handleIncreaseProductQuantity: (event: React.MouseEvent) => void;
 }) {
   const handleDecreaseQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
     setQuantity((prev) => prev - 1);
-  };
-
-  const handleIncreaseQuantity = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setQuantity((prev) => prev + 1);
   };
 
   return (
@@ -121,7 +125,7 @@ function QuantityControl({
         -
       </Button>
       <span className="w-8 text-center">{quantity}</span>
-      <Button onClick={handleIncreaseQuantity} className="py-2 px-4">
+      <Button onClick={handleIncreaseProductQuantity} className="py-2 px-4">
         +
       </Button>
     </div>
