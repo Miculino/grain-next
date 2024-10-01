@@ -5,6 +5,7 @@ import Button from "./Button";
 import clsx from "clsx";
 import useModalStore from "@/app/store/useModalStore";
 import { Bundle, Dish } from "@/app/types/api";
+import useShoppingCart from "@/app/store/useShoppingCart.store";
 
 export default function ProductCard({
   product,
@@ -18,10 +19,17 @@ export default function ProductCard({
   const [itemsToOrder, setItemsToOrder] = useState<number>(0);
 
   const { openModal, setModalContent, setModalContentType } = useModalStore();
+  const { addProduct } = useShoppingCart();
 
   const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     setItemsToOrder((prev) => prev + 1);
+    addProduct({
+      name: product.name as string,
+      price: product.price as number,
+      quantity: 1,
+      total_price: product.price as number,
+    });
   };
 
   return (

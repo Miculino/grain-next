@@ -4,9 +4,14 @@ import ShoppingCart from "../icons/ShoppingCart";
 import AddressPicker from "./AddressPicker";
 import DatePicker from "./DatePicker";
 import useModalStore from "@/app/store/useModalStore";
+import useShoppingCart from "@/app/store/useShoppingCart.store";
+import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
 
 export default function StickyNavbar() {
   const { openModal, setModalContentType } = useModalStore();
+  const { shoppingCart } = useShoppingCart();
+
+  const totalShoppingCartPrice = calculateTotalShoppingCartPrice(shoppingCart);
 
   return (
     <div className="sticky top-0 bg-white py-4 z-10">
@@ -24,7 +29,7 @@ export default function StickyNavbar() {
           className="px-6 py-2"
         >
           <ShoppingCart />
-          <span>$0.00</span>
+          <span>${totalShoppingCartPrice.toFixed(2)}</span>
         </Button>
       </Container>
     </div>

@@ -7,10 +7,13 @@ import { STATIC_RECOMMENDATIONS } from "@/app/lib/constants";
 import OrderFulfillmentOptions from "./OrderFulfillmentOptions";
 import useShoppingCart from "@/app/store/useShoppingCart.store";
 import Image from "next/image";
+import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
 
 export default function ShoppingCartMenu() {
   const { closeModal } = useModalStore();
   const { shoppingCart } = useShoppingCart();
+
+  const totalShoppingCartPrice = calculateTotalShoppingCartPrice(shoppingCart);
 
   return (
     <div className="h-screen bg-white flex flex-col max-w-[370px]">
@@ -35,7 +38,7 @@ export default function ShoppingCartMenu() {
           </div>
           <div className="p-4">
             <Button disabled intent={"disabled"} size={"full"}>
-              Go to checkout - $58.50
+              Go to checkout - ${totalShoppingCartPrice.toFixed(2)}
             </Button>
           </div>
         </div>
@@ -43,7 +46,7 @@ export default function ShoppingCartMenu() {
       {shoppingCart.length === 0 ? (
         <div className="p-4">
           <Button className="py-2" size={"full"}>
-            Go to checkout - $0.00
+            Go to checkout - ${totalShoppingCartPrice.toFixed(2)}
           </Button>
         </div>
       ) : null}
