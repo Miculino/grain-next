@@ -4,6 +4,7 @@ import Button from "./Button";
 import useModalStore from "@/app/store/useModalStore";
 import ProductCarousel from "./ProductCarousel";
 import { STATIC_RECOMMENDATIONS } from "@/app/lib/constants";
+import OrderFulfillmentOptions from "./OrderFulfillmentOptions";
 
 export default function ShoppingCartMenu() {
   const { closeModal } = useModalStore();
@@ -17,17 +18,7 @@ export default function ShoppingCartMenu() {
       <div className="h-full flex flex-col justify-end">
         <div className="bg-[#ececec]">
           <ProductCarousel products={STATIC_RECOMMENDATIONS} />
-          <div className="bg-[#EAE6E1] px-4 py-4">
-            <div>
-              <p className="mb-1 text-sm">Ready to rock and roll!</p>
-              <div className="w-full h-1 rounded-md bg-green-600"></div>
-              <div className="flex items-center justify-between mt-2">
-                <p className="text-sm">Pick up from Food Point</p>
-                <span className="text-sm">FREE</span>
-              </div>
-              <p>Or get door-to-door delivery</p>
-            </div>
-          </div>
+          <OrderFulfillmentOptions />
         </div>
         <div className="p-4">
           <Button disabled intent={"disabled"} size={"full"}>
