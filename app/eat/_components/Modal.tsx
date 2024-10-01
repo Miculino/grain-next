@@ -9,13 +9,14 @@ import clsx from "clsx";
 export default function Modal() {
   const { isOpen, closeModal, modalContentType } = useModalStore();
 
+  const handleCloseModal = () => {
+    closeModal();
+  };
+
   if (isOpen) {
     return (
       <div
-        onClick={() => {
-          console.log("hello world");
-          closeModal();
-        }}
+        onClick={handleCloseModal}
         className="fixed z-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/20 grid items-center w-full h-full"
       >
         <div

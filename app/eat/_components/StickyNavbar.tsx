@@ -14,7 +14,7 @@ export default function StickyNavbar() {
   const totalShoppingCartPrice = calculateTotalShoppingCartPrice(shoppingCart);
 
   return (
-    <div className="sticky top-0 bg-white py-4 z-10">
+    <div className="sticky top-0 bg-white py-4 z-10 shadow-sm">
       <Container className="justify-between items-center">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <AddressPicker />

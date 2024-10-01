@@ -5,7 +5,7 @@ export default function calculateTotalShoppingCartPrice(
 ) {
   return shoppingCart.length > 0
     ? shoppingCart
-        .map((product) => product.total_price)
+        .map((product) => product.price * product.quantity)
         .reduce(
           (prevProductTotalPrice, currProductTotalPrice) =>
             prevProductTotalPrice + currProductTotalPrice

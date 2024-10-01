@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { SetStateAction, useEffect, useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
@@ -16,14 +16,15 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
-  const [itemsToOrder, setItemsToOrder] = useState<number>(0);
-
   const { openModal, setModalContent, setModalContentType } = useModalStore();
-  const { addProduct, updateProductQuantity } = useShoppingCart();
+  const { addProduct, updateProductQuantity, shoppingCart } = useShoppingCart();
+
+  const currentProduct = shoppingCart.find(
+    (shoppingCartProduct) => shoppingCartProduct.name === product.name
+  );
 
   const handleAddItemToShoppingCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setItemsToOrder((prev) => prev + 1);
     addProduct({
       name: product.name as string,
       price: product.price as number,
@@ -34,17 +35,13 @@ export default function ProductCard({
 
   const handleIncreaseProductQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setItemsToOrder((quantity) => quantity + 1);
+    updateProductQuantity(product.name as string, 1);
   };
 
   const handleDecreaseProductQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setItemsToOrder((quantity) => quantity - 1);
+    updateProductQuantity(product.name as string, -1);
   };
-
-  useEffect(() => {
-    updateProductQuantity(product.name as string, itemsToOrder);
-  }, [itemsToOrder]);
 
   return (
     <div
@@ -61,7 +58,9 @@ export default function ProductCard({
       )}
     >
       <div className="flex-1 relative">
-        {Boolean(itemsToOrder) && <ItemAddedOverlay quantity={itemsToOrder} />}
+        {currentProduct && Boolean(currentProduct.quantity) && (
+          <ItemAddedOverlay quantity={currentProduct.quantity} />
+        )}
         <Image
           className="w-full"
           src={
@@ -92,12 +91,11 @@ export default function ProductCard({
 
         <div className="justify-between flex items-center mt-auto">
           <b>${product.price && product.price.toFixed(2)}</b>
-          {itemsToOrder >= 1 ? (
+          {currentProduct?.quantity >= 1 ? (
             <QuantityControl
               handleIncreaseProductQuantity={handleIncreaseProductQuantity}
               handleDecreaseProductQuantity={handleDecreaseProductQuantity}
-              quantity={itemsToOrder}
-              setQuantity={setItemsToOrder}
+              quantity={currentProduct.quantity}
             />
           ) : (
             <Button onClick={handleAddItemToShoppingCart} className="px-6 py-2">
@@ -116,7 +114,6 @@ function QuantityControl({
   handleDecreaseProductQuantity,
 }: {
   quantity: number;
-  setQuantity: React.Dispatch<SetStateAction<number>>;
   handleIncreaseProductQuantity: (event: React.MouseEvent) => void;
   handleDecreaseProductQuantity: (event: React.MouseEvent) => void;
 }) {

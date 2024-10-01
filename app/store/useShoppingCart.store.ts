@@ -13,19 +13,21 @@ const useShoppingCart = create<ShoppingCartState>((set) => ({
         ),
       ],
     })),
-  updateProductQuantity: (targetProductName, quantity) =>
+  updateProductQuantity: (targetProductName, updatedQuantity) =>
     set((state) => ({
       shoppingCart: [
         ...state.shoppingCart.map((product) =>
           targetProductName === product.name
             ? {
                 ...product,
-                quantity,
-                total_price: product.price * quantity,
+                quantity:
+                  product.quantity !== 0
+                    ? product.quantity + updatedQuantity
+                    : 0,
               }
             : product
         ),
-      ],
+      ].filter((product) => product.quantity !== 0),
     })),
 }));
 
