@@ -1,4 +1,4 @@
-import useShoppingCart from "@/app/store/useShoppingCart.store";
+import useShoppingCart from "@/app/store/useShoppingCart";
 import { ShoppingCartProductProps } from "@/app/types/components";
 import { Trash2 } from "lucide-react";
 

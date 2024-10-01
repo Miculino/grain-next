@@ -1,7 +1,14 @@
-import { OrderNavigationProps } from "@/app/types/components";
-import React, { forwardRef } from "react";
-import Chevron from "../icons/Chevron";
+// Core React
+import { forwardRef } from "react";
+
+// CLSX
 import clsx from "clsx";
+
+// Icons
+import Chevron from "../icons/Chevron";
+
+// Types
+import { OrderNavigationProps } from "@/app/types/components";
 
 function OrderNavigation(
   {

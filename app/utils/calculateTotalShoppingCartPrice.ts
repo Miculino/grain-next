@@ -1,3 +1,4 @@
+// Types
 import { ShoppingCartProductProps } from "../types/components";
 
 export default function calculateTotalShoppingCartPrice(

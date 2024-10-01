@@ -1,4 +1,7 @@
+// Zustand
 import { create } from "zustand";
+
+// Types
 import { ShoppingCartState } from "../types/store";
 
 const useShoppingCart = create<ShoppingCartState>((set) => ({

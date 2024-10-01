@@ -1,4 +1,7 @@
+// Zustand Stores
 import useCategoryStore from "@/app/store/useCategoryStore";
+
+// CLSX
 import clsx from "clsx";
 
 export default function SidebarItem({ item }: { item: string }) {

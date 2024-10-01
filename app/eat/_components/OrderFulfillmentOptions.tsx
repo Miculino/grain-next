@@ -1,8 +1,17 @@
+// Core React
 import { useState } from "react";
+
+// Components
 import OrderNavigation from "./OrderNavigation";
-import useAddressStore from "@/app/store/useAddressStore";
-import Autocomplete from "react-google-autocomplete";
 import Button from "./Button";
+
+// Zustand Stores
+import useAddressStore from "@/app/store/useAddressStore";
+
+// React Google Autocomplete
+import Autocomplete from "react-google-autocomplete";
+
+// Constants
 import { DEFAULT_FOOD_PICK_UP_ADDRESS } from "@/app/lib/constants";
 
 export default function OrderFulfillmentOptions() {
@@ -10,8 +19,7 @@ export default function OrderFulfillmentOptions() {
     isOpen: false,
     isSearchEnabled: false,
   });
-  // const [selectedAddressType, setSelectedAddressType] =
-  // useState<string>("delivery");
+
   const {
     deliveryAddress,
     setDeliveryAddress,
@@ -51,17 +59,7 @@ export default function OrderFulfillmentOptions() {
       isSearchEnabled: false,
       isOpen: false,
     });
-
-    // if (selectedAddressType)
   };
-
-  // const handleAddPickUpAddress = (event: React.MouseEvent) => {
-  //   event.stopPropagation();
-  //   setDropdownState({
-  //     ...dropdownState,
-  //     isOpen: false,
-  //   });
-  // };
 
   return (
     <div className="bg-[#EAE6E1] px-4 py-4">

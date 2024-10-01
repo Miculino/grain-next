@@ -1,8 +1,13 @@
 "use client";
 
+// Core React
 import { useEffect } from "react";
-import useModalStore from "../store/useModalStore";
+
+// Components
 import StickyNavbar from "./_components/StickyNavbar";
+
+// Zustand Stores
+import useModalStore from "../store/useModalStore";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { closeModal } = useModalStore();

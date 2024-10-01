@@ -1,4 +1,6 @@
+// CLSX
 import clsx from "clsx";
+
 export default function ProductInfo({
   title,
   children,

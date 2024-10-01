@@ -1,9 +1,18 @@
-import Autocomplete from "react-google-autocomplete";
-import Cross from "../icons/Cross";
-import useModalStore from "@/app/store/useModalStore";
-import Button from "./Button";
-import useAddressStore from "@/app/store/useAddressStore";
+// Core React
 import { useState } from "react";
+
+// Components
+import Button from "./Button";
+
+// Zustand Stores
+import useModalStore from "@/app/store/useModalStore";
+import useAddressStore from "@/app/store/useAddressStore";
+
+// React Google Autocomplete
+import Autocomplete from "react-google-autocomplete";
+
+// Icons
+import Cross from "../icons/Cross";
 
 export default function AddressSearch() {
   const [selectedPlace, setSelectedPlace] = useState<string>("");

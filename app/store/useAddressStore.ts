@@ -1,6 +1,11 @@
+// Zustand
 import { create } from "zustand";
-import { AddressState } from "../types/store";
+
+// Constants
 import { DEFAULT_FOOD_PICK_UP_ADDRESS } from "../lib/constants";
+
+// Types
+import { AddressState } from "../types/store";
 
 const useAddressStore = create<AddressState>((set) => ({
   deliveryAddress: "",

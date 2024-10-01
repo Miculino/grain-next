@@ -1,8 +1,12 @@
-import Image from "next/image";
-import React from "react";
-import Container from "./Container";
-import { NAVBAR_ITEMS } from "@/app/lib/constants";
+// Components
 import NavbarItem from "./NavbarItem";
+import Container from "./Container";
+
+// Next
+import Image from "next/image";
+
+// Constants
+import { NAVBAR_ITEMS } from "@/app/lib/constants";
 
 export default function Navbar() {
   return (

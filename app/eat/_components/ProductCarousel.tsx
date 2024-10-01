@@ -1,13 +1,25 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css/pagination";
-import Button from "./Button";
-import Image from "next/image";
+// Core React
 import { useRef, useState } from "react";
-import { Swiper as SwiperType } from "swiper/types";
+
+// Components
+import Button from "./Button";
+
+// Next
+import Image from "next/image";
+
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/pagination";
+
+// CLSX
 import clsx from "clsx";
+
+// Types
+import { Swiper as SwiperType } from "swiper/types";
 
 export default function ProductCarousel({
   products,

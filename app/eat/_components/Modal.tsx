@@ -1,9 +1,14 @@
 "use client";
 
-import useModalStore from "@/app/store/useModalStore";
+// Components
 import ProductDetails from "./ProductDetails";
 import AddressSearch from "./AddressSearch";
 import ShoppingCartMenu from "./ShoppingCartMenu";
+
+// Zustand Stores
+import useModalStore from "@/app/store/useModalStore";
+
+// CLSX
 import clsx from "clsx";
 
 export default function Modal() {

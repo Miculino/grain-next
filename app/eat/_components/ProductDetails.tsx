@@ -1,10 +1,16 @@
-import useModalStore from "@/app/store/useModalStore";
-import { Dish } from "@/app/types/components";
-import React from "react";
+// Components
 import Button from "./Button";
 import ProductInfo from "./ProductInfo";
 import Tag from "./Tag";
+
+// Zustand Stores
+import useModalStore from "@/app/store/useModalStore";
+
+// CLSX
 import clsx from "clsx";
+
+// Types
+import { Dish } from "@/app/types/components";
 
 export default function ProductDetails({ className }: { className?: string }) {
   const { modalContent } = useModalStore();

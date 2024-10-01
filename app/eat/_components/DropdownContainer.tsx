@@ -1,6 +1,11 @@
-import { DropdownContainerProps } from "@/app/types/components";
-import clsx from "clsx";
+// Core React
 import { forwardRef } from "react";
+
+// CLSX
+import clsx from "clsx";
+
+// Types
+import { DropdownContainerProps } from "@/app/types/components";
 
 function DropdownContainer(
   { className, children, ...props }: DropdownContainerProps,

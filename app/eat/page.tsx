@@ -1,10 +1,16 @@
+// Components
 import Banner from "./_components/Banner";
 import Container from "./_components/Container";
 import MenuCategory from "./_components/MenuCategory";
 import Sidebar from "./_components/Sidebar";
 import Modal from "./_components/Modal";
+
+// Sanity
 import { client } from "../lib/sanity/client";
+// Sanity Queries
 import { CATEGORIES_QUERY } from "../lib/sanity/queries";
+
+// Types
 import { CATEGORIES_QUERYResult } from "../types/sanity";
 
 export default async function MealsOnDemand() {

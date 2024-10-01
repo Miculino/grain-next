@@ -1,14 +1,24 @@
-import React from "react";
-import Cross from "../icons/Cross";
+// Components
 import Button from "./Button";
-import useModalStore from "@/app/store/useModalStore";
 import ProductCarousel from "./ProductCarousel";
-import { STATIC_RECOMMENDATIONS } from "@/app/lib/constants";
 import OrderFulfillmentOptions from "./OrderFulfillmentOptions";
-import useShoppingCart from "@/app/store/useShoppingCart.store";
-import Image from "next/image";
-import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
 import ShoppingCartProduct from "./ShoppingCartProduct";
+
+// Next
+import Image from "next/image";
+
+// Zustand
+import useShoppingCart from "@/app/store/useShoppingCart";
+import useModalStore from "@/app/store/useModalStore";
+
+// Utils
+import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
+
+// Constants
+import { STATIC_RECOMMENDATIONS } from "@/app/lib/constants";
+
+// Icons
+import Cross from "../icons/Cross";
 
 export default function ShoppingCartMenu() {
   const { closeModal } = useModalStore();

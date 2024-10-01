@@ -1,14 +1,29 @@
+// Core React
 import { useEffect, useRef, useState } from "react";
-import Clock from "../icons/Clock";
+
+// Components
 import DropdownContainer from "./DropdownContainer";
 import OrderNavigation from "./OrderNavigation";
-import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
-import { AVAILABLE_TIMES } from "@/app/lib/constants";
 import Button from "./Button";
+
+// Hooks
+import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
+
+// Zustand Stores
+import useDateStore from "@/app/store/useDateStore";
+
+// Utils
 import getCurrentWeekDays from "@/app/utils/getCurrentWeekDays";
 import formatDate from "@/app/utils/formatDate";
+
+// Constants
+import { AVAILABLE_TIMES } from "@/app/lib/constants";
+
+// Icons
+import Clock from "../icons/Clock";
+
+// CLSX
 import clsx from "clsx";
-import useDateStore from "@/app/store/useDateStore";
 
 export default function DatePicker() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);

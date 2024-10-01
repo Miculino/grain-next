@@ -1,8 +1,13 @@
+// Components
 import RadioInput from "./RadioInput";
 import Button from "./Button";
-import { AddressPickerOptionProps } from "@/app/types/components";
+
+// Zustand
 import useModalStore from "@/app/store/useModalStore";
 import useAddressStore from "@/app/store/useAddressStore";
+
+// Types
+import { AddressPickerOptionProps } from "@/app/types/components";
 
 export default function AddressPickerOption({
   type,

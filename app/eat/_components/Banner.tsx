@@ -1,5 +1,5 @@
+// Constants
 import { BANNER_URL } from "@/app/lib/constants";
-import React from "react";
 
 export default function Banner() {
   return (

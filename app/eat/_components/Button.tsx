@@ -1,6 +1,7 @@
+// Class Variance Authority
 import { cva, type VariantProps } from "class-variance-authority";
+// CLSX
 import clsx from "clsx";
-import React from "react";
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

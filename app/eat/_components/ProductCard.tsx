@@ -1,11 +1,19 @@
-import Image from "next/image";
-import React, { SetStateAction, useState } from "react";
+// Components
 import Tag from "./Tag";
 import Button from "./Button";
-import clsx from "clsx";
+
+// Next
+import Image from "next/image";
+
+// Zustand Stores
 import useModalStore from "@/app/store/useModalStore";
+import useShoppingCart from "@/app/store/useShoppingCart";
+
+// CLSX
+import clsx from "clsx";
+
+// Types
 import { Bundle, Dish } from "@/app/types/api";
-import useShoppingCart from "@/app/store/useShoppingCart.store";
 
 export default function ProductCard({
   product,

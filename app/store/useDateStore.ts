@@ -1,4 +1,7 @@
+// Zustand
 import { create } from "zustand";
+
+// Types
 import { DateState } from "../types/store";
 
 const useDateStore = create<DateState>((set) => ({

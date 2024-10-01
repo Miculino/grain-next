@@ -1,4 +1,7 @@
+// Core React
 import { useEffect } from "react";
+
+// Types
 import { HandleClickOutsideHookProps } from "../types/hooks";
 
 export default function useHandleClickOutside({

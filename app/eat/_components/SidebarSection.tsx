@@ -1,8 +1,15 @@
-import Image from "next/image";
-import Chevron from "../icons/Chevron";
+// Components
 import SidebarItem from "./SidebarItem";
-import { SetStateAction } from "react";
+
+// Next
+import Image from "next/image";
 import Link from "next/link";
+
+// Icons
+import Chevron from "../icons/Chevron";
+
+// Types
+import { SetStateAction } from "react";
 
 export default function SidebarSection({
   sidebarItems,

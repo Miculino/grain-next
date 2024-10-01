@@ -1,11 +1,20 @@
+// Core React
 import React, { useRef, useState } from "react";
-import LocationPinpoint from "../icons/LocationPinpoint";
+
+// Components
 import { MultiDivider } from "./Divider";
 import AddressPickerOption from "./AddressPickerOption";
-import useAddressStore from "@/app/store/useAddressStore";
 import OrderNavigation from "./OrderNavigation";
-import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
 import DropdownContainer from "./DropdownContainer";
+
+// Hooks
+import useHandleClickOutside from "@/app/hooks/useHandleClickOutside";
+
+// Zustand Stores
+import useAddressStore from "@/app/store/useAddressStore";
+
+// Icons
+import LocationPinpoint from "../icons/LocationPinpoint";
 
 export default function AddressPicker() {
   const { selectedAddressType, deliveryAddress, pickUpAddress } =

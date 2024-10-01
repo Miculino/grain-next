@@ -4,7 +4,7 @@ import ShoppingCart from "../icons/ShoppingCart";
 import AddressPicker from "./AddressPicker";
 import DatePicker from "./DatePicker";
 import useModalStore from "@/app/store/useModalStore";
-import useShoppingCart from "@/app/store/useShoppingCart.store";
+import useShoppingCart from "@/app/store/useShoppingCart";
 import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
 
 export default function StickyNavbar() {

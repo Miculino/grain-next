@@ -1,11 +1,19 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
-import ProductCard from "./ProductCard";
-import { SanityItems } from "@/app/types/api";
-
+// Core React
 import { useEffect } from "react";
+
+// Components
+import ProductCard from "./ProductCard";
+
+// Zustand Stores
 import useCategoryStore from "@/app/store/useCategoryStore";
+
+// React Intersection Observer
+import { useInView } from "react-intersection-observer";
+
+// Types
+import { SanityItems } from "@/app/types/api";
 
 export default function MenuCategory({
   items,
