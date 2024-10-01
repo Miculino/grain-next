@@ -2,22 +2,45 @@ import { useState } from "react";
 import OrderNavigation from "./OrderNavigation";
 import useAddressStore from "@/app/store/useAddressStore";
 import useModalStore from "@/app/store/useModalStore";
+import Autocomplete from "react-google-autocomplete";
+import Button from "./Button";
 
 export default function OrderFulfillmentOptions() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isSearchEnabled, setIsSearchEnabled] = useState<boolean>(false);
+  const [selectedPlace, setSelectedPlace] = useState<string>("");
 
-  const { deliveryAddress, selectedAddressType, setSelectedAddressType } =
-    useAddressStore();
-  const { setModalContentType, openModal } = useModalStore();
+  const {
+    deliveryAddress,
+    selectedAddressType,
+    setSelectedAddressType,
+    setDeliveryAddress,
+  } = useAddressStore();
 
   const handleDropdownToggle = () => {
     setSelectedAddressType("delivery");
     setIsDropdownOpen((prev) => !prev);
+    setIsSearchEnabled(false); // Reset search state when toggling the dropdown
   };
 
-  const handleModalOpen = () => {
-    setModalContentType("address_search");
-    // openModal();
+  const handleToggleSearch = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsSearchEnabled((prev) => !prev);
+  };
+
+  const handlePlaceSelected = (place: { formatted_address: string }) => {
+    if (place) {
+      setSelectedPlace(place.formatted_address);
+    }
+  };
+
+  const handleAddDeliveryAddress = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (selectedPlace) {
+      setDeliveryAddress(selectedPlace);
+      setIsSearchEnabled(false);
+      setIsDropdownOpen(false);
+    }
   };
 
   return (
@@ -42,10 +65,38 @@ export default function OrderFulfillmentOptions() {
                 <p className="text-xs">{deliveryAddress}</p>
               </div>
               <div
-                onClick={handleModalOpen}
+                onClick={handleToggleSearch}
                 className="bg-white p-2 cursor-pointer"
               >
-                <p className="text-xs underline">Add new address</p>
+                {!isSearchEnabled ? (
+                  <p className="text-xs underline">Add new address</p>
+                ) : (
+                  <div onClick={(e) => e.stopPropagation()}>
+                    <Autocomplete
+                      apiKey="AIzaSyDz9wEqFecagZ1tGabdzQzLUEE7JHdbMSs"
+                      options={{
+                        componentRestrictions: { country: "SG" }, // Restrict to Singapore
+                        types: ["address"], // Specify types to get address locations
+                      }}
+                      placeholder="Please enter three or more characters"
+                      onPlaceSelected={handlePlaceSelected}
+                      style={{
+                        width: "100%",
+                        padding: "8px 8px",
+                        border: "1px solid #bfbfbf",
+                      }} // Optional: Style for better UX
+                    />
+                    <Button
+                      onClick={handleAddDeliveryAddress}
+                      disabled={!selectedPlace}
+                      intent={selectedPlace ? "primary" : "disabled"}
+                      className="py-2"
+                      size={"full"}
+                    >
+                      Add address
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           ) : (
