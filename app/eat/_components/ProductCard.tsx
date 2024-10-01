@@ -35,18 +35,15 @@ export default function ProductCard({
   const handleIncreaseProductQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
     setItemsToOrder((quantity) => quantity + 1);
-    // updateProductQuantity(product.name as string, "increase");
   };
 
   const handleDecreaseProductQuantity = (e: React.MouseEvent) => {
     e.stopPropagation();
     setItemsToOrder((quantity) => quantity - 1);
-    // updateProductQuantity(product.name as string, "decrease");
   };
 
   useEffect(() => {
     updateProductQuantity(product.name as string, itemsToOrder);
-    console.log(itemsToOrder);
   }, [itemsToOrder]);
 
   return (

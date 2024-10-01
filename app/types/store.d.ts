@@ -45,5 +45,6 @@ interface DateState {
 interface ShoppingCartState {
   shoppingCart: ShoppingCartProduct[];
   addProduct: (product: ShoppingCartProduct) => void;
+  removeProduct: (product_name: string) => void;
   updateProductQuantity: (product_name: string, quantity: number) => void;
 }
