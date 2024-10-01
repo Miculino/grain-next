@@ -10,12 +10,10 @@ import clsx from "clsx";
 
 // Types
 import { Dish } from "@/app/types/components";
-import useShoppingCart from "@/app/store/useShoppingCart";
 import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 
 export default function ProductDetails({ className }: { className?: string }) {
   const { modalContent } = useModalStore();
-  const { addProduct } = useShoppingCart();
 
   if (modalContent) {
     const {
