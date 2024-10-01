@@ -54,7 +54,7 @@ export default function AddressSearch() {
         onClick={handleAddAddress}
         disabled={!Boolean(selectedPlace)}
         intent={selectedPlace ? "primary" : "disabled"}
-        className="mt-6 self-end"
+        className="mt-6 self-end px-6 py-2"
       >
         Add address
       </Button>

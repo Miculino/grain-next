@@ -25,7 +25,7 @@ function OrderNavigation(
       )}
     >
       {Icon && <Icon />}
-      <p className={clsx("border-b-2 truncate", small && "border-black")}>
+      <p className={clsx("truncate", !small && "border-b-2 border-b-black")}>
         {text}
       </p>
       <Chevron
