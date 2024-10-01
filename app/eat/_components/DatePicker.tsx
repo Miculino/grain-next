@@ -121,7 +121,7 @@ export default function DatePicker() {
               </p>
               <div className="flex flex-col gap-8">
                 {AVAILABLE_TIMES.map(({ time_of_day, intervals }) => (
-                  <div>
+                  <div key={time_of_day}>
                     <span className="inline-block mx-auto font-bold text-sm text-center mb-2 w-full">
                       {time_of_day}
                     </span>

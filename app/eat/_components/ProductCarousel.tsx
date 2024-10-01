@@ -60,7 +60,7 @@ export default function ProductCarousel({
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {products.map(({ product_name, product_price, product_thumbnail }) => (
-          <SwiperSlide>
+          <SwiperSlide key={product_name}>
             <div className="bg-white flex w-full">
               <Image
                 className="h-auto object-cover"
@@ -95,6 +95,7 @@ function CarouselPagination({
     <div className="flex items-center gap-1 ml-4">
       {[...Array(3)].map((_, index) => (
         <div
+          key={index}
           className={clsx(
             "w-[6px] h-[6px] rounded-full transition-all duration-100",
             activeSlideIndex === index ? "bg-black" : "bg-gray"

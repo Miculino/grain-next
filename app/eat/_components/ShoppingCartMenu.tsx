@@ -37,6 +37,7 @@ export default function ShoppingCartMenu() {
           <>
             {shoppingCart.map((product) => (
               <ShoppingCartProduct
+                key={product.name}
                 name={product.name}
                 price={product.price}
                 quantity={product.quantity}
