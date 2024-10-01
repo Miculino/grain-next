@@ -1,4 +1,5 @@
 import { Dish } from "./api";
+import { ShoppingCartProduct } from "./components";
 
 interface AddressOptions {
   type: "delivery" | "pick_up";
@@ -39,4 +40,8 @@ interface AddressState {
 interface DateState {
   setDate: (date: string) => void;
   date: string;
+}
+
+interface ShoppingCartState {
+  shoppingCart: ShoppingCartProduct[];
 }

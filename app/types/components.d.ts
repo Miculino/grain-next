@@ -49,3 +49,10 @@ interface OrderNavigationProps
 interface DropdownContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
+
+interface ShoppingCartProduct {
+  name: string;
+  price: number;
+  quantity: number;
+  total_price: number;
+}
