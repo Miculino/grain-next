@@ -43,7 +43,7 @@ export default async function MealsOnDemand() {
           </div>
         </div>
       </Container>
-      <Modal />
+      <Modal menuCategories={menuCategories} />
     </>
   );
 }

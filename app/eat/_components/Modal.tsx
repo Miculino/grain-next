@@ -4,14 +4,20 @@
 import ProductDetails from "./ProductDetails";
 import AddressSearch from "./AddressSearch";
 import ShoppingCartMenu from "./ShoppingCartMenu";
+import BundleBuilder from "./BundleBuilder";
 
 // Zustand Stores
 import useModalStore from "@/app/store/useModalStore";
 
 // CLSX
 import clsx from "clsx";
+import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
 
-export default function Modal() {
+export default function Modal({
+  menuCategories,
+}: {
+  menuCategories: CATEGORIES_QUERYResult;
+}) {
   const { isOpen, closeModal, modalContentType } = useModalStore();
 
   const handleCloseModal = () => {
@@ -38,6 +44,10 @@ export default function Modal() {
           {modalContentType === "address_search" ? <AddressSearch /> : null}
 
           {modalContentType === "shopping_cart" ? <ShoppingCartMenu /> : null}
+
+          {modalContentType === "bundle" ? (
+            <BundleBuilder menuCategories={menuCategories} />
+          ) : null}
         </div>
       </div>
     );

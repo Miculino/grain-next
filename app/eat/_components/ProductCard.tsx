@@ -14,6 +14,7 @@ import clsx from "clsx";
 // Types
 import { Bundle, Dish } from "@/app/types/api";
 import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
+import Button from "./Button";
 
 export default function ProductCard({
   product,
@@ -24,19 +25,23 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
-  const { openModal, setModalContent, setModalContentType } = useModalStore();
+  const { openModal, setModalContentType } = useModalStore();
   const { shoppingCart } = useShoppingCart();
 
   const currentProduct = shoppingCart.find(
     (shoppingCartProduct) => shoppingCartProduct.name === product.name
   );
 
+  const handleBuildBundleModal = () => {
+    setModalContentType("bundle");
+    openModal();
+  };
+
   return (
     <div
       onClick={() => {
         if (type === "dish") {
           setModalContentType("product_details");
-          setModalContent(product as Dish);
           openModal();
         }
       }}
@@ -77,10 +82,19 @@ export default function ProductCard({
             : null}
         </div>
 
-        <ProductPriceAndQuantity
-          targetProductName={product.name ?? "Missing name"}
-          targetProductPrice={product.price ?? 0}
-        />
+        {type === "dish" ? (
+          <ProductPriceAndQuantity
+            targetProductName={product.name ?? "Missing name"}
+            targetProductPrice={product.price ?? 0}
+          />
+        ) : (
+          <div className="flex items-center justify-between mt-auto">
+            <span>${product.price}</span>
+            <Button onClick={handleBuildBundleModal} className="py-1 px-6">
+              Build bundle
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

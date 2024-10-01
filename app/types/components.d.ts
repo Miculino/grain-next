@@ -5,7 +5,11 @@ interface Dish {
   served: string;
   overview: string;
   tags: string[];
-  thumbnail: string;
+  thumbnail: {
+    asset: {
+      url: string;
+    };
+  };
   price: number;
   details: {
     story: string;
