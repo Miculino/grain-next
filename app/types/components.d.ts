@@ -50,7 +50,7 @@ interface DropdownContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-interface ShoppingCartProduct {
+interface ShoppingCartProductProps {
   name: string;
   price: number;
   quantity: number;

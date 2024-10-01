@@ -1,7 +1,7 @@
-import { ShoppingCartProduct } from "../types/components";
+import { ShoppingCartProductProps } from "../types/components";
 
 export default function calculateTotalShoppingCartPrice(
-  shoppingCart: ShoppingCartProduct[]
+  shoppingCart: ShoppingCartProductProps[]
 ) {
   return shoppingCart.length > 0
     ? shoppingCart

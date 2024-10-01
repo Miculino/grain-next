@@ -8,6 +8,7 @@ import OrderFulfillmentOptions from "./OrderFulfillmentOptions";
 import useShoppingCart from "@/app/store/useShoppingCart.store";
 import Image from "next/image";
 import calculateTotalShoppingCartPrice from "@/app/utils/calculateTotalShoppingCartPrice";
+import ShoppingCartProduct from "./ShoppingCartProduct";
 
 export default function ShoppingCartMenu() {
   const { closeModal } = useModalStore();
@@ -23,9 +24,16 @@ export default function ShoppingCartMenu() {
       </div>
       <div className="h-full">
         {shoppingCart.length > 0 ? (
-          <div>
-            <p>Products</p>
-          </div>
+          <>
+            {shoppingCart.map((product) => (
+              <ShoppingCartProduct
+                name={product.name}
+                price={product.price}
+                quantity={product.quantity}
+                total_price={product.total_price}
+              />
+            ))}
+          </>
         ) : (
           <EmptyShoppingCart />
         )}
