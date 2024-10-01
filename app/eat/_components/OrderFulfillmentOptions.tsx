@@ -3,14 +3,21 @@ import OrderNavigation from "./OrderNavigation";
 import useAddressStore from "@/app/store/useAddressStore";
 import Autocomplete from "react-google-autocomplete";
 import Button from "./Button";
+import { DEFAULT_FOOD_PICK_UP_ADDRESS } from "@/app/lib/constants";
 
 export default function OrderFulfillmentOptions() {
   const [dropdownState, setDropdownState] = useState({
     isOpen: false,
     isSearchEnabled: false,
   });
-  const [selectedAddressType, setSelectedAddressType] = useState<string>("");
-  const { deliveryAddress, setDeliveryAddress } = useAddressStore();
+  // const [selectedAddressType, setSelectedAddressType] =
+  // useState<string>("delivery");
+  const {
+    deliveryAddress,
+    setDeliveryAddress,
+    setSelectedAddressType,
+    selectedAddressType,
+  } = useAddressStore();
 
   const handleDropdownToggle = () => {
     setDropdownState((prev) => ({
@@ -34,7 +41,7 @@ export default function OrderFulfillmentOptions() {
     }
   };
 
-  const handleAddDeliveryAddress = (event: React.MouseEvent) => {
+  const handleAddAddress = (event: React.MouseEvent) => {
     event.stopPropagation();
     setSelectedAddressType(
       selectedAddressType === "pick_up" ? "delivery" : "pick_up"
@@ -44,7 +51,17 @@ export default function OrderFulfillmentOptions() {
       isSearchEnabled: false,
       isOpen: false,
     });
+
+    // if (selectedAddressType)
   };
+
+  // const handleAddPickUpAddress = (event: React.MouseEvent) => {
+  //   event.stopPropagation();
+  //   setDropdownState({
+  //     ...dropdownState,
+  //     isOpen: false,
+  //   });
+  // };
 
   return (
     <div className="bg-[#EAE6E1] px-4 py-4">
@@ -72,47 +89,59 @@ export default function OrderFulfillmentOptions() {
         {dropdownState.isOpen && (
           <div className="shadow-sm">
             {selectedAddressType === "pick_up" && deliveryAddress && (
-              <div className="bg-white border-b border-b-gray p-2 cursor-pointer hover:font-bold hover:bg-[#f7f7f7]">
+              <div
+                onClick={handleAddAddress}
+                className="bg-white border-b border-b-gray p-2 cursor-pointer hover:font-bold hover:bg-[#f7f7f7]"
+              >
                 <p className="text-xs">{deliveryAddress}</p>
               </div>
             )}
-            <div
-              onClick={handleToggleSearch}
-              className="bg-white p-2 cursor-pointer"
-            >
-              {!dropdownState.isSearchEnabled ? (
-                <p className="text-xs underline">Add new address</p>
-              ) : (
-                <div onClick={(e) => e.stopPropagation()}>
-                  <Autocomplete
-                    apiKey="AIzaSyDz9wEqFecagZ1tGabdzQzLUEE7JHdbMSs"
-                    options={{
-                      componentRestrictions: { country: "SG" },
-                      types: ["address"],
-                    }}
-                    placeholder="Please enter three or more characters"
-                    onPlaceSelected={handlePlaceSelected}
-                    style={{
-                      width: "100%",
-                      padding: "8px 8px",
-                      border: "1px solid #bfbfbf",
-                    }}
-                  />
-                  <Button
-                    onClick={handleAddDeliveryAddress}
-                    disabled={!deliveryAddress}
-                    intent={deliveryAddress ? "primary" : "disabled"}
-                    className="py-2"
-                    size={"full"}
-                  >
-                    Add address
-                  </Button>
-                </div>
-              )}
-            </div>
+            {selectedAddressType === "pick_up" && (
+              <div
+                onClick={handleToggleSearch}
+                className="bg-white p-2 cursor-pointer"
+              >
+                {!dropdownState.isSearchEnabled ? (
+                  <p className="text-xs underline">Add new address</p>
+                ) : (
+                  <div onClick={(e) => e.stopPropagation()}>
+                    <Autocomplete
+                      apiKey="AIzaSyDz9wEqFecagZ1tGabdzQzLUEE7JHdbMSs"
+                      options={{
+                        componentRestrictions: { country: "SG" },
+                        types: ["address"],
+                      }}
+                      placeholder="Please enter three or more characters"
+                      onPlaceSelected={handlePlaceSelected}
+                      style={{
+                        width: "100%",
+                        padding: "8px 8px",
+                        border: "1px solid #bfbfbf",
+                      }}
+                    />
+                    <Button
+                      onClick={handleAddAddress}
+                      disabled={!deliveryAddress}
+                      intent={deliveryAddress ? "primary" : "disabled"}
+                      className="py-2"
+                      size={"full"}
+                    >
+                      Add address
+                    </Button>
+                  </div>
+                )}
+              </div>
+            )}
+
             {selectedAddressType === "delivery" && (
-              <div className="bg-white p-2">
-                <p className="text-xs">Pick up point</p>
+              <div
+                onClick={handleAddAddress}
+                className="bg-white p-2 flex items-start justify-between hover:font-bold hover:bg-[#f7f7f7] cursor-pointer"
+              >
+                <p className="text-xs">{DEFAULT_FOOD_PICK_UP_ADDRESS}</p>
+                <span className="text-xs w-36 text-right ml-auto">
+                  6.9km away
+                </span>
               </div>
             )}
           </div>
