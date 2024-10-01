@@ -1,9 +1,17 @@
 import { OrderNavigationProps } from "@/app/types/components";
 import React, { forwardRef } from "react";
 import Chevron from "../icons/Chevron";
+import clsx from "clsx";
 
 function OrderNavigation(
-  { icon: Icon, text, onClick, isDropdownOpen, ...props }: OrderNavigationProps,
+  {
+    icon: Icon,
+    text,
+    onClick,
+    isDropdownOpen,
+    small,
+    ...props
+  }: OrderNavigationProps,
   ref: React.Ref<HTMLDivElement>
 ) {
   return (
@@ -11,10 +19,15 @@ function OrderNavigation(
       {...props}
       ref={ref}
       onClick={onClick}
-      className="flex items-center gap-1 font-bold cursor-pointer max-w-fit"
+      className={clsx(
+        "flex items-center gap-1 cursor-pointer max-w-fit",
+        small ? "text-xs text-[#4d4d4d]" : "font-bold"
+      )}
     >
-      <Icon />
-      <p className="border-b-2 border-black truncate ">{text}</p>
+      {Icon && <Icon />}
+      <p className={clsx("border-b-2 truncate", small && "border-black")}>
+        {text}
+      </p>
       <Chevron
         className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
       />

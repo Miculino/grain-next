@@ -40,8 +40,9 @@ interface AddressPickerOptionProps {
 
 interface OrderNavigationProps
   extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
   text: string;
+  small?: boolean;
   isDropdownOpen: boolean;
 }
 
