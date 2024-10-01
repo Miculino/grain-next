@@ -1,5 +1,4 @@
 // Components
-import Button from "./Button";
 import ProductInfo from "./ProductInfo";
 import Tag from "./Tag";
 
