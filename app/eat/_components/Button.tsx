@@ -9,15 +9,20 @@ interface ButtonProps
 const button = cva("button", {
   variants: {
     intent: {
-      primary: ["bg-primary", "hover:bg-[#e3b517]", "font-bold", "gap-2"],
+      primary: [
+        "bg-primary",
+        "hover:bg-[#e3b517]",
+        "font-bold",
+        "gap-2",
+        "border",
+        "border-primary",
+      ],
       link: ["underline", "hover:text-light-gray"],
       disabled: "bg-gray py-2 px-6 text-white font-bold",
       outline: [
         "hover:bg-[#e3b517]",
         "hover:font-bold",
         "hover:text-black",
-        "py-2",
-        "px-6",
         "border",
         "border-gray",
         "text-[#777]",
@@ -42,7 +47,7 @@ export default function Button({
       {...props}
       className={clsx(
         button({ intent, size }),
-        "transition-alll transition-100 flex items-center justify-center",
+        "transition-alll transition-100 flex items-center justify-center rounded-sm",
         className
       )}
     >

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import Tag from "./Tag";
 import Button from "./Button";
 import clsx from "clsx";
@@ -34,7 +34,7 @@ export default function ProductCard({
         }
       }}
       className={clsx(
-        "border-[1px] border-[#dadada] cursor-pointer flex",
+        "border-[1px] border-[#dadada] cursor-pointer flex rounded-sm",
         className
       )}
     >
@@ -70,11 +70,52 @@ export default function ProductCard({
 
         <div className="justify-between flex items-center mt-auto">
           <b>${product.price && product.price.toFixed(2)}</b>
-          <Button onClick={handleAddItemToShoppingCart} className="px-6 py-2">
-            Add
-          </Button>
+          {itemsToOrder >= 1 ? (
+            <QuantityControl
+              quantity={itemsToOrder}
+              setQuantity={setItemsToOrder}
+            />
+          ) : (
+            <Button onClick={handleAddItemToShoppingCart} className="px-6 py-2">
+              Add
+            </Button>
+          )}
         </div>
       </div>
+    </div>
+  );
+}
+
+function QuantityControl({
+  quantity,
+  setQuantity,
+}: {
+  quantity: number;
+  setQuantity: React.Dispatch<SetStateAction<number>>;
+}) {
+  const handleDecreaseQuantity = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setQuantity((prev) => prev - 1);
+  };
+
+  const handleIncreaseQuantity = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setQuantity((prev) => prev + 1);
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <Button
+        onClick={handleDecreaseQuantity}
+        intent={"outline"}
+        className="py-2 px-4"
+      >
+        -
+      </Button>
+      <span className="w-8 text-center">{quantity}</span>
+      <Button onClick={handleIncreaseQuantity} className="py-2 px-4">
+        +
+      </Button>
     </div>
   );
 }

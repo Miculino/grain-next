@@ -113,6 +113,7 @@ export default function DatePicker() {
                     <div className="flex flex-col gap-2">
                       {intervals.map((interval) => (
                         <Button
+                          className="px-6 py-2"
                           onClick={() => handleSelectOrderTime(interval)}
                           key={interval}
                           size={"full"}

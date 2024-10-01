@@ -4,7 +4,7 @@ import React from "react";
 export default function Banner() {
   return (
     <div
-      className={`w-full bg-cover text-white`}
+      className={`w-full bg-cover text-white rounded-sm`}
       style={{ backgroundImage: `url(${BANNER_URL})` }}
     >
       <div className="p-6 min-h-[420px] flex justify-center gap-2 flex-col">
