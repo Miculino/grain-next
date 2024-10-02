@@ -52,5 +52,7 @@ interface ShoppingCartState {
 
 interface BundleState {
   bundleCategories: BundleCategory[];
+  selectedBundle: any;
   setBundleCategories: (categories: CATEGORIES_QUERYResult) => void;
+  selectBundle: () => void;
 }

@@ -20,6 +20,8 @@ export default async function MealsOnDemand() {
   // TODO: Add default text for empty state
   // Hello hungry human. We’re closed today as it’s important to give our chefs a break to rest and recharge — try a different date?
 
+  // console.log(menuCategories[2].items);
+
   return (
     <>
       <Container className="py-6">

@@ -15,6 +15,7 @@ import clsx from "clsx";
 import { Bundle, Dish } from "@/app/types/api";
 import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 import Button from "./Button";
+import useBundleStore from "@/app/store/useBundleStore";
 
 export default function ProductCard({
   product,
@@ -27,15 +28,19 @@ export default function ProductCard({
 }) {
   const { openModal, setModalContentType } = useModalStore();
   const { shoppingCart } = useShoppingCart();
+  const { selectBundle, selectedBundle } = useBundleStore();
 
   const currentProduct = shoppingCart.find(
     (shoppingCartProduct) => shoppingCartProduct.name === product.name
   );
 
   const handleBuildBundleModal = () => {
+    selectBundle(product);
     setModalContentType("bundle");
     openModal();
   };
+
+  console.log(selectedBundle);
 
   return (
     <div

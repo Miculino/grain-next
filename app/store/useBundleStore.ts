@@ -9,7 +9,7 @@ import { BundleState } from "../types/store";
 import { BundleCategory } from "../types/components";
 
 const useBundleStore = create<BundleState>((set) => ({
-  bundle: "bundle",
+  selectedBundle: "bundle",
   bundleCategories: [], // Initialize with an empty array or set a default
   setBundleCategories: (categories) => {
     set({
@@ -18,6 +18,7 @@ const useBundleStore = create<BundleState>((set) => ({
       ) as unknown as BundleCategory[],
     });
   },
+  selectBundle: (selectedBundle) => set({ selectedBundle }),
 }));
 
 export default useBundleStore;
