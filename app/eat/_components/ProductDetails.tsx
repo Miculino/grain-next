@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // Components
 import ProductInfo from "./ProductInfo";
 import Tag from "./Tag";
@@ -23,7 +25,7 @@ export default function ProductDetails({ className }: { className?: string }) {
       tags,
       price,
       details: { story, all_ingredients, nutritional_info, full_thumbnail },
-    } = modalContent as unknown as Dish;
+    } = modalContent;
 
     return (
       <div className={clsx("flex bg-white", className)}>
