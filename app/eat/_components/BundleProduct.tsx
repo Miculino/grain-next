@@ -1,4 +1,3 @@
-import { SanityItems } from "@/app/types/api";
 import { Dish } from "@/app/types/components";
 import React from "react";
 

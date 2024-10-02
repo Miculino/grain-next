@@ -61,10 +61,13 @@ export default function BundleBuilder({
             {menuCategories
               .filter((category) => category.name === "Drinks")
               .map(
-                (category) =>
+                (category, key) =>
                   category.items &&
                   category.items.map((product) => (
-                    <BundleProduct product={product as unknown as Dish} />
+                    <BundleProduct
+                      key={key}
+                      product={product as unknown as Dish}
+                    />
                   ))
               )}
           </div>
