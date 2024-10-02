@@ -1,5 +1,4 @@
 // Components
-import { Dish } from "@/app/types/components";
 import BundleProduct from "./BundleProduct";
 
 // Types
@@ -31,7 +30,7 @@ export default function BundleBuilder({
       <div className="bg-white max-h-[700px] overflow-y-scroll">
         {bundleCategories.length > 0 &&
           bundleCategories.map((bundleCategory) => (
-            <div className="p-4 text-center">
+            <div key={bundleCategory.type} className="p-4 text-center">
               <span className="text-dark-gray text-xs font-bold">
                 {bundleCategory.type}
               </span>

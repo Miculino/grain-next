@@ -1,4 +1,4 @@
-import { Dish } from "../types/api";
+// Types
 import { CATEGORIES_QUERYResult } from "../types/sanity";
 
 export default function generateBundleCategories(
