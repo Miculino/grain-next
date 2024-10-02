@@ -28,7 +28,7 @@ export default function BundleBuilder({
                   category.name === "Highlights" || category.name === "Regulars"
               )
               .map(
-                (category, key) =>
+                (category) =>
                   category.items &&
                   category.items.map((product) => (
                     <BundleProduct
@@ -67,7 +67,7 @@ export default function BundleBuilder({
             {menuCategories
               .filter((category) => category.name === "Drinks")
               .map(
-                (category, key) =>
+                (category) =>
                   category.items &&
                   category.items.map((product) => (
                     <BundleProduct
