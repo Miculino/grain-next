@@ -28,10 +28,13 @@ export default function BundleBuilder({
                   category.name === "Highlights" || category.name === "Regulars"
               )
               .map(
-                (category) =>
+                (category, key) =>
                   category.items &&
                   category.items.map((product) => (
-                    <BundleProduct product={product as unknown as Dish} />
+                    <BundleProduct
+                      key={product.name}
+                      product={product as unknown as Dish}
+                    />
                   ))
               )}
           </div>
@@ -50,7 +53,10 @@ export default function BundleBuilder({
                 (category) =>
                   category.items &&
                   category.items.map((product) => (
-                    <BundleProduct product={product as unknown as Dish} />
+                    <BundleProduct
+                      key={product.name}
+                      product={product as unknown as Dish}
+                    />
                   ))
               )}
           </div>
@@ -65,7 +71,7 @@ export default function BundleBuilder({
                   category.items &&
                   category.items.map((product) => (
                     <BundleProduct
-                      key={key}
+                      key={product.name}
                       product={product as unknown as Dish}
                     />
                   ))
