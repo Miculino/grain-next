@@ -1,5 +1,6 @@
 import { Dish } from "./api";
-import { ShoppingCartProduct } from "./components";
+import { BundleCategory, ShoppingCartProduct } from "./components";
+import { CATEGORIES_QUERYResult } from "./sanity";
 
 interface AddressOptions {
   type: "delivery" | "pick_up";
@@ -47,4 +48,9 @@ interface ShoppingCartState {
   addProduct: (product: ShoppingCartProduct) => void;
   removeProduct: (product_name: string) => void;
   updateProductQuantity: (product_name: string, quantity: number) => void;
+}
+
+interface BundleState {
+  bundleCategories: BundleCategory[];
+  setBundleCategories: (categories: CATEGORIES_QUERYResult) => void;
 }

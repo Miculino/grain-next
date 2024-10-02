@@ -1,60 +1,97 @@
-import { ComponentType, SetStateAction, SVGProps } from "react";
+// Import necessary types from sanity
+import {
+  internalGroqTypeReferenceTo,
+  SanityImageHotspot,
+  SanityImageCrop,
+} from "./sanity";
 
-interface Dish {
-  name: string;
-  served: string;
-  overview: string;
-  tags: string[];
+// Define Dish type
+export interface Dish {
+  _id: string;
+  _type: "dish";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string | null;
+  price: number | null;
+  served: Array<"chilled" | "warm"> | null;
+  overview: string | null;
+  tags?: Array<string>;
   thumbnail: {
     asset: {
-      url: string;
-    };
-  };
-  price: number;
-  details: {
-    story: string;
-    all_ingredients: string | null;
-    nutritional_info: {
-      calories: number;
-      fat: number;
-      carb: number;
-      protein: number;
+      url: string | null;
     } | null;
-    full_thumbnail: {
+  } | null;
+  details?: {
+    story?: string;
+    all_ingredients?: string;
+    nutritional_info?: {
+      calories?: number;
+      fat?: number;
+      carb?: number;
+      protein?: number;
+    };
+    full_thumbnail?: {
       asset: {
-        url: string;
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
     };
   };
 }
 
-interface Bundle {
-  name: string;
-  overview: string;
-  available: boolean;
-  price: number;
-  thumbnail: string;
+// Define Bundle type
+export interface Bundle {
+  _id: string;
+  _type: "bundle";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string | null;
+  overview: string | null;
+  price: number | null;
+  thumbnail: {
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
 }
 
-interface AddressPickerOptionProps {
+// Define SanityItems type
+export type SanityItems = Array<Bundle | Dish> | null;
+
+// Define BundleCategory type
+export interface BundleCategory {
+  type: string;
+  products: Dish[];
+}
+
+// Define additional props interfaces as needed
+export interface AddressPickerOptionProps {
   type: "pick_up" | "delivery";
   title: string;
-  setIsDropdownOpen?: React.Dispatch<SetStateAction<boolean>>;
+  setIsDropdownOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface OrderNavigationProps
+export interface OrderNavigationProps
   extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   text: string;
   small?: boolean;
   isDropdownOpen: boolean;
 }
 
-interface DropdownContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DropdownContainerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-interface ShoppingCartProductProps {
+export interface ShoppingCartProductProps {
   name: string;
   price: number;
   quantity: number;
