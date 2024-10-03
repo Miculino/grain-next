@@ -12,7 +12,8 @@ import useShoppingCart from "@/app/store/useShoppingCart";
 import clsx from "clsx";
 
 // Types
-import { Bundle, Dish } from "@/app/types/api";
+import { Bundle } from "@/app/types/api";
+import { Dish } from "@/app/types/components";
 import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 import Button from "./Button";
 import useBundleStore from "@/app/store/useBundleStore";
@@ -26,7 +27,7 @@ export default function ProductCard({
   className?: string;
   type: "dish" | "bundle";
 }) {
-  const { openModal, setModalContentType } = useModalStore();
+  const { openModal, setModalContentType, setModalContent } = useModalStore();
   const { shoppingCart } = useShoppingCart();
   const { selectBundle, selectedBundle } = useBundleStore();
 
@@ -46,7 +47,9 @@ export default function ProductCard({
     <div
       onClick={() => {
         if (type === "dish") {
+          setModalContent(product as never as Dish);
           setModalContentType("product_details");
+
           openModal();
         }
       }}

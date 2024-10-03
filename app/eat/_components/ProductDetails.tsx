@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 // Components
 import ProductInfo from "./ProductInfo";
 import Tag from "./Tag";
@@ -17,6 +15,8 @@ import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 export default function ProductDetails({ className }: { className?: string }) {
   const { modalContent } = useModalStore();
 
+  console.log(modalContent);
+
   if (modalContent) {
     const {
       served,
@@ -25,7 +25,7 @@ export default function ProductDetails({ className }: { className?: string }) {
       tags,
       price,
       details: { story, all_ingredients, nutritional_info, full_thumbnail },
-    } = modalContent;
+    } = modalContent as Dish;
 
     return (
       <div className={clsx("flex bg-white", className)}>
@@ -78,8 +78,8 @@ export default function ProductDetails({ className }: { className?: string }) {
           </div>
           <div className="w-full absolute bottom-0 left-0 p-4 border-t-[1px] border-t-light-gray bg-white justify-between flex items-center">
             <ProductPriceAndQuantity
-              targetProductName={name}
-              targetProductPrice={price}
+              targetProductName={name ?? "Missing name"}
+              targetProductPrice={price ?? 0}
             />
           </div>
         </div>

@@ -21,6 +21,8 @@ export default function Modal({
 }) {
   const { isOpen, closeModal, modalContentType } = useModalStore();
 
+  console.log(modalContentType);
+
   const handleCloseModal = () => {
     closeModal();
   };

@@ -22,7 +22,7 @@ export interface Dish {
       url: string | null;
     } | null;
   } | null;
-  details?: {
+  details: {
     story?: string;
     all_ingredients?: string;
     nutritional_info?: {
@@ -31,12 +31,9 @@ export interface Dish {
       carb?: number;
       protein?: number;
     };
-    full_thumbnail?: {
+    full_thumbnail: {
       asset: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        url: string;
       };
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;

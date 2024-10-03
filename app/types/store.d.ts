@@ -1,4 +1,5 @@
-import { Bundle, Dish } from "./api";
+import { Bundle } from "./api";
+import { Dish } from "./components";
 import { BundleCategory, ShoppingCartProduct } from "./components";
 import { CATEGORIES_QUERYResult } from "./sanity";
 
