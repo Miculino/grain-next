@@ -61,5 +61,5 @@ interface BundleState {
   bundleCategoriesLimits: BundleCategoriesLimits;
   setBundleCategories: (categories: CATEGORIES_QUERYResult) => void;
   selectBundle: (bundleProduct: Bundle) => void;
-  setBundleCategoryLimits: (product: any) => void;
+  setBundleCategoryLimits: (product: BundleProduct) => void;
 }
