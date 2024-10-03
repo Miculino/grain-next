@@ -5,7 +5,9 @@ export default function calculateBundleProductLimit(
   bundleCategory: BundleCategory,
   selectedBundle: Bundle
 ) {
-  return selectedBundle[bundleCategory.type].required
-    ? `${selectedBundle[bundleCategory.type].limit} items`
-    : `up to ${selectedBundle[bundleCategory.type].limit} items (OPTIONAL)`;
+  const currentBundleCategory = selectedBundle[bundleCategory.type];
+
+  return currentBundleCategory.required
+    ? `Choose ${currentBundleCategory.limit} ${currentBundleCategory.limit > 1 ? "items" : "item"}`
+    : `Choose up to ${currentBundleCategory.limit} items (OPTIONAL)`;
 }

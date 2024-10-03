@@ -1,20 +1,50 @@
 import { Dish } from "@/app/types/components";
-import React from "react";
+import React, { memo } from "react";
 
 // Next
 import Image from "next/image";
+import useBundleStore from "@/app/store/useBundleStore";
+import { BundleCategory } from "@/app/types/common";
 
 interface BundleProductProps {
   product: Dish;
+  bundleCategory: BundleCategory;
+  bundleLimitReached: boolean;
 }
 
-export default function BundleProduct({ product }: BundleProductProps) {
+function BundleProduct({
+  product,
+  bundleCategory,
+  bundleLimitReached,
+}: BundleProductProps) {
+  const { setBundleCategoryLimits } = useBundleStore();
+
   // Handle cases where the product might not have a thumbnail
   const thumbnailUrl =
     product.thumbnail?.asset?.url || "/path/to/default/image.jpg";
 
+  const handleAddBundleProduct = () => {
+    if (bundleLimitReached) return;
+
+    console.log("still being clicked");
+
+    const newBundleProduct = {
+      name: product.name,
+      price: product.price,
+      bundle_surchage: product?.bundle_price ?? 0,
+      bundle_price: 10,
+      quantity: 1,
+      category: bundleCategory.type,
+    };
+
+    setBundleCategoryLimits(newBundleProduct);
+  };
+
   return (
-    <div className="shadow-md flex border border-light-gray rounded-sm">
+    <div
+      onClick={handleAddBundleProduct}
+      className="shadow-md flex border border-light-gray rounded-sm"
+    >
       <Image
         src={thumbnailUrl}
         alt={product.name || "Product Image"}
@@ -39,3 +69,5 @@ export default function BundleProduct({ product }: BundleProductProps) {
     </div>
   );
 }
+
+export default memo(BundleProduct);

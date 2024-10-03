@@ -51,9 +51,15 @@ interface ShoppingCartState {
   updateProductQuantity: (product_name: string, quantity: number) => void;
 }
 
+export interface BundleCategoriesLimits {
+  [(key in "mains") | "drinks" | "sides_desserts"]: Array<BundleProduct>;
+}
+
 interface BundleState {
   bundleCategories: BundleCategory[];
   selectedBundle: Bundle;
+  bundleCategoriesLimits: BundleCategoriesLimits;
   setBundleCategories: (categories: CATEGORIES_QUERYResult) => void;
   selectBundle: (bundleProduct: Bundle) => void;
+  setBundleCategoryLimits: (product: any) => void;
 }

@@ -21,7 +21,6 @@ export default function AddressSearch() {
   const { setDeliveryAddress, setSelectedAddressType } = useAddressStore();
 
   const handlePlaceSelected = (place: { formatted_address: string }) => {
-    console.log(place);
     if (place) {
       setSelectedPlace(place.formatted_address);
     }

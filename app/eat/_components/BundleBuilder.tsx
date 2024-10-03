@@ -16,8 +16,10 @@ import Cross from "../icons/Cross";
 
 // Types
 import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
-import { BundleCategory } from "@/app/types/common";
+import { BundleCategory, IBundleProduct } from "@/app/types/common";
 import { Bundle } from "@/app/types/components";
+import Checkmark from "../icons/Checkmark";
+import { BundleCategoriesLimits } from "@/app/types/store";
 
 export default function BundleBuilder({
   menuCategories,
@@ -25,8 +27,12 @@ export default function BundleBuilder({
   menuCategories: CATEGORIES_QUERYResult;
 }) {
   const { closeModal } = useModalStore();
-  const { bundleCategories, setBundleCategories, selectedBundle } =
-    useBundleStore();
+  const {
+    bundleCategories,
+    setBundleCategories,
+    selectedBundle,
+    bundleCategoriesLimits,
+  } = useBundleStore();
 
   const handleCloseModal = () => {
     closeModal();
@@ -37,7 +43,7 @@ export default function BundleBuilder({
   }, [menuCategories, setBundleCategories]);
 
   return (
-    <div className="rounded-sm overflow-hidden w-[600px]">
+    <div className="rounded-sm overflow-hidden w-[600px] relative">
       <div className="bg-black p-4 text-white flex justify-between items-start">
         <div>
           <p className="font-bold text-lg uppercase">{selectedBundle.name}</p>
@@ -51,27 +57,77 @@ export default function BundleBuilder({
       <div className="bg-white max-h-[700px] overflow-y-scroll">
         {bundleCategories.length > 0 &&
           bundleCategories.map((bundleCategory) => (
-            <div key={bundleCategory.type} className="p-4 text-center">
-              <div className="flex flex-col items-center gap-4">
-                <span className="text-dark-gray text-xs font-bold uppercase">
-                  {bundleCategory.title}
-                </span>
-                <span>
-                  Choose{" "}
-                  {calculateBundleProductLimit(
-                    bundleCategory as BundleCategory,
-                    selectedBundle as Bundle
-                  )}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-4 mt-4">
-                {bundleCategory.products.map((product) => (
-                  <BundleProduct key={product.name} product={product} />
-                ))}
-              </div>
-            </div>
+            <BundleCategorySection
+              key={bundleCategory.type}
+              bundleCategory={bundleCategory as BundleCategory}
+              selectedBundle={selectedBundle as Bundle}
+              bundleCategoriesLimits={bundleCategoriesLimits}
+            />
           ))}
+      </div>
+      <div className="absolute bottom-0 w-full h-[100px] bg-white"></div>
+    </div>
+  );
+}
+
+function BundleCategorySection({
+  bundleCategory,
+  selectedBundle,
+  bundleCategoriesLimits,
+}: {
+  bundleCategory: BundleCategory;
+  selectedBundle: Bundle;
+  bundleCategoriesLimits: BundleCategoriesLimits;
+}) {
+  const bundleProductLimit = calculateBundleProductLimit(
+    bundleCategory,
+    selectedBundle
+  );
+
+  const currentBundleCategoryLimits: IBundleProduct[] =
+    bundleCategoriesLimits[
+      bundleCategory.type as keyof BundleCategoriesLimits
+    ] || [];
+
+  const bundleCategoryLimit = selectedBundle[bundleCategory.type].limit;
+
+  const totalQuantity = currentBundleCategoryLimits.reduce(
+    (acc: number, curr: IBundleProduct) => {
+      return acc + (curr.quantity ?? 0);
+    },
+    0
+  );
+
+  const bundleCategoryLimitReached = totalQuantity === bundleCategoryLimit;
+
+  return (
+    <div key={bundleCategory.type} className="p-4 text-center">
+      <div className="flex flex-col items-center gap-4">
+        <span className="text-dark-gray text-xs font-bold uppercase">
+          {bundleCategory.title}
+        </span>
+        <div className="flex items-center gap-1">
+          <span>{bundleProductLimit}</span>
+          {selectedBundle.mains.required && (
+            <div className="flex items-center gap-1">
+              <span>
+                ({totalQuantity} / {bundleCategoryLimit})
+              </span>
+              {bundleCategoryLimitReached && <Checkmark />}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4 mt-4">
+        {bundleCategory.products.map((product) => (
+          <BundleProduct
+            key={product.name}
+            product={product}
+            bundleCategory={bundleCategory}
+            bundleLimitReached={bundleCategoryLimitReached}
+          />
+        ))}
       </div>
     </div>
   );

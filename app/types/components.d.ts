@@ -10,6 +10,7 @@ export interface Dish {
   _rev: string;
   name: string | null;
   price: number | null;
+  bundle_price: number;
   served: Array<"chilled" | "warm"> | null;
   overview: string | null;
   tags?: Array<string>;
@@ -106,4 +107,8 @@ export interface ShoppingCartProductProps {
   price: number;
   quantity: number;
   total_price: number;
+}
+
+interface CheckmarkProps extends React.HTMLProps<HTMLDivElement> {
+  className?: string;
 }

@@ -29,7 +29,7 @@ export default function ProductCard({
 }) {
   const { openModal, setModalContentType, setModalContent } = useModalStore();
   const { shoppingCart } = useShoppingCart();
-  const { selectBundle, selectedBundle } = useBundleStore();
+  const { selectBundle } = useBundleStore();
 
   const currentProduct = shoppingCart.find(
     (shoppingCartProduct) => shoppingCartProduct.name === product.name
@@ -40,8 +40,6 @@ export default function ProductCard({
     setModalContentType("bundle");
     openModal();
   };
-
-  console.log(selectedBundle);
 
   return (
     <div

@@ -15,8 +15,6 @@ import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 export default function ProductDetails({ className }: { className?: string }) {
   const { modalContent } = useModalStore();
 
-  console.log(modalContent);
-
   if (modalContent) {
     const {
       served,
