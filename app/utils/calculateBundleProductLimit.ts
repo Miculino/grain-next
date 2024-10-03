@@ -1,5 +1,3 @@
-import { Bundle } from "../types/components";
-
 export default function calculateBundleProductLimit(
   bundleCategory: BundleCategory,
   selectedBundle: any

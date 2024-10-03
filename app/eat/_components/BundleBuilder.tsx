@@ -1,19 +1,34 @@
+// Core React
+import { useEffect } from "react";
+
 // Components
 import BundleProduct from "./BundleProduct";
 
+// Zustand Stores
+import useBundleStore from "@/app/store/useBundleStore";
+import useModalStore from "@/app/store/useModalStore";
+
+// Utils
+import calculateBundleProductLimit from "@/app/utils/calculateBundleProductLimit";
+
+// Icons
+import Cross from "../icons/Cross";
+
 // Types
 import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
-import useBundleStore from "@/app/store/useBundleStore";
-import { useEffect } from "react";
-import calculateBundleProductLimit from "@/app/utils/calculateBundleProductLimit";
 
 export default function BundleBuilder({
   menuCategories,
 }: {
   menuCategories: CATEGORIES_QUERYResult;
 }) {
+  const { closeModal } = useModalStore();
   const { bundleCategories, setBundleCategories, selectedBundle } =
     useBundleStore();
+
+  const handleCloseModal = () => {
+    closeModal();
+  };
 
   useEffect(() => {
     setBundleCategories(menuCategories);
@@ -21,9 +36,15 @@ export default function BundleBuilder({
 
   return (
     <div className="rounded-sm overflow-hidden w-[600px]">
-      <div className="bg-black p-4 text-white">
-        <p className="font-bold text-lg uppercase">{selectedBundle.name}</p>
-        <p className="text-sm">{selectedBundle.overview}</p>
+      <div className="bg-black p-4 text-white flex justify-between items-start">
+        <div>
+          <p className="font-bold text-lg uppercase">{selectedBundle.name}</p>
+          <p className="text-sm">{selectedBundle.overview}</p>
+        </div>
+        <Cross
+          onClick={handleCloseModal}
+          className="rounded-full bg-dark-gray opacity-65 max-w-fit p-2 cursor-pointer"
+        />
       </div>
       <div className="bg-white max-h-[700px] overflow-y-scroll">
         {bundleCategories.length > 0 &&
