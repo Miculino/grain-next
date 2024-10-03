@@ -53,7 +53,7 @@ export interface Bundle {
       url: string | null;
     } | null;
   } | null;
-  [key: string]: any;
+  [key: string]: { required: boolean; limit: number };
 }
 
 // Define SanityItems type
