@@ -6,7 +6,8 @@ export default function generateBundleCategories(
 ) {
   return [
     {
-      type: "Mains",
+      title: "Mains",
+      type: "mains",
       products: [
         ...categories
           .filter(
@@ -17,7 +18,8 @@ export default function generateBundleCategories(
       ],
     },
     {
-      type: "Sides/Desserts",
+      title: "Sides/Desserts",
+      type: "sides_desserts",
       products: [
         ...categories
           .filter(
@@ -28,7 +30,8 @@ export default function generateBundleCategories(
       ],
     },
     {
-      type: "Drinks",
+      title: "Drinks",
+      type: "drinks",
       products: [
         ...categories
           .filter((category) => category.name === "Drinks")

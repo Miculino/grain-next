@@ -31,7 +31,7 @@ export default function BundleBuilder({
             <div key={bundleCategory.type} className="p-4 text-center">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-dark-gray text-xs font-bold uppercase">
-                  {bundleCategory.type}
+                  {bundleCategory.title}
                 </span>
                 <span>
                   Choose{" "}
