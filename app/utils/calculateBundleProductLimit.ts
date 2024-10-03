@@ -1,3 +1,4 @@
+import { BundleCategory } from "../types/common";
 import { Bundle } from "../types/components";
 
 export default function calculateBundleProductLimit(

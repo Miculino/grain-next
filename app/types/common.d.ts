@@ -1,5 +1,5 @@
-interface BundleCategory {
+export interface BundleCategory {
   title: string;
-  type: string;
+  type: "mains" | "sides_desserts" | "drinks";
   products: Bundle[];
 }

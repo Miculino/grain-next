@@ -16,6 +16,8 @@ import Cross from "../icons/Cross";
 
 // Types
 import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
+import { BundleCategory } from "@/app/types/common";
+import { Bundle } from "@/app/types/components";
 
 export default function BundleBuilder({
   menuCategories,
@@ -56,7 +58,10 @@ export default function BundleBuilder({
                 </span>
                 <span>
                   Choose{" "}
-                  {calculateBundleProductLimit(bundleCategory, selectedBundle)}
+                  {calculateBundleProductLimit(
+                    bundleCategory as BundleCategory,
+                    selectedBundle as Bundle
+                  )}
                 </span>
               </div>
 
