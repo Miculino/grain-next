@@ -12,8 +12,8 @@ import useShoppingCart from "@/app/store/useShoppingCart";
 import clsx from "clsx";
 
 // Types
-import { Bundle } from "@/app/types/api";
-import { Dish } from "@/app/types/components";
+import { Bundle, Dish } from "@/app/types/api";
+// import { Dish } from "@/app/types/components";
 import ProductPriceAndQuantity from "./ProductPriceAndQuantity";
 import Button from "./Button";
 import useBundleStore from "@/app/store/useBundleStore";
@@ -47,7 +47,7 @@ export default function ProductCard({
     <div
       onClick={() => {
         if (type === "dish") {
-          setModalContent(product as never as Dish);
+          setModalContent(product as Dish);
           setModalContentType("product_details");
 
           openModal();

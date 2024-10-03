@@ -25,7 +25,7 @@ export default function ProductDetails({ className }: { className?: string }) {
       tags,
       price,
       details: { story, all_ingredients, nutritional_info, full_thumbnail },
-    } = modalContent as Dish;
+    } = modalContent as unknown as Dish;
 
     return (
       <div className={clsx("flex bg-white", className)}>
