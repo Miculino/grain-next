@@ -35,7 +35,7 @@ export default function ProductCard({
   );
 
   const handleBuildBundleModal = () => {
-    selectBundle(product);
+    selectBundle(product as Bundle);
     setModalContentType("bundle");
     openModal();
   };

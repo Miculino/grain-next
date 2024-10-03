@@ -1,6 +1,8 @@
+import { Bundle } from "../types/components";
+
 export default function calculateBundleProductLimit(
-  bundleCategory,
-  selectedBundle
+  bundleCategory: BundleCategory,
+  selectedBundle: any
 ) {
   return selectedBundle[bundleCategory.type].required
     ? `${selectedBundle[bundleCategory.type].limit} items`

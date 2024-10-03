@@ -67,6 +67,7 @@ export type SanityItems = Array<Bundle | Dish> | null;
 
 // Define BundleCategory type
 export interface BundleCategory {
+  title: ReactI18NextChildren | Iterable<ReactI18NextChildren>;
   type: string;
   products: Dish[];
 }

@@ -1,4 +1,4 @@
-import { Dish } from "./api";
+import { Bundle, Dish } from "./api";
 import { BundleCategory, ShoppingCartProduct } from "./components";
 import { CATEGORIES_QUERYResult } from "./sanity";
 
@@ -54,5 +54,5 @@ interface BundleState {
   bundleCategories: BundleCategory[];
   selectedBundle: any;
   setBundleCategories: (categories: CATEGORIES_QUERYResult) => void;
-  selectBundle: () => void;
+  selectBundle: (bundleProduct: Bundle) => void;
 }
