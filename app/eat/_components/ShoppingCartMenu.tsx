@@ -56,7 +56,7 @@ export default function ShoppingCartMenu() {
             <OrderFulfillmentOptions />
           </div>
           <div className="p-4">
-            <Button disabled intent={"disabled"} size={"full"}>
+            <Button className="py-2" disabled intent={"disabled"} size={"full"}>
               Go to checkout - ${totalShoppingCartPrice.toFixed(2)}
             </Button>
           </div>
