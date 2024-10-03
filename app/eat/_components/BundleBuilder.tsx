@@ -20,6 +20,7 @@ import { BundleCategory, IBundleProduct } from "@/app/types/common";
 import { Bundle } from "@/app/types/components";
 import Checkmark from "../icons/Checkmark";
 import { BundleCategoriesLimits } from "@/app/types/store";
+import BundleCreationProgress from "./BundleCreationProgress";
 
 export default function BundleBuilder({
   menuCategories,
@@ -65,7 +66,7 @@ export default function BundleBuilder({
             />
           ))}
       </div>
-      <div className="absolute bottom-0 w-full h-[100px] bg-white"></div>
+      <BundleCreationProgress price={selectedBundle.price ?? 0} />
     </div>
   );
 }

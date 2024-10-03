@@ -19,7 +19,7 @@ const button = cva("button", {
         "border-primary",
       ],
       link: ["underline", "hover:text-light-gray"],
-      disabled: "bg-gray py-2 px-6 text-white font-bold",
+      disabled: "bg-gray text-white font-bold",
       outline: [
         "hover:bg-[#e3b517]",
         "hover:font-bold",
