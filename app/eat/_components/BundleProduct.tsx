@@ -26,8 +26,6 @@ function BundleProduct({
   const handleAddBundleProduct = () => {
     if (bundleLimitReached) return;
 
-    console.log("still being clicked");
-
     const newBundleProduct = {
       name: product.name,
       price: product.price,

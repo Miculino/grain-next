@@ -13,14 +13,14 @@ import calculateBundleProductLimit from "@/app/utils/calculateBundleProductLimit
 
 // Icons
 import Cross from "../icons/Cross";
+import Checkmark from "../icons/Checkmark";
+import BundleCreationProgress from "./BundleCreationProgress";
 
 // Types
 import { CATEGORIES_QUERYResult } from "@/app/types/sanity";
 import { BundleCategory, IBundleProduct } from "@/app/types/common";
 import { Bundle } from "@/app/types/components";
-import Checkmark from "../icons/Checkmark";
 import { BundleCategoriesLimits } from "@/app/types/store";
-import BundleCreationProgress from "./BundleCreationProgress";
 
 export default function BundleBuilder({
   menuCategories,
@@ -66,7 +66,11 @@ export default function BundleBuilder({
             />
           ))}
       </div>
-      <BundleCreationProgress price={selectedBundle.price ?? 0} />
+      <BundleCreationProgress
+        selectedBundle={selectedBundle as Bundle}
+        price={selectedBundle.price ?? 0}
+        bundleCategoriesLimits={bundleCategoriesLimits}
+      />
     </div>
   );
 }
