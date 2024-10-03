@@ -1,9 +1,5 @@
 // Import necessary types from sanity
-import {
-  internalGroqTypeReferenceTo,
-  SanityImageHotspot,
-  SanityImageCrop,
-} from "./sanity";
+import { SanityImageHotspot, SanityImageCrop } from "./sanity";
 
 // Define Dish type
 export interface Dish {
@@ -57,6 +53,7 @@ export interface Bundle {
       url: string | null;
     } | null;
   } | null;
+  [key: string]: any;
 }
 
 // Define SanityItems type
